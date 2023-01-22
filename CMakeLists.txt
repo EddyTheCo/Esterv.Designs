@@ -16,6 +16,7 @@ qt6_add_qml_module(MyDesigns
     qml/MyTextField.qml
     qml/MyFrame.qml
     qml/MyButton.qml
+    NO_IMPORT_SCAN
     OUTPUT_DIRECTORY
     ${CMAKE_CURRENT_BINARY_DIR}/MyDesigns
 )
