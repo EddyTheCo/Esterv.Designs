@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.16)
+
+include(local_conf.cmake OPTIONAL)
+
+project(QML_designs VERSION 0.1 LANGUAGES CXX)
+
+set(QML_IMPORT_PATH ${QML_IMPORT_PATH}:${CMAKE_CURRENT_SOURCE_DIR}/qml:${CMAKE_CURRENT_BINARY_DIR} CACHE STRING "" FORCE)
+
+add_subdirectory(MyDesigns)
