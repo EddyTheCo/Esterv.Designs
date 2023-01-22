@@ -20,7 +20,7 @@ qt6_add_qml_module(MyDesigns
 
 target_link_libraries(MyDesigns PUBLIC Qt6::Gui Qt6::Quick)
 
-install(TARGETS MyDesigns out_targets_var EXPORT MyDesignsTargets DESTINATION bin)
+install(TARGETS MyDesigns ${out_targets_var} EXPORT MyDesignsTargets DESTINATION bin)
 
 #if(EMSCRIPTEN)
 #install(TARGETS MyDesigns_qmlcache MyDesigns_resources_2 MyDesigns_resources_1  EXPORT MyDesignsTargets DESTINATION bin )
