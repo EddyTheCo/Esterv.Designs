@@ -12,7 +12,7 @@ TextField {
         implicitWidth: 200
         implicitHeight: 40
         color: "transparent"
-        border.color: control.enabled ? bcolD : "#969ea2"
+        border.color: control.enabled ? control.bcolD : "#969ea2"
         border.width: 1
 
         radius:15
@@ -23,13 +23,13 @@ TextField {
                 {
                     if(parent.enabled)
                     {
-                        parent.border.color=bcolL
+                        parent.border.color=control.bcolL
 
                     }
                 }
                 onExited:
                 {
-                    parent.border.color=bcolD
+                    parent.border.color=control.bcolD
 
                 }
 
