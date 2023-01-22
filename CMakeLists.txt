@@ -16,6 +16,8 @@ qt6_add_qml_module(MyDesigns
     qml/MyTextField.qml
     qml/MyFrame.qml
     qml/MyButton.qml
+    OUTPUT_DIRECTORY
+    ${CMAKE_CURRENT_BINARY_DIR}/MyDesigns
 )
 
 target_link_libraries(MyDesigns PUBLIC Qt6::Gui Qt6::Quick)
