@@ -19,7 +19,7 @@ qt6_add_qml_module(MyDesigns
 )
 
 target_link_libraries(MyDesigns PUBLIC Qt6::Gui Qt6::Quick)
-
+message(STATUS "out_targets_var:${out_targets_var}")
 install(TARGETS MyDesigns ${out_targets_var} EXPORT MyDesignsTargets DESTINATION bin)
 
 #if(EMSCRIPTEN)
