@@ -11,6 +11,7 @@ find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick)
 qt6_add_qml_module(MyDesigns
 	URI  MyDesigns
     VERSION 1.0
+    OUTPUT_TARGETS out_targets_var
     QML_FILES
     qml/MyTextField.qml
     qml/MyFrame.qml
@@ -19,11 +20,11 @@ qt6_add_qml_module(MyDesigns
 
 target_link_libraries(MyDesigns PUBLIC Qt6::Gui Qt6::Quick)
 
-install(TARGETS MyDesigns EXPORT MyDesignsTargets DESTINATION bin)
+install(TARGETS MyDesigns out_targets_var EXPORT MyDesignsTargets DESTINATION bin)
 
-if(EMSCRIPTEN)
-install(TARGETS MyDesigns_qmlcache MyDesigns_resources_2 MyDesigns_resources_1  EXPORT MyDesignsTargets DESTINATION bin )
-endif()
+#if(EMSCRIPTEN)
+#install(TARGETS MyDesigns_qmlcache MyDesigns_resources_2 MyDesigns_resources_1  EXPORT MyDesignsTargets DESTINATION bin )
+#endif()
 
 install(EXPORT MyDesignsTargets
     FILE MyDesignsTargets.cmake
