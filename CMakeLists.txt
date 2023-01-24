@@ -8,21 +8,24 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick)
 
 
+
 qt6_add_qml_module(MyDesigns
-	URI  MyDesigns
+    URI  MyDesigns
     VERSION 1.0
     OUTPUT_TARGETS out_targets_var
     QML_FILES
     qml/MyTextField.qml
     qml/MyFrame.qml
     qml/MyButton.qml
+    RESOURCE_PREFIX
+    /qt/qml
     NO_IMPORT_SCAN
     OUTPUT_DIRECTORY
     ${CMAKE_CURRENT_BINARY_DIR}/MyDesigns
 )
 
 target_link_libraries(MyDesigns PUBLIC Qt6::Gui Qt6::Quick)
-message(STATUS "out_targets_var:${out_targets_var}")
+
 install(TARGETS MyDesigns ${out_targets_var} EXPORT MyDesignsTargets DESTINATION bin)
 
 #if(EMSCRIPTEN)
@@ -54,3 +57,7 @@ install(FILES
 export(EXPORT MyDesignsTargets
     FILE "${CMAKE_CURRENT_BINARY_DIR}/MyDesignsTargets.cmake"
 )
+
+list(APPEND QML_IMPORT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/qml ${CMAKE_CURRENT_BINARY_DIR}/)
+set(QML_IMPORT_PATH ${QML_IMPORT_PATH} PARENT_SCOPE CACHE STRING "" FORCE)
+message(STATUS "mydesignsQML_IMPORT_PATH:${QML_IMPORT_PATH}")
