@@ -10,11 +10,11 @@ GroupBox {
         border.color: "#969ea2"
         radius: 5
     }
-    label: Label {
+    label: MyLabel {
             x: control.leftPadding
             width: control.availableWidth
             text: control.description
-            color: "#969ea2"
+
             elide: Text.ElideRight
             font.bold:true
         }
