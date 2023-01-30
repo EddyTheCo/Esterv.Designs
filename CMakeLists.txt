@@ -17,6 +17,9 @@ qt6_add_qml_module(MyDesigns
     qml/MyTextField.qml
     qml/MyFrame.qml
     qml/MyButton.qml
+    qml/MyLabel.qml
+    qml/MyAddressQr.qml
+    qml/MyPayPopUp.qml
     RESOURCE_PREFIX
     /qt/qml
     NO_IMPORT_SCAN
