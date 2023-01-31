@@ -22,7 +22,7 @@ qt6_add_qml_module(MyDesigns
     qml/MyAddressQr.qml
     qml/MyPayPopUp.qml
     RESOURCE_PREFIX
-    /qt/qml
+     "/esthertech.com/imports"
     NO_IMPORT_SCAN
     OUTPUT_DIRECTORY
     ${CMAKE_CURRENT_BINARY_DIR}/MyDesigns
@@ -32,9 +32,6 @@ target_link_libraries(MyDesigns PUBLIC Qt6::Gui Qt6::Quick)
 
 install(TARGETS MyDesigns ${out_targets_var} EXPORT MyDesignsTargets DESTINATION bin)
 
-#if(EMSCRIPTEN)
-#install(TARGETS MyDesigns_qmlcache MyDesigns_resources_2 MyDesigns_resources_1  EXPORT MyDesignsTargets DESTINATION bin )
-#endif()
 
 install(EXPORT MyDesignsTargets
     FILE MyDesignsTargets.cmake
