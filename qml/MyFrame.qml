@@ -5,8 +5,9 @@ import QtQuick.Controls
 GroupBox {
     id:control
     property string description
+    property color backColor: "transparent"
     background: Rectangle {
-        color: "transparent"
+        color: backColor
         border.color: "#969ea2"
         radius: 5
     }

@@ -1,53 +1,80 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 
-TextField {
+Item
+{
     id: control
     property color bcolD: "#969ea2"
     property color bcolL: "white"
-    placeholderTextColor:"#969ea2"
     property string desc:""
-    color:"white"
-     leftPadding:20
+    property alias tfield:tex
+    property alias placeholderText: tex.placeholderText
+    ColumnLayout
+    {
+        spacing:0
+        Label {
+            text: control.desc
+            visible:(control.desc!="")
+            color:bcolL
+            Layout.preferredHeight: 50
+            Layout.maximumHeight: 75
+            Layout.minimumHeight: 50
+            Layout.fillHeight:  true
+            Layout.preferredWidth: 200
+            Layout.minimumWidth: 100
+            Layout.maximumWidth: 200
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignLeft
+        }
+        TextField {
+            id: tex
+            Layout.preferredHeight: 50
+            Layout.maximumHeight: 75
+            Layout.minimumHeight: 45
+            Layout.fillHeight:  true
+            Layout.preferredWidth: 360
+            Layout.minimumWidth: 100
+            Layout.maximumWidth: 500
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignLeft
+
+            placeholderTextColor:"#969ea2"
+
+            color:bcolL
+            leftPadding:20
+            background: Rectangle {
+                color: "transparent"
+                border.color: control.enabled ? control.bcolD : "#969ea2"
+                border.width: 1
+
+                radius:15
 
 
-     Label {
-         text: control.desc
-         visible:(control.desc!="")
-         anchors.bottom: control.top
-         anchors.left: control.left
-         color:"white"
 
-     }
-    background: Rectangle {
-        implicitWidth: 200
-        implicitHeight: 40
-        color: "transparent"
-        border.color: control.enabled ? control.bcolD : "#969ea2"
-        border.width: 1
-
-        radius:15
-
-
-
-        MouseArea {
-                anchors.fill: parent
-                hoverEnabled :true
-                onEntered:
-                {
-                    if(parent.enabled)
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled :true
+                    onEntered:
                     {
-                        parent.border.color=control.bcolL
+                        if(parent.enabled)
+                        {
+                            parent.border.color=control.bcolL
+
+                        }
+                    }
+                    onExited:
+                    {
+                        parent.border.color=control.bcolD
 
                     }
-                }
-                onExited:
-                {
-                    parent.border.color=control.bcolD
 
                 }
-
             }
-    }
 
+        }
+    }
 }
+
+
+
