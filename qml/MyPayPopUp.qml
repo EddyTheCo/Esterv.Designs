@@ -5,7 +5,7 @@ import QtQuick.Layouts
 Popup {
     id: popup
     required property string addr_
-    required property string url_
+    property string url_
     required property string descr_
     modal: true
     focus: true
@@ -42,7 +42,7 @@ Popup {
         {
             color:'lightyellow'
             addr_:popup.addr_
-            url_:popup.addr_
+            url_:popup.url_
             Layout.preferredWidth: 300
             Layout.minimumWidth: 100
             Layout.maximumWidth: 500
