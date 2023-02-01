@@ -20,7 +20,6 @@ Item
             color:bcolL
             Layout.preferredHeight: 50
             Layout.maximumHeight: 75
-            Layout.minimumHeight: 50
             Layout.fillHeight:  true
             Layout.preferredWidth: 200
             Layout.minimumWidth: 100
