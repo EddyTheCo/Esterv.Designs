@@ -18,7 +18,7 @@ Item
             text: control.desc
             visible:(control.desc!="")
             color:bcolL
-            Layout.preferredHeight: 50
+            Layout.preferredHeight: 25
             Layout.maximumHeight: 75
             Layout.fillHeight:  true
             Layout.preferredWidth: 200
