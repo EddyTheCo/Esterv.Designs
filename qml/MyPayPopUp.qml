@@ -28,7 +28,8 @@ Popup {
             font.pointSize: 20
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            Layout.minimumHeight: 50
+            Layout.minimumHeight: 75
+            Layout.maximumHeight: 150
             Layout.preferredWidth: 400
             Layout.minimumWidth: 300
             Layout.maximumWidth: 500
@@ -48,7 +49,7 @@ Popup {
             Layout.maximumWidth: 500
             Layout.preferredHeight: width
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignBottom
+            Layout.alignment: Qt.AlignCenter
         }
     }
 
