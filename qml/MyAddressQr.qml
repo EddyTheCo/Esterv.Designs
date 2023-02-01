@@ -5,7 +5,7 @@ import QtQuick
 Rectangle {
     id:rect_
     required property string addr_
-    required property string url_
+    property string url_
 
     Image {
         id:img
@@ -34,7 +34,7 @@ Rectangle {
             textEdit.selectAll()
             textEdit.copy()
 
-            if(rect_.url_!="")
+            if(rect_.url_.length)
             {
                 Qt.openUrlExternally(rect_.url_)
             }
