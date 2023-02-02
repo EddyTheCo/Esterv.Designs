@@ -42,6 +42,7 @@ Item
                 id:tex
                 color:bcolL
                 leftPadding:20
+                selectByMouse:true
                 placeholderTextColor:"#969ea2"
                 placeholderText:control.placeholderText
                 background: Rectangle {

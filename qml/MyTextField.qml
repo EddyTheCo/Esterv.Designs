@@ -42,6 +42,7 @@ Item
 
             color:bcolL
             leftPadding:20
+            selectByMouse:true
             background: Rectangle {
                 color: "transparent"
                 border.color: control.enabled ? control.bcolD : "#969ea2"
