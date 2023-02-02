@@ -13,6 +13,7 @@ Item
     ColumnLayout
     {
         spacing:0
+        anchors.centerIn: control
         Label {
             text: control.desc
             visible:(control.desc!="")
@@ -21,8 +22,7 @@ Item
             Layout.maximumHeight: 75
             Layout.minimumHeight: 25
             Layout.fillHeight:  true
-            Layout.preferredWidth: 200
-            Layout.minimumWidth: 100
+            Layout.minimumWidth: 50
             Layout.maximumWidth: 200
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignLeft
@@ -33,12 +33,11 @@ Item
             Layout.maximumHeight: 75
             Layout.minimumHeight: 45
             Layout.fillHeight:  true
-            Layout.preferredWidth: 360
-            Layout.minimumWidth: 100
             Layout.maximumWidth: 500
+            Layout.preferredWidth: control.width*0.95
+            Layout.minimumWidth: 50
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignLeft
-
             placeholderTextColor:"#969ea2"
 
             color:bcolL

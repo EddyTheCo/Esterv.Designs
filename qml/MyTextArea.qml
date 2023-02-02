@@ -21,20 +21,19 @@ Item
             Layout.preferredHeight: 25
             Layout.maximumHeight: 75
             Layout.fillHeight:  true
-            Layout.preferredWidth: 200
-            Layout.minimumWidth: 100
+            Layout.minimumWidth: 50
             Layout.maximumWidth: 200
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignLeft
         }
         ScrollView {
             id:scrl
-            Layout.preferredHeight: 200
             Layout.maximumHeight: 700
-            Layout.minimumHeight: 150
+            Layout.minimumHeight: 100
             Layout.fillHeight:  true
-            Layout.preferredWidth: 360
-            Layout.minimumWidth: 200
+            Layout.preferredWidth: control.width*0.95
+            Layout.preferredHeight: width*0.35
+            Layout.minimumWidth: 50
             Layout.maximumWidth: 700
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignLeft
