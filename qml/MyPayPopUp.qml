@@ -20,12 +20,13 @@ Popup {
     {
         anchors.fill: parent
 
-        Text
+        TextEdit
         {
             id:notice_
             text: popup.descr_
             color:"white"
-            font.pointSize: 20
+            readOnly: true
+            selectByMouse: true
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             Layout.minimumHeight: 75
@@ -36,7 +37,7 @@ Popup {
             Layout.fillHeight:  true
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
-            wrapMode:Text.WordWrap
+            wrapMode:Text.WrapAnywhere
         }
 
         MyAddressQr
@@ -44,7 +45,7 @@ Popup {
             color:'lightyellow'
             addr_:popup.addr_
             url_:popup.url_
-            Layout.preferredWidth: 300
+            Layout.preferredWidth: 200
             Layout.minimumWidth: 100
             Layout.maximumWidth: 500
             Layout.preferredHeight: width

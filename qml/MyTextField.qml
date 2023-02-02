@@ -48,7 +48,7 @@ Item
                 border.color: control.enabled ? control.bcolD : "#969ea2"
                 border.width: 1
 
-                radius:15
+                radius:10
 
 
 

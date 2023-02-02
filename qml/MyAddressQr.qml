@@ -5,6 +5,7 @@ import QtQuick
 Rectangle {
     id:rect_
     required property string addr_
+
     property string url_
 
     Image {
@@ -22,6 +23,7 @@ Rectangle {
     TextEdit{
         id: textEdit
         visible: false
+        text : rect_.addr_
     }
     MouseArea {
         anchors.fill: parent
@@ -30,7 +32,7 @@ Rectangle {
         onExited: tooltip.visible=!tooltip.visible
         onClicked:
         {
-            textEdit.text = rect_.addr_
+
             textEdit.selectAll()
             textEdit.copy()
 
