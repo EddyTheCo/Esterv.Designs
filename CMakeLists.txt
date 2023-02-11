@@ -22,6 +22,7 @@ qt6_add_qml_module(MyDesigns
     qml/MyAddressQr.qml
     qml/MyPayPopUp.qml
     qml/MyRadioButton.qml
+    qml/MyCheckBox.qml
     RESOURCE_PREFIX
      "/esthertech.com/imports"
     NO_IMPORT_SCAN
