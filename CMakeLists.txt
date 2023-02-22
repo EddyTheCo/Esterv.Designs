@@ -24,7 +24,7 @@ qt6_add_qml_module(MyDesigns
     qml/MyRadioButton.qml
     qml/MyCheckBox.qml
     RESOURCE_PREFIX
-     "/esthertech.com/imports"
+     "/esterVtech.com/imports"
     NO_IMPORT_SCAN
     OUTPUT_DIRECTORY
     ${CMAKE_CURRENT_BINARY_DIR}/MyDesigns
