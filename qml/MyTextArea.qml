@@ -17,7 +17,7 @@ Item
         Label {
             text: control.desc
             visible:(control.desc!="")
-            color:bcolL
+            color:control.bcolL
             Layout.preferredHeight: 25
             Layout.maximumHeight: 75
             Layout.fillHeight:  true
@@ -40,7 +40,7 @@ Item
 
             TextArea {
                 id:tex
-                color:bcolL
+                color:control.bcolL
                 leftPadding:20
                 selectByMouse:true
                 placeholderTextColor:"#969ea2"

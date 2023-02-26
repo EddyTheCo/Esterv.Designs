@@ -17,7 +17,7 @@ Item
         Label {
             text: control.desc
             visible:(control.desc!="")
-            color:bcolL
+            color:control.bcolL
             Layout.preferredHeight: 25
             Layout.maximumHeight: 75
             Layout.minimumHeight: 25
@@ -40,7 +40,7 @@ Item
             Layout.alignment: Qt.AlignLeft
             placeholderTextColor:"#969ea2"
 
-            color:bcolL
+            color:control.bcolL
             leftPadding:20
             selectByMouse:true
             background: Rectangle {

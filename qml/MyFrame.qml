@@ -7,7 +7,7 @@ GroupBox {
     property string description
     property color backColor: "transparent"
     background: Rectangle {
-        color: backColor
+        color: control.backColor
         border.color: "#969ea2"
         radius: 5
     }
