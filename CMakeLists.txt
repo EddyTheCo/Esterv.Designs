@@ -1,11 +1,15 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(IOTA VERSION 0.1 LANGUAGES CXX)
+project(Designs VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick)
+find_package(Qt6 COMPONENTS Core)
+find_package(Qt6 COMPONENTS Gui)
+find_package(Qt6 COMPONENTS Quick)
+find_package(Qt6 COMPONENTS Qml)
+find_package(Qt6 COMPONENTS ShaderTools)
 
 
 
@@ -80,3 +84,6 @@ export(EXPORT MyDesignsTargets
 list(APPEND QML_IMPORT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/qml ${CMAKE_CURRENT_BINARY_DIR}/)
 set(QML_IMPORT_PATH ${QML_IMPORT_PATH} CACHE STRING "" FORCE)
 
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    add_subdirectory(examples)
+endif()
