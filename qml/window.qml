@@ -10,10 +10,13 @@ ApplicationWindow {
             color:"#1e1e1e"
         }
 
-    Node_Connections{
-        width:parent.width*0.8
-        height:parent.height*0.8
-        anchors.centerIn: parent
-        onClosed: {visible=false}
+    MySettButton
+    {
+        radius:5
+        border.color:"#ffffff"
+        border.width:1
+
+        width:150
+        height:100
     }
 }
