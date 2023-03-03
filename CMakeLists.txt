@@ -23,6 +23,7 @@ qt6_add_qml_module(MyDesigns
     qml/MyPayPopUp.qml
     qml/MyRadioButton.qml
     qml/MyCheckBox.qml
+    qml/MySettButton.qml
     RESOURCE_PREFIX
      "/esterVtech.com/imports"
     NO_IMPORT_SCAN
@@ -30,9 +31,24 @@ qt6_add_qml_module(MyDesigns
     ${CMAKE_CURRENT_BINARY_DIR}/MyDesigns
 )
 
+
+
+qt6_add_shaders(MyDesigns "shaders"
+    BATCHABLE
+    PRECOMPILE
+    OPTIMIZED
+    OUTPUT_TARGETS out_targets_var2
+    PREFIX
+    "/esterVtech.com/imports/MyDesigns"
+    FILES
+    "frag/mySettButton.frag"
+)
+
+
+
 target_link_libraries(MyDesigns PUBLIC Qt6::Gui Qt6::Quick)
 
-install(TARGETS MyDesigns ${out_targets_var} EXPORT MyDesignsTargets DESTINATION bin)
+install(TARGETS MyDesigns ${out_targets_var} ${out_targets_var2} EXPORT MyDesignsTargets DESTINATION bin)
 
 
 install(EXPORT MyDesignsTargets
