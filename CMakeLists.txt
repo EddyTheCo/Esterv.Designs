@@ -37,7 +37,7 @@ qt6_add_qml_module(MyDesigns
 
 
 
-qt6_add_shaders(MyDesigns "shaders"
+qt6_add_shaders(MyDesigns "esterVtech.com.imports.MyDesigns.shaders"
     BATCHABLE
     PRECOMPILE
     OPTIMIZED
@@ -52,7 +52,7 @@ qt6_add_shaders(MyDesigns "shaders"
 
 target_link_libraries(MyDesigns PUBLIC Qt6::Gui Qt6::Quick)
 
-install(TARGETS MyDesigns ${out_targets_var} ${out_targets_var2} EXPORT MyDesignsTargets DESTINATION bin)
+install(TARGETS MyDesigns ${out_targets_var}  ${out_targets_var2} EXPORT MyDesignsTargets DESTINATION bin)
 
 
 install(EXPORT MyDesignsTargets
