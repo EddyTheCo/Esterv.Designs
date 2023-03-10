@@ -12,6 +12,7 @@ Button {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
+        fontSizeMode:Text.Fit
         font.bold:true
     }
 

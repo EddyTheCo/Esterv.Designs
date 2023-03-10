@@ -14,30 +14,19 @@ Item
     ColumnLayout
     {
         spacing:0
+        anchors.fill: parent
         Label {
             text: control.desc
             visible:(control.desc!="")
             color:control.bcolL
-            Layout.preferredHeight: 25
-            Layout.maximumHeight: 75
             Layout.fillHeight:  true
-            Layout.minimumWidth: 50
-            Layout.maximumWidth: 200
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignLeft
         }
         ScrollView {
             id:scrl
-            Layout.maximumHeight: 700
-            Layout.minimumHeight: 100
-            Layout.fillHeight:  true
-            Layout.preferredWidth: control.width*0.95
-            Layout.preferredHeight: width*0.35
-            Layout.minimumWidth: 50
-            Layout.maximumWidth: 700
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignLeft
 
+            Layout.fillHeight:  true
+            Layout.fillWidth: true
             TextArea {
                 id:tex
                 color:control.bcolL

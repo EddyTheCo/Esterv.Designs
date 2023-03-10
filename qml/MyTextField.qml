@@ -13,33 +13,21 @@ Item
     ColumnLayout
     {
         spacing:0
-        anchors.centerIn: control
+        anchors.fill: parent
         Label {
             text: control.desc
             visible:(control.desc!="")
             color:control.bcolL
-            Layout.preferredHeight: 25
-            Layout.maximumHeight: 75
-            Layout.minimumHeight: 25
+
             Layout.fillHeight:  true
-            Layout.minimumWidth: 50
-            Layout.maximumWidth: 200
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignLeft
         }
         TextField {
             id: tex
-            Layout.preferredHeight: 50
-            Layout.maximumHeight: 75
-            Layout.minimumHeight: 45
-            Layout.fillHeight:  true
-            Layout.maximumWidth: 500
-            Layout.preferredWidth: control.width*0.95
-            Layout.minimumWidth: 50
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignLeft
-            placeholderTextColor:"#969ea2"
 
+            Layout.fillHeight:  true
+            Layout.fillWidth: true
+            placeholderTextColor:"#969ea2"
             color:control.bcolL
             leftPadding:20
             selectByMouse:true
