@@ -5,8 +5,9 @@ import QtQuick
 Rectangle {
     id:rect_
     required property string addr_
-
     property string url_
+    color:"white"
+
 
     Image {
         id:img

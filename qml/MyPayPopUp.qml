@@ -29,25 +29,20 @@ Popup {
             selectByMouse: true
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            Layout.minimumHeight: 75
-            Layout.maximumHeight: 150
-            Layout.preferredWidth: 400
-            Layout.minimumWidth: 300
-            Layout.maximumWidth: 500
+            Layout.maximumWidth: 350
             Layout.fillHeight:  true
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignTop
+            Layout.alignment: Qt.AlignCenter
             wrapMode:Text.WrapAnywhere
         }
 
         MyAddressQr
         {
+            id:qrcode
             color:'lightyellow'
             addr_:popup.addr_
             url_:popup.url_
-            Layout.preferredWidth: 200
-            Layout.minimumWidth: 100
-            Layout.maximumWidth: 500
+            Layout.maximumWidth: 200
             Layout.preferredHeight: width
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
