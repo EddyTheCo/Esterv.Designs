@@ -21,12 +21,15 @@ Item
             color:control.bcolL
             Layout.fillHeight:  true
             Layout.fillWidth: true
+            Layout.maximumHeight: 50
+            Layout.alignment: Qt.AlignCenter
         }
         ScrollView {
             id:scrl
 
             Layout.fillHeight:  true
             Layout.fillWidth: true
+            Layout.alignment: Qt.AlignCenter
             TextArea {
                 id:tex
                 color:control.bcolL
