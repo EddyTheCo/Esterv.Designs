@@ -28,7 +28,6 @@ qt6_add_qml_module(MyDesigns
     qml/MyRadioButton.qml
     qml/MyCheckBox.qml
     qml/MySettButton.qml
-    qml/MyPinBox.qml
     RESOURCE_PREFIX
      "/esterVtech.com/imports"
     NO_IMPORT_SCAN
