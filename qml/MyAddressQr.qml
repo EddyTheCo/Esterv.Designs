@@ -3,17 +3,15 @@ import QtQuick
 
 
 Rectangle {
-    id:rect_
-    required property string addr_
-    property string url_
-    color:"white"
-
+    id:root
+    required property string address
+    property string url
 
     Image {
         id:img
         anchors.centerIn:parent
-        sourceSize.width: rect_.width-10
-        source: "image://qrcodeblack/"+rect_.addr_
+        sourceSize.width: root.width-10
+         source: "image://qrcodeblack/"+root.address
     }
     ToolTip
     {
@@ -24,7 +22,7 @@ Rectangle {
     TextEdit{
         id: textEdit
         visible: false
-        text : rect_.addr_
+        text : root.address
     }
     MouseArea {
         anchors.fill: parent
@@ -36,12 +34,10 @@ Rectangle {
 
             textEdit.selectAll()
             textEdit.copy()
-
-            if(rect_.url_.length)
+            if(root.url_.length)
             {
-                Qt.openUrlExternally(rect_.url_)
+                Qt.openUrlExternally(root.url_)
             }
-
         }
     }
 }

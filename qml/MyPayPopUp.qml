@@ -3,46 +3,38 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Popup {
-    id: popup
-    required property string addr_
-    property string url_
-    required property string descr_
+    id: root
+    required property string address;
+    property string url;
+    required property string description;
+    property alias qrcode:qrcode_;
+
     modal: true
     focus: true
-    background:Rectangle
-    {
-        color:"#0f171e"
-        border.width: 2
-        border.color: "white"
-        radius:8
-    }
+
     ColumnLayout
     {
         anchors.fill: parent
-
-        TextEdit
+        spacing:20
+        MyTextArea
         {
-            id:notice_
-            text: popup.descr_
-            color:"white"
-            readOnly: true
-            selectByMouse: true
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            Layout.maximumWidth: 350
             Layout.fillHeight:  true
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignCenter
-            wrapMode:Text.WrapAnywhere
+            Layout.minimumWidth: 300
+            Layout.minimumHeight: 150
+            Layout.alignment: Qt.AlignTop|Qt.AlignHCenter
+
+            label.visible: false
+            textarea.text: root.description
+            textarea.readOnly: true
         }
 
         MyAddressQr
         {
-            id:qrcode
-            color:'lightyellow'
-            addr_:popup.addr_
-            url_:popup.url_
-            Layout.maximumWidth: 200
+            id:qrcode_
+            address:root.address
+            url:root.url
+            Layout.minimumWidth: 250
             Layout.preferredHeight: width
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter

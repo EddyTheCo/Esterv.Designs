@@ -4,7 +4,7 @@ import QtQuick.Controls
 RadioButton {
     id: control
 
-    indicator: Rectangle {
+   /* indicator: Rectangle {
         implicitWidth: 26
         implicitHeight: 26
         x: control.leftPadding
@@ -32,4 +32,5 @@ RadioButton {
         verticalAlignment: Text.AlignVCenter
         leftPadding: control.indicator.width + control.spacing
     }
+    */
 }
