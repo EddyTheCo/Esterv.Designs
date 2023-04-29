@@ -28,6 +28,8 @@ qt6_add_qml_module(MyDesigns
     qml/MyRadioButton.qml
     qml/MyCheckBox.qml
     qml/MySettButton.qml
+    qml/ArrowShadder.qml
+    qml/Notification.qml
     RESOURCE_PREFIX
      "/esterVtech.com/imports"
     NO_IMPORT_SCAN
@@ -46,6 +48,7 @@ qt6_add_shaders(MyDesigns "esterVtech.com.imports.MyDesigns.shaders"
     "/esterVtech.com/imports/MyDesigns"
     FILES
     "frag/mySettButton.frag"
+    "frag/arrowHead.frag"
 )
 
 
