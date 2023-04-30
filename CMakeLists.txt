@@ -19,6 +19,7 @@ qt6_add_qml_module(MyDesigns
     OUTPUT_TARGETS out_targets_var
     QML_FILES
     qml/MyTextField.qml
+    qml/AmountText.qml
     qml/MyTextArea.qml
     qml/MyFrame.qml
     qml/MyButton.qml
