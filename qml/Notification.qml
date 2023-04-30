@@ -44,10 +44,8 @@ Popup {
             NumberAnimation { property: "opacity"; from: 0.3; to: 1.0; duration: 300 }
         }
         remove: Transition {
-            ParallelAnimation {
-                NumberAnimation { property: "opacity"; to: 0; duration: 200 }
+                NumberAnimation { property: "opacity"; to: 0.3; duration: 300 }
                 NumberAnimation { properties: "x"; to: listview.width*0.15; duration: 200 }
-            }
         }
         delegate:
             Rectangle
@@ -90,6 +88,7 @@ Popup {
                         if(!rectang.ListView.view.model.count)popup.close();
                     }
                     Behavior on opacity { SmoothedAnimation { velocity: 2.0 } }
+
                 }
             }
 
