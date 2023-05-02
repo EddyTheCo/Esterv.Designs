@@ -7,6 +7,7 @@ Popup {
     required property string address;
     property string url;
     required property string description;
+    property alias textarea:tex
     property alias qrcode:qrcode_;
 
     modal: true
@@ -15,18 +16,18 @@ Popup {
     ColumnLayout
     {
         anchors.fill: parent
-        spacing:20
+        spacing:10
         MyTextArea
         {
-            Layout.fillHeight:  true
+            id:tex
             Layout.fillWidth: true
-            Layout.minimumWidth: 300
-            Layout.minimumHeight: 150
+            Layout.fillHeight:  true
             Layout.alignment: Qt.AlignTop|Qt.AlignHCenter
-
+            Layout.preferredHeight:  100
             label.visible: false
             textarea.text: root.description
             textarea.readOnly: true
+            textarea.wrapMode: Text.Wrap
         }
 
         MyAddressQr
@@ -34,9 +35,9 @@ Popup {
             id:qrcode_
             address:root.address
             url:root.url
-            Layout.minimumWidth: 250
+            Layout.preferredWidth: tex.width*0.75
             Layout.preferredHeight: width
-            Layout.fillWidth: true
+
             Layout.alignment: Qt.AlignCenter
         }
     }

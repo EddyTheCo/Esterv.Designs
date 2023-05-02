@@ -4,7 +4,7 @@ import QtQuick.Controls 2.12
 CheckBox {
     id: control
 
-    indicator: Rectangle {
+   /* indicator: Rectangle {
         implicitWidth: 26
         implicitHeight: 26
         x: control.leftPadding
@@ -31,4 +31,5 @@ CheckBox {
         verticalAlignment: Text.AlignVCenter
         leftPadding: control.indicator.width + control.spacing
     }
+    */
 }

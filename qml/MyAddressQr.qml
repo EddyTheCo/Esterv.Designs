@@ -6,7 +6,7 @@ Rectangle {
     id:root
     required property string address
     property string url
-
+    radius: 10
     Image {
         id:img
         anchors.centerIn:parent

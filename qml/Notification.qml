@@ -65,7 +65,7 @@ Popup {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignVCenter|Qt.AlignLeft
-                    text: message
+                    text: qsTr(message)
                     elide: Text.ElideRight
                     fontSizeMode: Text.Fit
                     padding : 5

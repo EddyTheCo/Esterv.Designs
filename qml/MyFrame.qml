@@ -8,8 +8,6 @@ GroupBox {
     property alias collapsed:shader.time;
     property real velocity:3.0
 
-
-
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              contentHeight + topPadding + bottomPadding)*shader.time
 
