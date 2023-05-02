@@ -38,11 +38,8 @@ float arrow(in vec2 p,float rot)
 }
 void main( void)
 {
-        //vec2 uv=qt_TexCoord0;
 
         vec2 uv = 2.0*qt_TexCoord0-1.0;
-
-        //uv.x*=pixelStep.x/pixelStep.y;
 
         float f=arrow(uv,time);
 
@@ -50,6 +47,5 @@ void main( void)
         vec4 color=mix(bcolor, fcolor, f);
 
         fragColor = color;
-       //fragColor=vec4(uv.x,0.0,0.0,1.0);
 
 }
