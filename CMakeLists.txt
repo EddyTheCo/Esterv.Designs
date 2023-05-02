@@ -31,6 +31,9 @@ qt6_add_qml_module(MyDesigns
     qml/MySettButton.qml
     qml/ArrowShadder.qml
     qml/Notification.qml
+    qml/SettWheelShadder.qml
+    qml/PlusShadder.qml
+    qml/PlusButton.qml
     RESOURCE_PREFIX
      "/esterVtech.com/imports"
     NO_IMPORT_SCAN
@@ -50,6 +53,7 @@ qt6_add_shaders(MyDesigns "esterVtech.com.imports.MyDesigns.shaders"
     FILES
     "frag/mySettButton.frag"
     "frag/arrowHead.frag"
+    "frag/plus.frag"
 )
 
 
