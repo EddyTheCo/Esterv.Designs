@@ -3,6 +3,18 @@ import QtQuick.Controls
 
 Button {
     id: control
+
+    contentItem: IconLabel {
+        spacing: control.spacing
+        mirrored: control.mirrored
+        display: control.display
+
+        icon: control.icon
+        text: control.text
+        font: control.font
+        color: CustomStyle.frontColor1
+    }
+
     background: Rectangle {
         implicitWidth: 32
         implicitHeight: 32

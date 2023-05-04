@@ -53,6 +53,7 @@ GroupBox {
     }
 
     background: Rectangle {
+        visible:control.collapsed
         y: control.topPadding - control.bottomPadding
         width: parent.width
         height: parent.height - control.topPadding + control.bottomPadding

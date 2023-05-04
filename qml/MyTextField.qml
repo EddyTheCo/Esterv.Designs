@@ -23,6 +23,10 @@ Item
             Layout.fillWidth: true
             leftPadding:10
             selectByMouse:true
+            color:CustomStyle.frontColor1
+            placeholderTextColor:CustomStyle.midColor1
+
+
 
             background: Rectangle {
                 implicitWidth: 60 // TextControlThemeMinWidth - 4 (border)

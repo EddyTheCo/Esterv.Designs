@@ -4,21 +4,22 @@ import QtQuick.Controls
 RadioButton {
     id: control
 
-   /* indicator: Rectangle {
-        implicitWidth: 26
-        implicitHeight: 26
+    indicator: Rectangle {
+        implicitWidth: 20
+        implicitHeight: 20
         x: control.leftPadding
         y: parent.height / 2 - height / 2
         radius: 13
-        border.color: control.down ? "#17a81a" : "#21be2b"
+        border.color: control.down ? CustomStyle.frontColor2 : CustomStyle.midColor1
+        color:"transparent"
 
         Rectangle {
-            width: 14
-            height: 14
-            x: 6
-            y: 6
-            radius: 7
-            color: control.down ? "#17a81a" : "#21be2b"
+            width: 10
+            height: 10
+            x: 5
+            y: 5
+            radius: 4
+            color: control.down ? CustomStyle.midColor1 : CustomStyle.frontColor2
             visible: control.checked
         }
     }
@@ -28,9 +29,9 @@ RadioButton {
         font: control.font
         opacity: enabled ? 1.0 : 0.3
         fontSizeMode:Text.Fit
-        color: control.down ? "#17a81a" : "#21be2b"
+        color: CustomStyle.midColor1
         verticalAlignment: Text.AlignVCenter
         leftPadding: control.indicator.width + control.spacing
     }
-    */
+
 }
