@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     engine.addImportPath("qrc:/esterVtech.com/imports");
 
     qDebug()<<engine.importPathList();
-
+    qmlRegisterSingletonType(QUrl(u"qrc:/esterVtech.com/imports/MyDesigns/qml/CustomStyle.qml"_qs), "CustomStyle", 1, 0, "CustomStyle"      );
     const QUrl url(u"qrc:/esterVtech.com/imports/example_app/window.qml"_qs);
 	QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
 			&app, [url](QObject *obj, const QUrl &objUrl) {
