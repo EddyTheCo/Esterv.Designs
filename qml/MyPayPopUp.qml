@@ -10,6 +10,16 @@ Popup {
     property alias textarea:tex
     property alias qrcode:qrcode_;
 
+    background: Rectangle
+    {
+        id:bck
+        color:CustomStyle.backColor1
+        border.width:1
+        border.color:CustomStyle.frontColor1
+        radius:Math.min(width,height)*0.05
+
+    }
+
     modal: true
     focus: true
 
@@ -23,7 +33,7 @@ Popup {
             Layout.fillWidth: true
             Layout.fillHeight:  true
             Layout.alignment: Qt.AlignTop|Qt.AlignHCenter
-            Layout.preferredHeight:  100
+            Layout.minimumHeight:  100
             label.visible: false
             textarea.text: root.description
             textarea.readOnly: true

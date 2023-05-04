@@ -22,14 +22,14 @@ CheckBox {
             visible: control.checked
         }
     }
-
+*/
     contentItem: Text {
         text: control.text
         font: control.font
         opacity: enabled ? 1.0 : 0.3
-        color: control.down ? "#17a81a" : "#21be2b"
+        color: control.checked ? CustomStyle.frontColor2 : CustomStyle.frontColor3
         verticalAlignment: Text.AlignVCenter
         leftPadding: control.indicator.width + control.spacing
     }
-    */
+
 }

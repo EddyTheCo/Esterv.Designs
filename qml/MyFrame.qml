@@ -24,6 +24,7 @@ GroupBox {
             {
                 id:shader
                 src:arrow_
+                fcolor:CustomStyle.frontColor2
                 anchors.fill: arrow_;
                 Behavior on time { SmoothedAnimation { velocity: control.velocity } }
             }
@@ -47,6 +48,32 @@ GroupBox {
             text: control.description
             elide: Text.ElideRight
             font.bold:true
+            color: CustomStyle.frontColor3
+        }
+    }
+
+    background: Rectangle {
+        y: control.topPadding - control.bottomPadding
+        width: parent.width
+        height: parent.height - control.topPadding + control.bottomPadding
+        color: CustomStyle.backColor1
+        radius:Math.min(width,height)*0.05
+
+        Rectangle
+        {
+            color:CustomStyle.frontColor2
+            height:parent.height-2.0*parent.radius
+            anchors.verticalCenter: parent.verticalCenter
+            width:1
+            anchors.left: parent.left
+        }
+        Rectangle
+        {
+            color:CustomStyle.frontColor2
+            height:parent.height-2.0*parent.radius
+            anchors.verticalCenter: parent.verticalCenter
+            width:1
+            anchors.right: parent.right
         }
     }
 

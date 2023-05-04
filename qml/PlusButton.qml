@@ -4,7 +4,7 @@ import QtQuick.Controls
 import QtQml
 import QtQuick.Layouts
 
-Button {
+MyButton {
     id: control
     property real states: 1.0
     property real velocity:3.0
@@ -31,7 +31,9 @@ Button {
                 id: shader
                 src: rectan;
                 anchors.fill: rectan;
+                fcolor:CustomStyle.midColor1
                 Behavior on time { SmoothedAnimation { velocity: control.velocity } }
+
             }
         }
         Text
@@ -45,6 +47,7 @@ Button {
             elide: Text.ElideRight
             horizontalAlignment : Text.AlignLeft
             verticalAlignment : Text.AlignVCenter
+            color:CustomStyle.frontColor1
         }
     }
 

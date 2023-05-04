@@ -7,7 +7,10 @@ Text
     id: control
     required property var jsob;
     property bool change:true
-    text: (!jsob.default&&change)?(jsob.shortValue.value+ " "+jsob.shortValue.unit):jsob.largeValue.value+ " "+jsob.largeValue.unit;
+    color:CustomStyle.frontColor1
+    text: (!jsob.default&&change)?(jsob.shortValue.value+ '<font color=\"'+CustomStyle.frontColor2+'\">'+jsob.shortValue.unit+'</font>'):
+                                   jsob.largeValue.value+ '<font color=\"'+CustomStyle.frontColor2+'\">'+jsob.largeValue.unit+'</font>';
+
     MouseArea {
         anchors.fill: parent
         onClicked:

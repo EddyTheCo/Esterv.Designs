@@ -4,7 +4,7 @@ import QtQuick.Controls
 import QtQml
 import QtQuick.Layouts
 
-Button {
+MyButton {
     id: control
     property bool animate: false
 
@@ -36,7 +36,9 @@ Button {
                 SettWheelShadder {
                     id: shader
                     src: rectan;
+                    fcolor:CustomStyle.midColor1
                     anchors.fill: rectan;
+
                 }
             }
             Text
@@ -47,6 +49,7 @@ Button {
                 Layout.alignment: Qt.AlignCenter
                 text:control.text
                 font: control.font
+                color:CustomStyle.frontColor1
                 elide: Text.ElideRight
                 horizontalAlignment : Text.AlignLeft
                 verticalAlignment : Text.AlignVCenter
