@@ -26,7 +26,8 @@ Item
             Layout.alignment: Qt.AlignCenter
             TextArea {
                 id:tex_
-
+                color:CustomStyle.frontColor1
+                placeholderTextColor:CustomStyle.midColor1
                 background: Rectangle {
                     implicitWidth: 60 // TextControlThemeMinWidth - 4 (border)
                     implicitHeight: 28 // TextControlThemeMinHeight - 4 (border)
