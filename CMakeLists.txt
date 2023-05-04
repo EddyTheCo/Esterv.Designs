@@ -57,6 +57,7 @@ qt6_add_shaders(MyDesigns "esterVtech.com.imports.MyDesigns.shaders"
     "frag/arrowHead.frag"
     "frag/plus.frag"
     "frag/gausianBlur.frag"
+    "frag/voronoi.frag"
 )
 
 
