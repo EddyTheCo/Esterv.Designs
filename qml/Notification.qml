@@ -51,7 +51,10 @@ Popup {
             Rectangle
         {
             id:rectang
-            radius:4
+            radius:Math.min(width,height)*0.07
+            color:CustomStyle.frontColor1
+
+
             required property string message;
             required property int index;
             width: listview.width;
@@ -67,26 +70,36 @@ Popup {
                     Layout.alignment: Qt.AlignVCenter|Qt.AlignLeft
                     text: qsTr(message)
                     elide: Text.ElideRight
-                    fontSizeMode: Text.Fit
+                    font:CustomStyle.h4
                     padding : 5
                     wrapMode: Text.WordWrap
                     verticalAlignment:Text.AlignVCenter
                     horizontalAlignment : Text.AlignLeft
+                    color:CustomStyle.backColor1
                 }
                 Button
                 {
-                    id:clo
-                    opacity:rectang.ListView.isCurrentItem?1.0:0.0
+                    id:control
                     Layout.fillWidth: true
                     Layout.maximumWidth: 50
                     Layout.alignment: Qt.AlignVCenter|Qt.AlignRight
                     text:"X"
+                    contentItem: Text {
+                            text: control.text
+                            font: control.font
+                            opacity: enabled ? 1.0 : 0.3
+                            color: control.down ? CustomStyle.frontColor1 : CustomStyle.backColor1
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            elide: Text.ElideRight
+                        }
                     onClicked:
                     {
                         timer.restart();
                         rectang.ListView.view.model.remove(index);
                         if(!rectang.ListView.view.model.count)popup.close();
                     }
+                    background: Rectangle{color:"transparent"}
                     Behavior on opacity { SmoothedAnimation { velocity: 2.0 } }
 
                 }
