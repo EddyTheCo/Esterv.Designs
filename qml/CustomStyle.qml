@@ -16,7 +16,7 @@ QtObject {
     })
     property font h4:
     Qt.font({
-        pixelSize:10
+        pixelSize:12
     })
 
     property color frontColor1: "white"
