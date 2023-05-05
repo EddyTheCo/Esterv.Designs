@@ -18,6 +18,7 @@ qt6_add_qml_module(MyDesigns
     VERSION 1.0
     OUTPUT_TARGETS out_targets_var
     QML_FILES
+    qml/TextAddress.qml
     qml/MyTextField.qml
     qml/AmountText.qml
     qml/MyTextArea.qml
