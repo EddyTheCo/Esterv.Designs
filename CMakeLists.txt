@@ -83,7 +83,6 @@ install(TARGETS MyDesigns ${out_targets_var}  ${out_targets_var2}
 
 install(EXPORT ${PROJECT_NAME}-config
 	FILE ${PROJECT_NAME}Targets.cmake
-	NAMESPACE ${PROJECT_NAME}::
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
 	)
 include(CMakePackageConfigHelpers)
