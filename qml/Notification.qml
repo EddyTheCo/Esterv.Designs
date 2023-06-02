@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -68,7 +69,7 @@ Popup {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignVCenter|Qt.AlignLeft
-                    text: qsTr(message)
+                    text: qsTr(rectang.message)
                     elide: Text.ElideRight
                     font:CustomStyle.h4
                     padding : 5
@@ -96,7 +97,7 @@ Popup {
                     onClicked:
                     {
                         timer.restart();
-                        rectang.ListView.view.model.remove(index);
+                        rectang.ListView.view.model.remove(rectang.index);
                         if(!rectang.ListView.view.model.count)popup.close();
                     }
                     background: Rectangle{color:"transparent"}
