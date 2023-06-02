@@ -34,9 +34,9 @@ Rectangle {
 
             textEdit.selectAll()
             textEdit.copy()
-            if(root.url_)
+            if(root.url)
             {
-                Qt.openUrlExternally(root.url_)
+                Qt.openUrlExternally(root.url)
             }
         }
     }
