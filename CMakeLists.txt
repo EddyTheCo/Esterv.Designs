@@ -23,6 +23,9 @@ include(GNUInstallDirs)
 find_package(Qt6 COMPONENTS Core Gui Quick Qml ShaderTools REQUIRED)
 qt_standard_project_setup()
 
+set_source_files_properties(qml/CustomStyle.qml PROPERTIES
+    QT_QML_SINGLETON_TYPE TRUE
+) 
 qt6_add_qml_module(MyDesigns
 	URI  MyDesigns
 	VERSION 1.0
