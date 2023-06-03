@@ -30,6 +30,7 @@ set_source_files_properties(qml/CustomStyle.qml PROPERTIES
 qt6_add_qml_module(MyDesigns
 	URI  MyDesigns
 	VERSION 1.0
+	$<IF BUILD_SHARED_LIBS, SHARED, STATIC>
 	OUTPUT_TARGETS out_targets_var
 	QML_FILES
 	qml/TextAddress.qml
