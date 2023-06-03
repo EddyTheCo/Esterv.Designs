@@ -16,9 +16,12 @@ GroupBox {
         Rectangle
         {
             id:arrow_
-            x: control.leftPadding
-            width: label_.contentHeight
-            height:label_.contentHeight
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.maximumWidth: label_.height
+            Layout.maximumHeight: label_.height
+            Layout.minimumHeight: label_.height
+            Layout.minimumWidth:  label_.height
             color:"transparent"
             ArrowShadder
             {
@@ -43,8 +46,8 @@ GroupBox {
 
         MyLabel {
             id:label_
-            x: arrow_.right
-            width: control.availableWidth-height
+            Layout.fillHeight: true
+            Layout.fillWidth: true
             text: control.description
             elide: Text.ElideRight
             font.bold:true
