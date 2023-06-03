@@ -26,10 +26,14 @@ qt_standard_project_setup()
 set_source_files_properties(qml/CustomStyle.qml PROPERTIES
 	QT_QML_SINGLETON_TYPE TRUE
 	)
-
+set(MODULE_BUILD SHARED)
+if(NOT BUILD_SHARED_LIBS)
+	set(MODULE_BUILD STATIC)
+endif(NOT BUILD_SHARED_LIBS)
 qt6_add_qml_module(MyDesigns
 	URI  MyDesigns
 	VERSION 1.0
+	${MODULE_BUILD}
 	OUTPUT_TARGETS out_targets_var
 	QML_FILES
 	qml/TextAddress.qml
