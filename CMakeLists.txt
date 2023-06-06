@@ -20,8 +20,18 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 include(GNUInstallDirs)
 
-find_package(Qt6 COMPONENTS Core Gui Quick Qml ShaderTools REQUIRED)
-qt_standard_project_setup()
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick Qml  OPTIONAL_COMPONENTS  ShaderTools )
+if (Qt6_FOUND)
+	qt_standard_project_setup()
+	if(NOT TARGET Qt6::ShaderTools)
+		FetchContent_Declare(
+			qtshadertools
+			GIT_REPOSITORY git://code.qt.io/qt/qtshadertools.git
+			GIT_TAG 6.5.0
+			)
+		FetchContent_MakeAvailable(qtshadertools)
+	endif()
+endif(Qt6_FOUND)
 
 set_source_files_properties(qml/CustomStyle.qml PROPERTIES
 	QT_QML_SINGLETON_TYPE TRUE
