@@ -8,8 +8,8 @@ Text
     required property var jsob;
     property bool change:true
     color:CustomStyle.frontColor1
-    text: (!jsob.default&&change)?(jsob.shortValue.value+ '<font color=\"'+CustomStyle.frontColor2+'\">'+jsob.shortValue.unit+'</font>'):
-                                   jsob.largeValue.value+ '<font color=\"'+CustomStyle.frontColor2+'\">'+jsob.largeValue.unit+'</font>';
+    text: (Object.keys(jsob).length === 0)?'':((!jsob.default&&change)?(jsob.shortValue.value+ '<font color=\"'+CustomStyle.frontColor2+'\">'+jsob.shortValue.unit+'</font>'):
+                                   jsob.largeValue.value+ '<font color=\"'+CustomStyle.frontColor2+'\">'+jsob.largeValue.unit+'</font>');
 
     MouseArea {
         anchors.fill: parent
