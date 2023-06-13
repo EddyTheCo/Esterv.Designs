@@ -52,9 +52,8 @@ Popup {
             Rectangle
         {
             id:rectang
-            radius:Math.min(width,height)*0.07
-            color:CustomStyle.frontColor1
-
+            radius:Math.min(width,height)*0.1
+            color:CustomStyle.backColor1
 
             required property string message;
             required property int index;
@@ -76,34 +75,25 @@ Popup {
                     wrapMode: Text.WordWrap
                     verticalAlignment:Text.AlignVCenter
                     horizontalAlignment : Text.AlignLeft
-                    color:CustomStyle.backColor1
+                    color:CustomStyle.frontColor1
                 }
-                Button
-                {
-                    id:control
-                    Layout.fillWidth: true
-                    Layout.maximumWidth: 50
-                    Layout.alignment: Qt.AlignVCenter|Qt.AlignRight
-                    text:"X"
-                    contentItem: Text {
-                            text: control.text
-                            font: control.font
-                            opacity: enabled ? 1.0 : 0.3
-                            color: control.down ? CustomStyle.frontColor1 : CustomStyle.backColor1
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                            elide: Text.ElideRight
-                        }
-                    onClicked:
-                    {
-                        timer.restart();
-                        rectang.ListView.view.model.remove(rectang.index);
-                        if(!rectang.ListView.view.model.count)popup.close();
-                    }
-                    background: Rectangle{color:"transparent"}
-                    Behavior on opacity { SmoothedAnimation { velocity: 2.0 } }
 
+            }
+            CloseButton
+            {
+                id:control
+                anchors.verticalCenter:  rectang.verticalCenter
+                anchors.right: rectang.right
+                anchors.margins: 5
+                width:14
+                height:14
+                onClose:
+                {
+                    timer.restart();
+                    rectang.ListView.view.model.remove(rectang.index);
+                    if(!rectang.ListView.view.model.count)popup.close();
                 }
+
             }
 
         }
