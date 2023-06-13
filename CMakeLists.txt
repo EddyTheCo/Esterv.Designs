@@ -58,6 +58,8 @@ if (Qt6_FOUND)
 		qml/PlusButton.qml
 		qml/CustomStyle.qml
 		qml/GaussianBlurShadder.qml
+		qml/CloseButton.qml
+		qml/CloseShadder.qml		
 		RESOURCE_PREFIX
 		"/esterVtech.com/imports"
 		OUTPUT_DIRECTORY
@@ -79,6 +81,7 @@ if (Qt6_FOUND)
 		"frag/plus.frag"
 		"frag/gausianBlur.frag"
 		"frag/voronoi.frag"
+		"frag/close.frag"
 		)
 
 
