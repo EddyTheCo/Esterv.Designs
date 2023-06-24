@@ -4,29 +4,32 @@ import QtQuick.Controls
 import QtQml
 import QtQuick.Layouts
 
-Rectangle {
+Button {
     id: control
-    color:"transparent"
+
     property real velocity:3.0
-    signal close()
 
-    MouseArea {
-        anchors.fill: parent
-        hoverEnabled :true
-        onEntered: shader.time=1.0;
-        onExited: shader.time=0.0;
-        onClicked: control.close()
-    }
+    background: Rectangle {
+        id:back
+            implicitWidth: 20
+            implicitHeight: 20
+            opacity: enabled ? 1 : 0.3
+            color: "transparent"
 
-    CloseShadder {
-        id: shader
-        src: control;
-        anchors.centerIn:  control;
-        width:control.width
-        height:width
-        fcolor:CustomStyle.frontColor2
-        Behavior on time { SmoothedAnimation { velocity: control.velocity } }
-    }
+            CloseShadder {
+                id: shader
+                src: back;
+                anchors.centerIn:  back;
+                width:back.width
+                height:width
+                fcolor:CustomStyle.frontColor2
+                Behavior on time { SmoothedAnimation { velocity: control.velocity } }
+            }
+        }
+
+
+
+
 
 }
 
