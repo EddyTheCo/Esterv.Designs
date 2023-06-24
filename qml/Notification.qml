@@ -87,7 +87,7 @@ Popup {
                 anchors.margins: 5
                 width:14
                 height:14
-                onClose:
+                onClicked:
                 {
                     timer.restart();
                     rectang.ListView.view.model.remove(rectang.index);
