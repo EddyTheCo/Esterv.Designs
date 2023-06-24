@@ -37,7 +37,8 @@ if (Qt6_FOUND)
 	qt6_add_qml_module(MyDesigns
 		URI  MyDesigns
 		VERSION 1.0
-		OUTPUT_TARGETS out_targets_var
+		SOURCES
+		src/mydesigns.cpp include/mydesigns.hpp
 		QML_FILES
 		qml/TextAddress.qml
 		qml/MyTextField.qml
@@ -62,11 +63,13 @@ if (Qt6_FOUND)
 		qml/CloseShadder.qml		
 		RESOURCE_PREFIX
 		"/esterVtech.com/imports"
+		OUTPUT_TARGETS out_targets_var
 		OUTPUT_DIRECTORY
 		${CMAKE_CURRENT_BINARY_DIR}/MyDesigns
 		)
 
-
+	target_include_directories(MyDesigns PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+		"$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/mydesigns>")
 
 	qt6_add_shaders(MyDesigns "esterVtech.com.imports.MyDesigns.shaders"
 		BATCHABLE
@@ -94,6 +97,9 @@ if (Qt6_FOUND)
 		DESTINATION ${CMAKE_INSTALL_LIBDIR}
 		)
 
+	install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/
+		DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/mydesigns
+		)
 	install(EXPORT ${PROJECT_NAME}-config
 		FILE ${PROJECT_NAME}Targets.cmake
 		DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
