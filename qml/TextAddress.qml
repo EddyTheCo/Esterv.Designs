@@ -23,7 +23,7 @@ Text
         width:300
     }
 
-    text:"<b>"+ root.description +':   </b> <font color=\"'+CustomStyle.frontColor2+'\">'+ root.address +'</font>'
+    text:((root.description)?("<b>"+ root.description +':   </b>'):'') +' <font color=\"'+CustomStyle.frontColor2+'\">'+ root.address +'</font>'
     elide:Text.ElideRight
     horizontalAlignment: TextEdit.AlignLeft
     fontSizeMode:Text.VerticalFit
