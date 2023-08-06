@@ -11,7 +11,7 @@ MyButton {
 
     onClicked:
     {
-        shader.time+=1.0/states;
+        shader.time=Math.floor(shader.time+1.0/states);
     }
 
     contentItem:
