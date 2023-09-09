@@ -66,10 +66,11 @@ if (Qt6_FOUND)
 		OUTPUT_TARGETS out_targets_var
 		OUTPUT_DIRECTORY
 		${CMAKE_CURRENT_BINARY_DIR}/MyDesigns
+		IMPORT_PATH ${QML_IMPORT_PATH}
 		)
 
 	target_include_directories(MyDesigns PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-		"$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/mydesigns>")
+		"$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/MyDesigns>")
 
 	qt6_add_shaders(MyDesigns "esterVtech.com.imports.MyDesigns.shaders"
 		BATCHABLE
@@ -93,36 +94,37 @@ if (Qt6_FOUND)
 
 
 	install(TARGETS MyDesigns ${out_targets_var}  ${out_targets_var2}
-		EXPORT ${PROJECT_NAME}-config
+		EXPORT MyDesignsTargets
 		DESTINATION ${CMAKE_INSTALL_LIBDIR}
 		)
 
 	install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/
-		DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/mydesigns
+		DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/MyDesigns
 		)
-	install(EXPORT ${PROJECT_NAME}-config
-		FILE ${PROJECT_NAME}Targets.cmake
-		DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+	install(EXPORT MyDesignsTargets
+		FILE MyDesignsTargets.cmake
+		DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/MyDesigns
 		)
 	include(CMakePackageConfigHelpers)
 	configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
 		"${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
-		INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+		INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/MyDesigns
 		)
 	write_basic_package_version_file(
-		"${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
+		"${CMAKE_CURRENT_BINARY_DIR}/MyDesignsConfigVersion.cmake"
 		VERSION ${VERSION}
 		COMPATIBILITY SameMajorVersion
 		)
 	install(FILES
-		${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-		${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
-		DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+		${CMAKE_CURRENT_BINARY_DIR}/MyDesignsConfig.cmake
+		${CMAKE_CURRENT_BINARY_DIR}/MyDesignsConfigVersion.cmake
+		DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/MyDesigns
 		)
-	export(EXPORT ${PROJECT_NAME}-config
-		FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake"
+	export(EXPORT MyDesignsTargets
+		FILE "${CMAKE_CURRENT_BINARY_DIR}/MyDesignsTargets.cmake"
 		)
 	if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+		set(CPACK_PACKAGE_CONTACT "estervtech")
 		include(CTest)
 		set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}-v${SEMVER}-${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_VERSION}-${CMAKE_SYSTEM_PROCESSOR}-${CMAKE_CXX_COMPILER_ID}")
 		include(CPack)
