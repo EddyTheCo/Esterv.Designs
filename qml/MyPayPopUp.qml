@@ -3,6 +3,11 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Popup {
+
+    Component.onCompleted:
+    {
+        console.log("MyPayPopUp is deprecated. Use PayQrPop instead")
+    }
     id: root
     required property string address;
     property string url;
