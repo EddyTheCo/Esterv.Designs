@@ -7,6 +7,6 @@ namespace fooDesign
 {
 	QString fooPrint(void)
 	{
-		return "fooPrint";
+        return "https://forum.qt.io/post/762513";
 	}
 }
