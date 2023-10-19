@@ -6,11 +6,6 @@
 #include <QClipboard>
 #include <QGuiApplication>
 
-//foo namespace to force the linker to link the backing library composed only of qml files
-namespace fooDesign 
-{
-	QString fooPrint(void);
-};
 
 class TextClipboard :public QObject
 {

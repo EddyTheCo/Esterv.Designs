@@ -65,12 +65,13 @@ if (Qt6_FOUND)
 		"/esterVtech.com/imports"
 		OUTPUT_TARGETS out_targets_var
 		OUTPUT_DIRECTORY
-		${CMAKE_CURRENT_BINARY_DIR}/MyDesigns
-		IMPORT_PATH ${QML_IMPORT_PATH}
+		${CMAKE_BINARY_DIR}/MyDesigns
+		IMPORT_PATH ${CMAKE_BINARY_DIR}
 		)
 
 	target_include_directories(MyDesigns PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 		"$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/MyDesigns>")
+
 
 	qt6_add_shaders(MyDesigns "esterVtech.com.imports.MyDesigns.shaders"
 		BATCHABLE
@@ -93,13 +94,16 @@ if (Qt6_FOUND)
 	target_link_libraries(MyDesigns PUBLIC Qt6::Gui Qt6::Quick)
 
 
-	install(TARGETS MyDesigns ${out_targets_var}  ${out_targets_var2}
+	install(TARGETS MyDesigns MyDesignsplugin ${out_targets_var}  ${out_targets_var2}
 		EXPORT MyDesignsTargets
 		DESTINATION ${CMAKE_INSTALL_LIBDIR}
 		)
 
 	install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/
 		DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/MyDesigns
+		)
+	install(DIRECTORY ${CMAKE_BINARY_DIR}/MyDesigns/
+		DESTINATION ${CMAKE_INSTALL_LIBDIR}/QMLPlugins/MyDesigns
 		)
 	install(EXPORT MyDesignsTargets
 		FILE MyDesignsTargets.cmake
@@ -129,10 +133,5 @@ if (Qt6_FOUND)
 		set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}-v${SEMVER}-${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_VERSION}-${CMAKE_SYSTEM_PROCESSOR}-${CMAKE_CXX_COMPILER_ID}")
 		include(CPack)
 	endif()
-
-	list(APPEND QML_IMPORT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/qml ${CMAKE_CURRENT_BINARY_DIR}/)
-	list(REMOVE_DUPLICATES QML_IMPORT_PATH)
-	set(QML_IMPORT_PATH ${QML_IMPORT_PATH} CACHE STRING "" FORCE)
-
 endif(Qt6_FOUND)
 
