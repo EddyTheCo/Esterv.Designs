@@ -59,8 +59,7 @@ if (Qt6_FOUND)
 		qml/PlusButton.qml
 		qml/CustomStyle.qml
 		qml/GaussianBlurShadder.qml
-		qml/CloseButton.qml
-		qml/CloseShadder.qml		
+		qml/CloseButton.qml	
 		RESOURCE_PREFIX
 		"/esterVtech.com/imports"
 		OUTPUT_TARGETS out_targets_var
