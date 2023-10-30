@@ -6,8 +6,9 @@ import QtQuick.Layouts
 
 Button {
     id: control
+    hoverEnabled :true
 
-    property real velocity:3.0
+
 
     background: Rectangle {
         id:back
@@ -16,14 +17,18 @@ Button {
             opacity: enabled ? 1 : 0.3
             color: "transparent"
 
-            CloseShadder {
+            ShaderEffect {
                 id: shader
-                src: back;
+                property var src: back;
+                property color fcolor:CustomStyle.frontColor2
+                property real hovered:(control.hovered)?0.15:0.0
+                property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
+                fragmentShader: "qrc:/esterVtech.com/imports/MyDesigns/frag/close.frag.qsb"
                 anchors.centerIn:  back;
                 width:back.width
                 height:width
-                fcolor:CustomStyle.frontColor2
-                Behavior on time { SmoothedAnimation { velocity: control.velocity } }
+
+                Behavior on hovered { SmoothedAnimation { velocity: 2 }  }
             }
         }
 
