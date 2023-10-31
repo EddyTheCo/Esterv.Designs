@@ -27,12 +27,16 @@ MyButton {
             Layout.minimumWidth: Math.min(parent.width,parent.height)
             Layout.preferredHeight: width
             Layout.alignment: Qt.AlignCenter
-            PlusShadder {
+            ShaderEffect {
                 id: shader
-                src: rectan;
-                anchors.fill: rectan;
-                fcolor:CustomStyle.midColor1
+                property var src: rectan;
+
+                property color fcolor:CustomStyle.midColor1
+                property real time:0.0;
+                property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
+                fragmentShader: "qrc:/esterVtech.com/imports/MyDesigns/frag/plus.frag.qsb"
                 Behavior on time { SmoothedAnimation { velocity: control.velocity } }
+                anchors.fill: rectan;
 
             }
         }

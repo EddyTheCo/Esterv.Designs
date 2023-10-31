@@ -33,10 +33,13 @@ MyButton {
                 Layout.minimumWidth: Math.min(parent.width,parent.height)
                 Layout.preferredHeight: width
                 Layout.alignment: Qt.AlignCenter
-                SettWheelShadder {
+                ShaderEffect {
                     id: shader
-                    src: rectan;
-                    fcolor:CustomStyle.midColor1
+                    property var src: rectan;
+                    property color fcolor:CustomStyle.midColor1
+                    property real time:0.0;
+                    property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
+                    fragmentShader: "qrc:/esterVtech.com/imports/MyDesigns/frag/mySettButton.frag.qsb"
                     anchors.fill: rectan;
 
                 }
