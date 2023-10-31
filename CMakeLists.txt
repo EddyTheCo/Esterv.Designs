@@ -52,13 +52,9 @@ if (Qt6_FOUND)
 		qml/MyRadioButton.qml
 		qml/MyCheckBox.qml
 		qml/MySettButton.qml
-		qml/ArrowShadder.qml
 		qml/Notification.qml
-		qml/SettWheelShadder.qml
-		qml/PlusShadder.qml
 		qml/PlusButton.qml
 		qml/CustomStyle.qml
-		qml/GaussianBlurShadder.qml
 		qml/CloseButton.qml	
 		RESOURCE_PREFIX
 		"/esterVtech.com/imports"
