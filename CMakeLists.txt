@@ -82,6 +82,7 @@ if (Qt6_FOUND)
 		"frag/gausianBlur.frag"
 		"frag/voronoi.frag"
 		"frag/close.frag"
+                "frag/qrscanner.frag"
 		)
 
 
