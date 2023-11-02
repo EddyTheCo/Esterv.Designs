@@ -1,18 +1,13 @@
 import QtQuick 2.0
 import QtQuick.Controls
 import QtQuick.Layouts
+import MyDesigns
 
 Popup {
-
-    Component.onCompleted:
-    {
-        console.log("MyPayPopUp is deprecated. Use PayQrPop instead")
-    }
     id: root
     required property string address;
     property string url;
     required property string description;
-    property alias textarea:tex
     property alias qrcode:qrcode_;
 
     background: Rectangle
@@ -32,32 +27,30 @@ Popup {
     {
         anchors.fill: parent
         spacing:10
-        MyTextArea
+        ScrollView
         {
-            id:tex
+            id:scrl
             Layout.fillWidth: true
             Layout.fillHeight:  true
-            Layout.alignment: Qt.AlignTop|Qt.AlignHCenter
-            Layout.minimumHeight:  100
-            label.visible: false
-            textarea.text: root.description
-            textarea.readOnly: true
-            textarea.wrapMode: Text.Wrap
+            MyLabel
+            {
+                id:label
+                text:root.description
+                wrapMode: Text.Wrap
+            }
         }
 
-        MyAddressQr
+
+        AddressQr
         {
             id:qrcode_
             address:root.address
             url:root.url
-            Layout.preferredWidth: tex.width*0.75
+            Layout.preferredWidth: label.width*0.75
             Layout.preferredHeight: width
-
             Layout.alignment: Qt.AlignCenter
         }
     }
-
-
 
 }
 

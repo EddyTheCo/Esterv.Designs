@@ -11,9 +11,12 @@ Item
     property alias textfont: tex_.font
     property alias labelfont: label_.font
     property alias background: tex_.background
+    property alias readOnly: tex_.readOnly
+    property alias wrapMode: tex_.wrapMode
     property bool  qrfill:false
 
     signal fillByQr()
+    signal editingFinished()
 
     implicitWidth: tex_.implicitWidth
     implicitHeight: label_.implicitHeight+tex_.implicitHeight
@@ -43,8 +46,8 @@ Item
                                                  control.activeFocus ? CustomStyle.frontColor2 :
                                                                        control.hovered ? CustomStyle.frontColor1 : CustomStyle.frontColor3
                 color: control.enabled ? CustomStyle.backColor1 : CustomStyle.midColor1
-
             }
+            onEditingFinished: control.editingFinished()
         }
 
 

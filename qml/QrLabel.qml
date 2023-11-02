@@ -3,19 +3,13 @@ import QtQuick
 import MyDesigns
 
 
-
 Text
 {
-    Component.onCompleted:
-    {
-        console.log("TextAddress is deprecated. Use QrLable instead")
-    }
-
     id:root
     property string description:"";
     required property string address;
 
-    MyPayPopUp
+    PayQrPop
     {
         id:popup_
         address:root.address

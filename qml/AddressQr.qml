@@ -8,11 +8,6 @@ Rectangle {
     property string url
     radius: 10
 
-    Component.onCompleted:
-    {
-        console.log("MyAddressQr is deprecated. Use AddressQr instead")
-    }
-
     TextClipboard
     {
         id:tclip

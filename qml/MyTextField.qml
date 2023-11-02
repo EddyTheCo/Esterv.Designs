@@ -1,69 +1,87 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Layouts
+import QtQuick.Templates as T
+import QtQrDec
 
-Item
+T.TextField
 {
     id: control
     property alias description: label_.text
-    property alias text: tex_.text
-    property alias placeholderText: tex_.placeholderText
-    property alias textfont: tex_.font
     property alias labelfont: label_.font
-    property alias background: tex_.background
     property bool  qrfill:false
 
-    signal fillByQr()
+    signal fillqr();
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset
+                   || Math.max(contentWidth, placeholder.implicitWidth) + leftPadding + rightPadding,label_.implicitWidth)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
+                             contentHeight + topPadding + bottomPadding,
+                             placeholder.implicitHeight + topPadding + bottomPadding)
 
-    implicitWidth: tex_.implicitWidth
-    implicitHeight: label_.implicitHeight+tex_.implicitHeight
-
-    MyLabel {
-        id:label_
-        anchors.top:control.top
-        anchors.left: control.left
-        anchors.bottomMargin:  10
+    selectByMouse:true
+    color:CustomStyle.frontColor1
+    placeholderTextColor:CustomStyle.midColor1
+    topPadding: label_.height
+    PlaceholderText {
+        id: placeholder
+        x: control.leftPadding
+        y: control.topPadding
+        width: control.width - (control.leftPadding + control.rightPadding)-((qrscan.visible)?qrscan.width:0)-2*bckrect.border.width
+        height: control.height - (control.topPadding + control.bottomPadding)
+        text: control.placeholderText
+        font: control.font
+        color: control.placeholderTextColor
+        verticalAlignment: control.verticalAlignment
+        visible: !control.length && !control.preeditText && (!control.activeFocus || control.horizontalAlignment !== Qt.AlignHCenter)
+        elide: Text.ElideRight
+        renderType: control.renderType
     }
-    TextField {
-        id: tex_
-        anchors.top: label_.bottom
-        anchors.left: control.left
-        width:control.width
-        leftPadding:10
-        selectByMouse:true
-        color:CustomStyle.frontColor1
-        placeholderTextColor:CustomStyle.midColor1
-        background: Rectangle {
+    Rectangle {
+        id:qrscan
+        implicitWidth: font.pixelSize
+        implicitHeight: font.pixelSize
+        anchors.left: placeholder.right
+        anchors.verticalCenter: placeholder.verticalCenter
+        color: "transparent"
+        visible: control.qrfill&&!control.text&&control.enabled
+        ShaderEffect {
+            id: shader
+            property var src: qrscan;
+            property color fcolor:CustomStyle.frontColor2
+            property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
+            fragmentShader: "qrc:/esterVtech.com/imports/MyDesigns/frag/qrscanner.frag.qsb"
+            anchors.fill: qrscan
+        }
+        MouseArea {
+            anchors.fill: qrscan
+            onClicked: {
+                control.fillqr();
+            }
+        }
+    }
+    background: Item{
+        MyLabel {
+            id:label_
+            elide: Text.ElideRight
+            width:control.width
+        }
+        Rectangle
+        {
             id: bckrect
-            radius:Math.min(width,height)*0.12
+            y:control.topPadding
+            width:parent.width
+            height:parent.height-label_.height
+            radius:Math.min(bckrect.width,bckrect.height)*0.12
             border.width: 1 // TextControlBorderThemeThickness
             border.color: !control.enabled ? CustomStyle.midColor1 :
                                              control.activeFocus ? CustomStyle.frontColor2 :
                                                                    control.hovered ? CustomStyle.frontColor1 : CustomStyle.frontColor3
             color: control.enabled ? CustomStyle.backColor1 : CustomStyle.midColor1
-        }
-        Rectangle {
-            id:qrscan
-            implicitWidth: 0.8*tex_.height
-            implicitHeight: 0.8*tex_.height
-            anchors.right: tex_.right
-            anchors.verticalCenter: parent.verticalCenter
-            color: "transparent"
-            visible: control.qrfill&&!tex_.text&&control.enabled
-            ShaderEffect {
-                id: shader
-                property var src: qrscan;
-                property color fcolor:CustomStyle.frontColor2
-                property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
-                fragmentShader: "qrc:/esterVtech.com/imports/MyDesigns/frag/qrscanner.frag.qsb"
-                anchors.fill: qrscan
-            }
-            MouseArea {
-                anchors.fill: qrscan
-                onClicked: { control.fillByQr();}
-            }
+
         }
     }
+
+
+
 
 }
 

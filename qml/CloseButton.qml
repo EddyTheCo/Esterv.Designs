@@ -8,8 +8,6 @@ Button {
     id: control
     hoverEnabled :true
 
-
-
     background: Rectangle {
         id:back
             implicitWidth: 20
