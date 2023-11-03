@@ -40,17 +40,12 @@ if (Qt6_FOUND)
 		SOURCES
 		src/mydesigns.cpp include/mydesigns.hpp
 		QML_FILES
-                qml/QrLabel.qml
 		qml/MyTextField.qml
 		qml/AmountText.qml
 		qml/MyTextArea.qml
-                qml/QrTextCamPop.qml
-                qml/QrCam.qml
 		qml/MyFrame.qml
 		qml/MyButton.qml
 		qml/MyLabel.qml
-                qml/AddressQr.qml
-                qml/PayQrPop.qml
 		qml/MyRadioButton.qml
 		qml/MyCheckBox.qml
 		qml/MySettButton.qml
