@@ -27,17 +27,17 @@ Popup {
     {
         anchors.fill: parent
         spacing:10
-        ScrollView
+        MyTextArea
         {
-            id:scrl
+            id:tex
             Layout.fillWidth: true
             Layout.fillHeight:  true
-            MyLabel
-            {
-                id:label
-                text:root.description
-                wrapMode: Text.Wrap
-            }
+            Layout.alignment: Qt.AlignTop|Qt.AlignHCenter
+            Layout.minimumHeight:  100
+            label.visible: false
+            textarea.text: root.description
+            textarea.readOnly: true
+            textarea.wrapMode: Text.Wrap
         }
 
 
@@ -46,7 +46,7 @@ Popup {
             id:qrcode_
             address:root.address
             url:root.url
-            Layout.preferredWidth: label.width*0.75
+            Layout.preferredWidth: tex.width*0.75
             Layout.preferredHeight: width
             Layout.alignment: Qt.AlignCenter
         }

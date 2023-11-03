@@ -7,14 +7,14 @@ import QtQrDec
 Popup
 {
     id:popup_
-    property alias description:tfield.description;
-    property alias placeholderText:tfield.placeholderText;
+    property alias label:tfield.label;
+    property alias textField:tfield.textarea;
 
     signal clicked(string data);
 
     onClosed: qrscanner.stop();
     onOpened:{
-        tfield.text="";
+        tfield.textarea.text="";
         qrscanner.visible=false;
     }
 
@@ -29,13 +29,14 @@ Popup
     ColumnLayout
     {
         anchors.fill: parent
-        MyTextField
+        MyTextArea
         {
             id:tfield
             Layout.alignment: Qt.AlignHCenter
             Layout.margins:  20
             Layout.fillWidth: true
             Layout.maximumWidth:250
+            Layout.maximumHeight: 200
             focus:true
             qrfill:true
             onFillqr:
@@ -60,7 +61,7 @@ Popup
             onGotdata: (data)=> {
                            qrscanner.stop();
                            qrscanner.visible=false;
-                           tfield.text=data;
+                           tfield.textarea.text=data;
                        }
         }
         MyButton
@@ -68,11 +69,11 @@ Popup
             id:send
             Layout.alignment: Qt.AlignRight
             Layout.margins:  15
-            enabled: tfield.text
+            enabled: tfield.textarea.text
             onClicked:
             {
                 popup_.close();
-                popup_.clicked(tfield.text);
+                popup_.clicked(tfield.textarea.text);
             }
             text:qsTr("Ok")
         }
