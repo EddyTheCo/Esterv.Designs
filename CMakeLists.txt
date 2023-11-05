@@ -40,27 +40,19 @@ if (Qt6_FOUND)
 		SOURCES
 		src/mydesigns.cpp include/mydesigns.hpp
 		QML_FILES
-		qml/TextAddress.qml
 		qml/MyTextField.qml
 		qml/AmountText.qml
 		qml/MyTextArea.qml
 		qml/MyFrame.qml
 		qml/MyButton.qml
 		qml/MyLabel.qml
-		qml/MyAddressQr.qml
-		qml/MyPayPopUp.qml
 		qml/MyRadioButton.qml
 		qml/MyCheckBox.qml
 		qml/MySettButton.qml
-		qml/ArrowShadder.qml
 		qml/Notification.qml
-		qml/SettWheelShadder.qml
-		qml/PlusShadder.qml
 		qml/PlusButton.qml
 		qml/CustomStyle.qml
-		qml/GaussianBlurShadder.qml
-		qml/CloseButton.qml
-		qml/CloseShadder.qml		
+		qml/CloseButton.qml	
 		RESOURCE_PREFIX
 		"/esterVtech.com/imports"
 		OUTPUT_TARGETS out_targets_var
@@ -87,6 +79,7 @@ if (Qt6_FOUND)
 		"frag/gausianBlur.frag"
 		"frag/voronoi.frag"
 		"frag/close.frag"
+                "frag/qrscanner.frag"
 		)
 
 

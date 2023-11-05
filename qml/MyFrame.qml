@@ -23,12 +23,15 @@ GroupBox {
             Layout.minimumHeight: label_.height
             Layout.minimumWidth:  label_.height
             color:"transparent"
-            ArrowShadder
+            ShaderEffect
             {
                 id:shader
-                src:arrow_
-                fcolor:CustomStyle.frontColor2
+                property var src:arrow_
+                property color fcolor:CustomStyle.frontColor2
                 anchors.fill: arrow_;
+                property real time:0.0;
+                property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
+                fragmentShader: "qrc:/esterVtech.com/imports/MyDesigns/frag/arrowHead.frag.qsb"
                 Behavior on time { SmoothedAnimation { velocity: control.velocity } }
             }
             MouseArea {

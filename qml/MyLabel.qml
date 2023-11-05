@@ -1,5 +1,5 @@
 import QtQuick.Controls
 
 Label {
-    color: "#969ea2"
+    color: CustomStyle.midColor2
 }
