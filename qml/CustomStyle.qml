@@ -4,20 +4,42 @@ import QtQuick 2.15
 QtObject {
     property font h1:
     Qt.font({
-        pointSize:40
-    })
+                pointSize:40
+            })
     property font h2:
     Qt.font({
-        pixelSize: 30
-    })
+                pixelSize: 30
+            })
     property font h3:
     Qt.font({
-        pixelSize:15
-    })
+                pixelSize:15
+            })
     property font h4:
     Qt.font({
-        pixelSize:12
-    })
+                pixelSize:12
+            })
+
+    enum RoundedScale {
+        NotRounded,
+        ExtraSmallScale,
+        SmallScale,
+        MediumScale,
+        LargeScale,
+        ExtraLargeScale,
+        FullScale
+    }
+    enum ThickScale {
+        NotThick,
+        ExtraSmallScale,
+        SmallScale,
+        MediumScale,
+        LargeScale,
+        ExtraLargeScale,
+        FullScale
+    }
+
+    property int roundedScale: CustomStyle.RoundedScale.ExtraSmallScale;
+    property int thickScale: CustomStyle.ThickScale.ExtraSmallScale;
 
     property color frontColor1: "white"
     property color frontColor2: "#1998ff"
