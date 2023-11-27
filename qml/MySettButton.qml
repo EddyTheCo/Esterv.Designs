@@ -3,6 +3,7 @@ import QtQuick 2.0
 import QtQuick.Controls
 import QtQml
 import QtQuick.Layouts
+import QtQuick.Controls.Basic
 
 MyButton {
     id: control
