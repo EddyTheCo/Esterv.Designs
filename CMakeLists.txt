@@ -50,9 +50,11 @@ if (Qt6_FOUND)
 		qml/MyCheckBox.qml
 		qml/MySettButton.qml
 		qml/Notification.qml
+                qml/NextButton.qml
 		qml/PlusButton.qml
 		qml/CustomStyle.qml
-		qml/CloseButton.qml	
+                qml/CloseButton.qml
+                qml/MySwitch.qml
 		RESOURCE_PREFIX
 		"/esterVtech.com/imports"
 		OUTPUT_TARGETS out_targets_var
@@ -74,7 +76,8 @@ if (Qt6_FOUND)
 		"/esterVtech.com/imports/MyDesigns"
 		FILES
 		"frag/mySettButton.frag"
-		"frag/arrowHead.frag"
+                "frag/hollowArrowHead.frag"
+                "frag/filledArrowHead.frag"
 		"frag/plus.frag"
 		"frag/gausianBlur.frag"
 		"frag/voronoi.frag"
