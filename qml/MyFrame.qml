@@ -29,19 +29,19 @@ GroupBox {
                 property var src:arrow_
                 property color fcolor:CustomStyle.frontColor2
                 anchors.fill: arrow_;
-                property real time:0.0;
+                property real iTime:1.5;
                 property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
-                fragmentShader: "qrc:/esterVtech.com/imports/MyDesigns/frag/arrowHead.frag.qsb"
-                Behavior on time { SmoothedAnimation { velocity: control.velocity } }
+                fragmentShader: "qrc:/esterVtech.com/imports/MyDesigns/frag/hollowArrowHead.frag.qsb"
+                Behavior on iTime { SmoothedAnimation { velocity: control.velocity } }
             }
             MouseArea {
                 anchors.fill: parent
                 onClicked:
                 {
-                    if(shader.time>0.5)
-                    shader.time=0.0;
+                    if(shader.iTime>1.0)
+                    shader.iTime=0.5;
                     else
-                    shader.time=1.0;
+                    shader.iTime=1.5;
                 }
             }
 
