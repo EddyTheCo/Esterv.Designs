@@ -5,7 +5,7 @@ import QtQuick.Layouts
 GroupBox {
     id:control
     property string description;
-    property alias collapsed:shader.time;
+    property alias collapsed:shader.iTime;
     property real velocity:3.0
 
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
