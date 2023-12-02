@@ -1,6 +1,6 @@
 #version 440
 #define PI 3.1415926538
-#define LIGHTREP 9.0
+#define LIGHTREP 8.0
 
 
 #define BLUR 0.02
@@ -31,7 +31,7 @@ float Circle(vec2 uv, float r)
 float sun(float r, float a)
 {
     float f= smoothstep(SUNR2-BLUR,SUNR2,r) - smoothstep(SUNR2 +(SUNR3-SUNR2)*iTime+0.01*sin(2.0*iTime)-BLUR,SUNR2 +(SUNR3-SUNR2)*iTime+0.01*sin(2.0*iTime),r);
-    f*= smoothstep(0.0,BLUR,-2.0*SUNW+sin(LIGHTREP*a+iTime))*iTime;
+    f*= smoothstep(0.0,BLUR,-2.0*SUNW+sin(LIGHTREP*a)-r*0.5)*iTime;
     f+=1.0-smoothstep(SUNR1-BLUR,SUNR1,r);
     return clamp(f,0.0,1.0)*(iTime);
 }
