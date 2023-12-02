@@ -31,9 +31,9 @@ void main( void)
     float phi=PI*iTime;
 
     p.x=uv.x*cos(phi)+uv.y*sin(phi);
-    p.y=-uv.x*sin(phi)+uv.y*cos(phi);
+    p.y=-uv.x*sin(phi)+uv.y*cos(phi)+0.2;
 
-    float d1=1.0-smoothstep(0.0,0.05,abs(sdEquilateralTriangle(p,0.75))-0.08);
+    float d1=1.0-smoothstep(0.0,0.03,abs(sdEquilateralTriangle(p,0.75))-0.08);
     d1-=1.0-step(-0.3,p.y);
 
     vec4 bcolor=texture(src, qt_TexCoord0).rgba;

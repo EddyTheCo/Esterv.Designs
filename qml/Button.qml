@@ -29,13 +29,13 @@ T.Button {
         icon: control.icon
         text: control.text
         font: control.font
-        color: control.highlighted||control.flat?CustomStyle.frontColor1:CustomStyle.frontColor2
+        color: (control.highlighted||control.flat)&&control.enabled?CustomStyle.frontColor1:(control.enabled?CustomStyle.frontColor2:CustomStyle.frontColor3)
     }
 
     background: Rectangle{
-        implicitWidth: 100
-        implicitHeight: 40
-        visible: (!control.flat||control.hovered) || control.down || control.checked || control.highlighted
+        implicitWidth: 32
+        implicitHeight: 32
+        visible: (!control.flat||(control.hovered&&control.enabled)) || control.down || control.checked || control.highlighted
         color: control.down ? (CustomStyle.theme)?CustomStyle.backColor3.darker(1.1):CustomStyle.backColor3.lighter(1.1):
                (control.highlighted || control.checked ? CustomStyle.backColor3.darker(1.1) :
                CustomStyle.backColor3)

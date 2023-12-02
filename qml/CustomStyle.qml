@@ -45,6 +45,10 @@ QtObject {
     property color frontColor2: (CustomStyle.theme)?"#27282a":"#d9d9d9" //medium areas
     property color frontColor3: (CustomStyle.theme)?"#176B87":"#9e9e9e" //small areas
 
+    Behavior on frontColor1 { ColorAnimation { duration: 1000 } }
+    Behavior on frontColor2 { ColorAnimation { duration: 1000 } }
+    Behavior on frontColor3 { ColorAnimation { duration: 1000 } }
+
 
     property color midColor1: "#fdfdfd"
     property color midColor2: "#F4BF96"
@@ -55,6 +59,12 @@ QtObject {
     property color backColor1: (CustomStyle.theme)?"#FFF0F5":"#232D3F" //large areas
     property color backColor2: (CustomStyle.theme)?"#FFD1DA":"#27282a" //medium areas
     property color backColor3: (CustomStyle.theme)?"#FBA1B7":"#10141c" //small areas
+
+
+    Behavior on backColor1 { ColorAnimation { duration: 1000 } }
+    Behavior on backColor2 { ColorAnimation { duration: 1000 } }
+    Behavior on backColor3 { ColorAnimation { duration: 1000 } }
+
 
 
     /*Backgrounds rectangle to use for controls. Higher index = higher z */

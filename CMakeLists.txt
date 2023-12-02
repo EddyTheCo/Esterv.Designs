@@ -52,10 +52,12 @@ if (Qt6_FOUND)
 		qml/MySettButton.qml
 		qml/Notification.qml
                 qml/NextButton.qml
+                qml/PrevButton.qml
 		qml/PlusButton.qml
 		qml/CustomStyle.qml
                 qml/CloseButton.qml
                 qml/MySwitch.qml
+                "qml/ThemeSwitch.qml"
 		RESOURCE_PREFIX
 		"/esterVtech.com/imports"
 		OUTPUT_TARGETS out_targets_var
@@ -83,6 +85,7 @@ if (Qt6_FOUND)
 		"frag/gausianBlur.frag"
 		"frag/close.frag"
                 "frag/qrscanner.frag"
+                "frag/sunTomoon.frag"
 		)
 
 

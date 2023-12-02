@@ -33,7 +33,7 @@ void main( void)
     p.x=uv.x*cos(phi)+uv.y*sin(phi);
     p.y=-uv.x*sin(phi)+uv.y*cos(phi);
 
-    float d1=1.0-smoothstep(0.0,0.05,sdEquilateralTriangle(p,0.8));
+    float d1=1.0-smoothstep(0.0,0.03,sdEquilateralTriangle(p,0.8));
 
     vec4 bcolor=texture(src, qt_TexCoord0).rgba;
     vec4 color=mix(bcolor,fcolor , d1);
