@@ -45,6 +45,7 @@ if (Qt6_FOUND)
 		qml/MyTextArea.qml
 		qml/MyFrame.qml
 		qml/MyButton.qml
+                qml/Button.qml
 		qml/MyLabel.qml
 		qml/MyRadioButton.qml
 		qml/MyCheckBox.qml
@@ -80,7 +81,6 @@ if (Qt6_FOUND)
                 "frag/filledArrowHead.frag"
 		"frag/plus.frag"
 		"frag/gausianBlur.frag"
-		"frag/voronoi.frag"
 		"frag/close.frag"
                 "frag/qrscanner.frag"
 		)
@@ -124,6 +124,7 @@ if (Qt6_FOUND)
 		FILE "${CMAKE_CURRENT_BINARY_DIR}/MyDesignsTargets.cmake"
 		)
 	if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+		add_subdirectory(Examples)
 		set(CPACK_PACKAGE_CONTACT "estervtech")
 		include(CTest)
 		set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}-v${SEMVER}-${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_VERSION}-${CMAKE_SYSTEM_PROCESSOR}-${CMAKE_CXX_COMPILER_ID}")

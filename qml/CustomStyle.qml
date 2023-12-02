@@ -19,45 +19,50 @@ QtObject {
                 pixelSize:12
             })
 
-    enum RoundedScale {
-        NotRounded,
-        ExtraSmallScale,
-        SmallScale,
-        MediumScale,
-        LargeScale,
-        ExtraLargeScale,
-        FullScale
-    }
-    enum ThickScale {
-        NotThick,
-        ExtraSmallScale,
-        SmallScale,
-        MediumScale,
-        LargeScale,
-        ExtraLargeScale,
-        FullScale
+    enum Theme {
+        Dark,
+        Light
     }
 
-    property int roundedScale: CustomStyle.RoundedScale.ExtraSmallScale;
-    property int thickScale: CustomStyle.ThickScale.ExtraSmallScale;
+    enum Scale {
+        Not,
+        ExtraSmall,
+        Small,
+        Medium,
+        Large,
+        ExtraLarge,
+        Full
+    }
 
-    property color frontColor1: "white"
-    property color frontColor2: "#1998ff"
-    property color frontColor3: "#a8a8a8"
+    property int roundedScale: CustomStyle.Scale.Medium;
+    property int thickScale: CustomStyle.Scale.ExtraSmall;
+    property int paddingScale: CustomStyle.Scale.Medium;
+    property int theme: CustomStyle.Theme.Dark
 
-    property color midColor1: "#a8a8a8"
-    property color midColor2: "#a8a8a8"
-    property color midColor3: "#a8a8a8"
+    /* Dark theme from light to dark */
+    /* Light theme from dark to light */
+    property color frontColor1: (CustomStyle.theme)?"#10141c":"#fdfdfd" //large areas
+    property color frontColor2: (CustomStyle.theme)?"#27282a":"#d9d9d9" //medium areas
+    property color frontColor3: (CustomStyle.theme)?"#176B87":"#9e9e9e" //small areas
 
-    property color backColor1: "#10141c"
-    property color backColor2: "#00050d"
-    property color backColor3: "#0568fd"
 
+    property color midColor1: "#fdfdfd"
+    property color midColor2: "#F4BF96"
+    property color midColor3: (CustomStyle.theme)?"#b0e5f7":"#a8a8a8"
+
+
+    /* from light to dark */
+    property color backColor1: (CustomStyle.theme)?"#FFF0F5":"#232D3F" //large areas
+    property color backColor2: (CustomStyle.theme)?"#FFD1DA":"#27282a" //medium areas
+    property color backColor3: (CustomStyle.theme)?"#FBA1B7":"#10141c" //small areas
+
+
+    /*Backgrounds rectangle to use for controls. Higher index = higher z */
 
     property Rectangle background1;
     property Rectangle background2;
     property Rectangle background3;
-    property Rectangle background4;
-
 
 }
+
+
