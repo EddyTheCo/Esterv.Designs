@@ -23,13 +23,13 @@ install(TARGETS customControls ${out_targets_var}
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	COMPONENT CustomControls
 	)
+install(DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/CustomControls
+	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv
+	COMPONENT CustomControls
+	)
 install(TARGETS customControlsplugin 
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/CustomControls
 	COMPONENT CustomControls
 	)
 
-install(DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/CustomControls
-	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/CustomControls
-	COMPONENT CustomControls
-	)

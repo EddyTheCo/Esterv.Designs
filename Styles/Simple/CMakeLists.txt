@@ -34,16 +34,16 @@ target_link_libraries(SimpleStyle PUBLIC Qt6::Gui Qt6::Quick)
 install(TARGETS SimpleStyle ${out_targets_var}  ${out_targets_var2}
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	COMPONENT Styles
+	COMPONENT SimpleStyle 
+	)
+install(DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/Styles/Simple
+	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles
+	COMPONENT SimpleStyle 
 	)
 install(TARGETS SimpleStyleplugin
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles/Simple
-	COMPONENT Styles
+	COMPONENT SimpleStyle 
 	)
 
-install(DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/Styles/Simple
-	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles/Simple
-	COMPONENT Styles
-	)
 

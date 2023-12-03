@@ -41,6 +41,7 @@ install(EXPORT ${PROJECT_NAME}-config
 	FILE ${PROJECT_NAME}-config.cmake
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/EstervQt
 	NAMESPACE ${PROJECT_NAME}::
+	COMPONENT All
 	)
 include(CMakePackageConfigHelpers)
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
@@ -61,7 +62,7 @@ export(EXPORT ${PROJECT_NAME}-config
 	FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake"
 	)
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-        add_subdirectory(Examples EXCLUDE_FROM_ALL)
+        add_subdirectory(Examples)
 	set(CPACK_PACKAGE_CONTACT "estervtech")
 	set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}-v${SEMVER}-${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_VERSION}-${CMAKE_SYSTEM_PROCESSOR}-${CMAKE_CXX_COMPILER_ID}")
 	include(CPack)
