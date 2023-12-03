@@ -20,7 +20,7 @@ qt6_add_shaders(SimpleStyle "esterVtech.com.imports.Styles.Simple"
 	OPTIMIZED
 	OUTPUT_TARGETS out_targets_var2
 	PREFIX
-	"/esterVtech.com/imports/Styles/Simple"
+	"/esterVtech.com/imports/Designs"
 	FILES
 	"frag/hollowArrowHead.frag"
 	"frag/filledArrowHead.frag"

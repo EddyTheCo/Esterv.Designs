@@ -28,7 +28,7 @@ T.Switch {
             property real iTime:control.checked?0.0:1.0
             Behavior on iTime { SmoothedAnimation { velocity: 0.9 } }
             property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
-            fragmentShader: "qrc:/esterVtech.com/imports/Styles/Simple/frag/sunTomoon.frag.qsb"
+            fragmentShader: "qrc:/esterVtech.com/imports/Designs/frag/sunTomoon.frag.qsb"
         }
 
     }
