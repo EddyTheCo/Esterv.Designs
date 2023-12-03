@@ -4,7 +4,7 @@
 
 
 #define BLUR 0.02
-#define SUNR1 0.35
+#define SUNR1 0.3
 #define SUNR2 0.4
 #define SUNR3 0.6
 #define SUNW  0.25
@@ -37,8 +37,8 @@ float sun(float r, float a)
 }
 float moon(vec2 uv)
 {
-    float f=Circle(uv,SUNR1);
-    f-=Circle(uv-0.6*SUNR1*vec2(cos(PI*(0.25)),sin(PI*(0.25))),SUNR1*(1.0-iTime));
+    float f=Circle(uv,SUNR2);
+    f-=Circle(uv-0.6*SUNR2*vec2(cos(PI*(0.25)),sin(PI*(0.25))),SUNR2*(1.0-iTime));
     return clamp(f,0.0,1.0)*(1.0-iTime);
 }
 void main( void)
