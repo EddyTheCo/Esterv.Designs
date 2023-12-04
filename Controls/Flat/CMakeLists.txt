@@ -3,7 +3,8 @@ qt6_add_qml_module(FlatControl
 	URI  Esterv.Controls.Flat
 	VERSION ${VERSION}
 	QML_FILES
-	qml/Button.qml
+        "qml/Button.qml"
+        "qml/RoundButton.qml"
 	RESOURCE_PREFIX
 	"/esterVtech.com/imports"
 	OUTPUT_TARGETS out_targets_var
