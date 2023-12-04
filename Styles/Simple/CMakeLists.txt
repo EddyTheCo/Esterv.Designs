@@ -13,7 +13,8 @@ qt6_add_qml_module(SimpleStyle
 	${CMAKE_BINARY_DIR}/Esterv/Styles/Simple
 	IMPORT_PATH ${CMAKE_BINARY_DIR}
 	)
-
+add_library(${PROJECT_NAME}::SimpleStyle ALIAS SimpleStyle)
+add_library(${PROJECT_NAME}::SimpleStyleplugin ALIAS SimpleStyleplugin)
 qt6_add_shaders(SimpleStyle "esterVtech.com.imports.Styles.Simple"
 	BATCHABLE
 	PRECOMPILE

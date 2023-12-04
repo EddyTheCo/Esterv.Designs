@@ -14,6 +14,8 @@ qt6_add_qml_module(FlatControl
 	)
 
 
+add_library(${PROJECT_NAME}::FlatControl ALIAS FlatControl)
+add_library(${PROJECT_NAME}::FlatControlplugin ALIAS FlatControlplugin)
 
 target_link_libraries(FlatControl PUBLIC Qt6::Gui Qt6::Quick SimpleStyle)
 

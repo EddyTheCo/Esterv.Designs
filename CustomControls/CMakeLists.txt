@@ -14,6 +14,8 @@ qt6_add_qml_module(customControls
 	IMPORT_PATH ${CMAKE_BINARY_DIR}
 	)
 
+add_library(${PROJECT_NAME}::customControls ALIAS customControls)
+add_library(${PROJECT_NAME}::customControlsplugin ALIAS customControlsplugin)
 
 target_link_libraries(customControls PUBLIC Qt6::Gui Qt6::Quick SimpleStyle )
 
