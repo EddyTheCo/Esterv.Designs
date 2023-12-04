@@ -12,9 +12,13 @@ QtObject {
             })
     property font h3:
     Qt.font({
-                pixelSize:15
+                pixelSize:20
             })
     property font h4:
+    Qt.font({
+                pixelSize:16
+            })
+    property font p:
     Qt.font({
                 pixelSize:12
             })
@@ -34,23 +38,23 @@ QtObject {
         Full
     }
 
-    property int roundedScale: Style.Scale.Medium;
+    property int roundedScale: Style.Scale.ExtraSmall;
     property int thickScale: Style.Scale.ExtraSmall;
-    property int paddingScale: Style.Scale.Medium;
+    property real paddingScale: Style.Scale.ExtraSmall;
     property int theme: Style.Theme.Dark
 
     /* Dark theme from light to dark */
     /* Light theme from dark to light */
-    property color frontColor1: (Style.theme)?"#10141c":"#fdfdfd" //large areas
+    property color frontColor1: (Style.theme)?"#10141c":"#fdfdfd" //small areas
     property color frontColor2: (Style.theme)?"#27282a":"#d9d9d9" //medium areas
-    property color frontColor3: (Style.theme)?"#176B87":"#9e9e9e" //small areas
+    property color frontColor3: (Style.theme)?"#176B87":"#9e9e9e" //large areas
 
     Behavior on frontColor1 { ColorAnimation { duration: 1000 } }
     Behavior on frontColor2 { ColorAnimation { duration: 1000 } }
     Behavior on frontColor3 { ColorAnimation { duration: 1000 } }
 
 
-    property color midColor1: "#fdfdfd"
+    property color midColor1: "#F4BF96"
     property color midColor2: "#F4BF96"
     property color midColor3: (Style.theme)?"#b0e5f7":"#a8a8a8"
 
