@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import Esterv.Styles.Simple
 
-Button {
+RoundButton {
     id: control
 
     property string shaderIcon:"hollowArrowHead"
