@@ -8,7 +8,7 @@ layout(std140, binding = 0) uniform buf {
     float qt_Opacity;
     vec2 pixelStep;
     vec4 fcolor;
-    float hovered;
+    float iTime;
 };
 layout(binding = 1) uniform sampler2D src;
 
@@ -23,8 +23,8 @@ void main( void)
 {
     vec2 uv=qt_TexCoord0-0.5;
 
-    float w=0.25-hovered;
-    float r=0.03-0.03*hovered/0.3;
+    float w=0.5-iTime;
+    float r=0.05;
     float d1 = 1.0-smoothstep(-0.001,0.001,sdRoundedX( uv, w, r ));
 
     vec4 bcolor=texture(src, uv).rgba;

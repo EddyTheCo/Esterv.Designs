@@ -26,6 +26,7 @@ qt6_add_shaders(SimpleStyle "esterVtech.com.imports.Styles.Simple"
 	"frag/hollowArrowHead.frag"
 	"frag/filledArrowHead.frag"
 	"frag/sunTomoon.frag"
+        "frag/close.frag"
 	)
 
 

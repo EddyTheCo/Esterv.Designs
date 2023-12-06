@@ -126,8 +126,31 @@ ApplicationWindow {
 
         ThemeSwitch
         {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+
+        }
+        CloseButton
+        {
+            Layout.preferredHeight: 100
+            Layout.preferredWidth: 100
+        }
+        CloseButton
+        {
+            flat:true
+            Layout.preferredHeight: 50
+            Layout.preferredWidth: 50
+        }
+        CloseButton
+        {
+            enabled:false
+            Layout.preferredHeight: 50
+            Layout.preferredWidth: 50
+        }
+        CloseButton
+        {
+            enabled:false
+            flat:true
+            Layout.preferredHeight: 100
+            Layout.preferredWidth: 100
         }
     }
 

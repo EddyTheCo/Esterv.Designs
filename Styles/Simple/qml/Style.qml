@@ -40,7 +40,7 @@ QtObject {
 
     property int roundedScale: Style.Scale.ExtraSmall;
     property int thickScale: Style.Scale.ExtraSmall;
-    property real paddingScale: Style.Scale.ExtraSmall;
+    property real paddingScale: Style.Scale.Small;
     property int theme: Style.Theme.Dark
 
     /* Dark theme from light to dark */

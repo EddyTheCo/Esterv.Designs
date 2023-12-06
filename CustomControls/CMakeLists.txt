@@ -3,9 +3,10 @@ qt6_add_qml_module(customControls
 	URI  Esterv.CustomControls
 	VERSION ${VERSION}
 	QML_FILES
-	qml/PrevButton.qml
-	qml/NextButton.qml
-	qml/ThemeSwitch.qml
+        "qml/PrevButton.qml"
+        "qml/NextButton.qml"
+        "qml/ThemeSwitch.qml"
+        "qml/CloseButton.qml"
 	RESOURCE_PREFIX
 	"/esterVtech.com/imports"
 	OUTPUT_TARGETS out_targets_var
