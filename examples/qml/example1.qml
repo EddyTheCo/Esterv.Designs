@@ -152,6 +152,10 @@ ApplicationWindow {
             Layout.preferredHeight: 100
             Layout.preferredWidth: 100
         }
+        Switch
+        {
+            text:"MySwitch"
+        }
     }
 
 

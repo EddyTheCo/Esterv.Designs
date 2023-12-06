@@ -5,6 +5,7 @@ qt6_add_qml_module(FlatControl
 	QML_FILES
         "qml/Button.qml"
         "qml/RoundButton.qml"
+	"qml/Switch.qml"
 	RESOURCE_PREFIX
 	"/esterVtech.com/imports"
 	OUTPUT_TARGETS out_targets_var
