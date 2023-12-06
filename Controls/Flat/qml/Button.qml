@@ -11,7 +11,7 @@ T.Button {
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              implicitContentHeight + topPadding + bottomPadding)
 
-    padding: Math.min(control.width,control.height)*Style.paddingScale/Style.Scale.Full
+    padding: 6*Style.paddingScale
 
     opacity:(control.enabled)?1.0:0.7
     icon.width: 24

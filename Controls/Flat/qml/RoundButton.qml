@@ -11,7 +11,7 @@ T.RoundButton {
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              implicitContentHeight + topPadding + bottomPadding)
 
-    padding: Math.min(control.width,control.height)*Style.paddingScale/Style.Scale.Full
+    padding: 6*Style.paddingScale
 
     icon.width: 24
     icon.height: 24
