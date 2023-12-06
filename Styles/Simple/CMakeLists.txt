@@ -3,7 +3,7 @@ set_source_files_properties(qml/Style.qml PROPERTIES
 	)
 qt6_add_qml_module(SimpleStyle
 	URI  Esterv.Styles.Simple
-	VERSION ${VERSION}
+	VERSION 1.0
 	QML_FILES
 	qml/Style.qml
 	RESOURCE_PREFIX

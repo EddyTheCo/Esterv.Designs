@@ -1,7 +1,7 @@
 
 qt6_add_qml_module(FlatControl
 	URI  Esterv.Controls.Flat
-	VERSION ${VERSION}
+	VERSION 1.0
 	QML_FILES
         "qml/Button.qml"
         "qml/RoundButton.qml"

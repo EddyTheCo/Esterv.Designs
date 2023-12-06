@@ -1,7 +1,7 @@
 
 qt6_add_qml_module(customControls
 	URI  Esterv.CustomControls
-	VERSION ${VERSION}
+	VERSION 1.0
 	QML_FILES
         "qml/PrevButton.qml"
         "qml/NextButton.qml"
