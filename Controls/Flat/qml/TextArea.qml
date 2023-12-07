@@ -43,7 +43,7 @@ T.TextArea {
     background: Rectangle {
         implicitWidth: 200
         implicitHeight: 100
-        color:Style.backColor2
+        color:Style.backColor3
         radius: Math.min(width,height)*0.4*Style.roundedScale/Style.Scale.Full
         Rectangle
         {

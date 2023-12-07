@@ -14,7 +14,7 @@ T.Popup {
     padding: 6*Style.paddingScale
 
     background: Rectangle {
-        color: Style.backColor1.darker(1.3)
+        color: Style.backColor2
         radius: Math.min(width,height)*0.1*Style.roundedScale/Style.Scale.Full
     }
 
