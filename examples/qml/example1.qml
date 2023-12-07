@@ -156,6 +156,47 @@ ApplicationWindow {
         {
             text:"MySwitch"
         }
+        TextField
+        {
+            placeholderText:"This is the place holder text"
+        }
+        TextField
+        {
+            placeholderText:"This is the place holder text"
+            font.pixelSize: 30
+        }
+        TextField
+        {
+            placeholderText:"This is the place holder text"
+            font.pixelSize: 30
+            enabled:false
+        }
+        TextArea
+        {
+            placeholderText:"This is the place holder text\n for a ext area"
+        }
+        Item
+        {
+            Layout.minimumHeight: 100
+            Layout.minimumWidth: 200
+            ScrollView {
+                anchors.fill:parent
+                TextArea
+                {
+                    placeholderText:"This is the place holder text\n for a scrollable text area "
+                }
+            }
+        }
+
+
+        TextArea
+        {
+            placeholderText:"This is the place holder text\n for a disabled text area "
+            enabled:false
+            font.pixelSize: 30
+
+        }
+
     }
 
 
