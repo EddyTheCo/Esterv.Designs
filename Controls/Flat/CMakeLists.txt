@@ -9,6 +9,7 @@ qt6_add_qml_module(FlatControl
 	"qml/Switch.qml"
         "qml/TextField.qml"
         "qml/TextArea.qml"
+        "qml/Popup.qml"
 	RESOURCE_PREFIX
 	"/esterVtech.com/imports"
 	OUTPUT_TARGETS out_targets_var

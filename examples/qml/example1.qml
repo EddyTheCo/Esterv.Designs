@@ -24,6 +24,7 @@ ApplicationWindow {
         {
             text:"Button"
             font.pixelSize: 20
+            onClicked:popup.open();
         }
         Button
         {
@@ -205,7 +206,16 @@ ApplicationWindow {
 
         }
 
+
     }
 
+    Popup
+    {
+        id:popup
+        anchors.centerIn: Overlay.overlay
+        closePolicy: Popup.CloseOnPressOutside
+        width:parent.width*0.5
+        height:parent.height*0.5
+    }
 
 }

@@ -44,7 +44,7 @@ T.TextArea {
         implicitWidth: 200
         implicitHeight: 100
         color:Style.backColor2
-        radius: Math.min(width,height)*0.8*Style.roundedScale/Style.Scale.Full
+        radius: Math.min(width,height)*0.4*Style.roundedScale/Style.Scale.Full
         Rectangle
         {
             id:botomline
