@@ -4,6 +4,7 @@ qt6_add_qml_module(FlatControl
 	VERSION 1.0
 	QML_FILES
         "qml/Button.qml"
+        "qml/ToolTip.qml"
         "qml/RoundButton.qml"
 	"qml/Switch.qml"
         "qml/TextField.qml"

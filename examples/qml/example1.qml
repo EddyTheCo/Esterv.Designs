@@ -132,6 +132,10 @@ ApplicationWindow {
         {
             Layout.preferredHeight: 100
             Layout.preferredWidth: 100
+            ToolTip.timeout: 5000
+            ToolTip.visible: hovered
+            ToolTip.text: qsTr("This tool tip is shown ")
+
         }
         CloseButton
         {
@@ -164,6 +168,10 @@ ApplicationWindow {
         {
             placeholderText:"This is the place holder text"
             font.pixelSize: 30
+            ToolTip.timeout: 5000
+            ToolTip.visible: hovered
+            ToolTip.text: qsTr("This tool tip is shown ")
+
         }
         TextField
         {
