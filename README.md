@@ -36,12 +36,14 @@ FetchContent_Declare(
 	EstervDesigns
 	GIT_REPOSITORY https://github.com/EddyTheCo/MyDesigns.git
 	GIT_TAG v1.0.0 
-	FIND_PACKAGE_ARGS 1.0  COMPONENTS SimpleStyle CONFIG
+	FIND_PACKAGE_ARGS 1.0  CONFIG
 	)
 FetchContent_MakeAvailable(EstervDesigns)
 
-target_link_libraries(<target> <PRIVATE|PUBLIC|INTERFACE> EstervDesigns::SimpleStyle
+target_link_libraries(<target> <PRIVATE|PUBLIC|INTERFACE> EstervDesigns::SimpleStyle EstervDesigns::CustomControls EstervDesigns::FlatControl
 $<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::SimpleStyle,TYPE>,STATIC_LIBRARY>:EstervDesigns::SimpleStyleplugin>
+$<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::CustomControls,TYPE>,STATIC_LIBRARY>:EstervDesigns::CustomControlsplugin>
+$<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::FlatControl,TYPE>,STATIC_LIBRARY>:EstervDesigns::FlatControlplugin>
 )
 ```
 ## Using the modules

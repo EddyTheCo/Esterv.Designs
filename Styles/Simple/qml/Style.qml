@@ -71,11 +71,6 @@ QtObject {
 
 
 
-    /*Backgrounds rectangle to use for controls. Higher index = higher z */
-
-    property Rectangle background1;
-    property Rectangle background2;
-    property Rectangle background3;
 
 }
 
