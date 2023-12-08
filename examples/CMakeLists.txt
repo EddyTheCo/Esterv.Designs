@@ -1,5 +1,9 @@
 
 if(BUILD_EXAMPLES)
+	if(EMSCRIPTEN)
+		find_package(Qt6 REQUIRED COMPONENTS QuickControls2)
+		find_package(EstervDesigns 0.4 REQUIRED COMPONENTS FlatControl CONFIG )
+	endif(EMSCRIPTEN)
 	foreach(example "example1"
 			)
 		qt_add_executable(${example} ${example}.cpp )
@@ -34,5 +38,11 @@ if(BUILD_EXAMPLES)
 				)
 			install(SCRIPT ${deploy_script})
 		endif(QTDEPLOY)
+		if(EMSCRIPTEN)
+			target_link_libraries(${example} PRIVATE EstervDesigns::FlatControl Qt6::QuickControls2
+				$<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::FlatControl,TYPE>,STATIC_LIBRARY>:EstervDesigns::FlatControlplugin>
+				)
+			target_compile_definitions(${example} PRIVATE FORCE_STYLE="Esterv.Controls.Flat")
+		endif(EMSCRIPTEN)
 	endforeach()
 endif(BUILD_EXAMPLES)
