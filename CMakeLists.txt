@@ -4,7 +4,7 @@ include(FetchContent)
 FetchContent_Declare(
 	ccommon
 	GIT_REPOSITORY https://github.com/EddyTheCo/Common.git
-	GIT_TAG main
+	GIT_TAG testing
 	)
 FetchContent_MakeAvailable(ccommon)
 version_from_git(
@@ -62,9 +62,13 @@ export(EXPORT ${PROJECT_NAME}-config
 	FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake"
 	)
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-        add_subdirectory(examples)
+	add_subdirectory(examples)
 	set(CPACK_PACKAGE_CONTACT "estervtech")
 	set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}-v${SEMVER}-${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_VERSION}-${CMAKE_SYSTEM_PROCESSOR}-${CMAKE_CXX_COMPILER_ID}")
 	include(CPack)
 endif()
 
+if(BUILD_DOCS)
+	get_target_property(build_docs cmake_build_docs SOURCES)
+	include(${build_docs})
+endif()
