@@ -1,27 +1,48 @@
-cmake_minimum_required(VERSION 3.16)
 
-project(Designs VERSION 0.1 LANGUAGES CXX)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+if(BUILD_EXAMPLES)
+	if(EMSCRIPTEN)
+		find_package(Qt6 REQUIRED COMPONENTS QuickControls2)
+		find_package(EstervDesigns 0.4 REQUIRED COMPONENTS FlatControl CONFIG )
+	endif(EMSCRIPTEN)
+	foreach(example "example1"
+			)
+		qt_add_executable(${example} ${example}.cpp )
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick)
+		qt6_add_qml_module(${example}
+			URI  E${example}
+			VERSION 1.0
+			QML_FILES
+			"qml/${example}.qml"
+			RESOURCE_PREFIX
+			"/esterVtech.com/imports"
+			IMPORT_PATH ${CMAKE_BINARY_DIR}
+			)
 
+		target_link_libraries(${example} PRIVATE Qt::Gui Qt::Qml Qt::Quick customControls
+			$<$<STREQUAL:$<TARGET_PROPERTY:customControls,TYPE>,STATIC_LIBRARY>:customControlsplugin>
+			)
 
-qt_add_executable(app main.cpp)
-
-qt6_add_qml_module(app
-    URI  example_app
-    VERSION 1.0
-    QML_FILES
-    window.qml
-    RESOURCE_PREFIX
-    "/esterVtech.com/imports"
-)
-
-target_link_libraries(app PUBLIC Qt6::Gui Qt6::Quick MyDesigns)
-
-
-target_compile_definitions(app
-    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-
+		set_target_properties(${example} PROPERTIES
+			WIN32_EXECUTABLE ON
+			MACOSX_BUNDLE ON
+			)
+		install(TARGETS ${example}
+			BUNDLE  DESTINATION .
+			DESTINATION ${CMAKE_INSTALL_BINDIR}
+			COMPONENT EXAMPLES
+			)
+		if(QTDEPLOY)
+			qt_generate_deploy_qml_app_script(
+				TARGET ${example}
+				OUTPUT_SCRIPT deploy_script
+				)
+			install(SCRIPT ${deploy_script})
+		endif(QTDEPLOY)
+		if(EMSCRIPTEN)
+			target_link_libraries(${example} PRIVATE EstervDesigns::FlatControl Qt6::QuickControls2
+				$<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::FlatControl,TYPE>,STATIC_LIBRARY>:EstervDesigns::FlatControlplugin>
+				)
+			target_compile_definitions(${example} PRIVATE FORCE_STYLE="Esterv.Controls.Flat")
+		endif(EMSCRIPTEN)
+	endforeach()
+endif(BUILD_EXAMPLES)
