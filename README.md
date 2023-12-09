@@ -57,6 +57,7 @@ One needs to  make available to the QML engine the different modules by setting 
 ## Examples
 
 The [examples](examples) folder shows the use of the different custom types provided by the QML module.
+
 One can also play with the types [here](https://eddytheco.github.io/qmlonline/?example_url=flatcontrol)
 
 
