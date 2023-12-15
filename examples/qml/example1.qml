@@ -256,6 +256,21 @@ ApplicationWindow {
 
             }
         }
+        SpinBox {
+            id:accountnumber
+            value: 0
+            from:0
+            to: 429496729
+        }
+        Label
+        {
+            text:"this is a label"
+        }
+        Label
+        {
+            text:"this is a label"
+            font.pixelSize: 25
+        }
 
 
     }
