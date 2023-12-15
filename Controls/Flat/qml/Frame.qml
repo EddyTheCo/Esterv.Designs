@@ -18,7 +18,5 @@ T.Frame {
 
     background: Rectangle {
         color: Style.backColor2
-        border.color: Style.frontColor3
-        radius: Math.min(width,height)*Style.roundedScale/Style.Scale.Full
     }
 }
