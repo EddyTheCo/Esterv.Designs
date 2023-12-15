@@ -246,32 +246,37 @@ ApplicationWindow {
             }
 
         }
-        TabBar {
-
-            TabButton {
-                text: qsTr("Current")
-            }
-            TabButton {
-                text: qsTr("Restore")
-
-            }
-        }
-        SpinBox {
-            id:accountnumber
-            value: 0
-            from:0
-            to: 429496729
-        }
-        Label
+        Frame
         {
-            text:"this is a label"
-        }
-        Label
-        {
-            text:"this is a label"
-            font.pixelSize: 25
-        }
+            GridLayout
+            {
+                TabBar {
 
+                    TabButton {
+                        text: qsTr("Current")
+                    }
+                    TabButton {
+                        text: qsTr("Restore")
+
+                    }
+                }
+                SpinBox {
+                    id:accountnumber
+                    value: 0
+                    from:0
+                    to: 429496729
+                }
+                Label
+                {
+                    text:"this is a label"
+                }
+                Label
+                {
+                    text:"this is a label"
+                    font.pixelSize: 25
+                }
+            }
+        }
 
     }
 
