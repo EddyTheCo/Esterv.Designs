@@ -18,8 +18,8 @@ if(BUILD_EXAMPLES)
 			IMPORT_PATH ${CMAKE_BINARY_DIR}
 			)
 
-		target_link_libraries(${example} PRIVATE Qt::Gui Qt::Qml Qt::Quick customControls
-			$<$<STREQUAL:$<TARGET_PROPERTY:customControls,TYPE>,STATIC_LIBRARY>:customControlsplugin>
+                target_link_libraries(${example} PRIVATE Qt::Gui Qt::Qml Qt::Quick CustomControls
+                        $<$<STREQUAL:$<TARGET_PROPERTY:CustomControls,TYPE>,STATIC_LIBRARY>:CustomControlsplugin>
 			)
 
 		set_target_properties(${example} PROPERTIES

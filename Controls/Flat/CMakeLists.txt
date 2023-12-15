@@ -3,6 +3,10 @@ qt6_add_qml_module(FlatControl
 	URI  Esterv.Controls.Flat
 	VERSION 1.0
 	QML_FILES
+        "qml/TabButton.qml"
+        "qml/TabBar.qml"
+        "qml/ItemDelegate.qml"
+        "qml/ComboBox.qml"
         "qml/Button.qml"
         "qml/ToolTip.qml"
         "qml/RoundButton.qml"

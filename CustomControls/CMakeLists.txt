@@ -1,5 +1,5 @@
 
-qt6_add_qml_module(customControls
+qt6_add_qml_module(CustomControls
 	URI  Esterv.CustomControls
 	VERSION 1.0
 	QML_FILES
@@ -15,13 +15,13 @@ qt6_add_qml_module(customControls
 	IMPORT_PATH ${CMAKE_BINARY_DIR}
 	)
 
-add_library(${PROJECT_NAME}::customControls ALIAS customControls)
-add_library(${PROJECT_NAME}::customControlsplugin ALIAS customControlsplugin)
+add_library(${PROJECT_NAME}::CustomControls ALIAS CustomControls)
+add_library(${PROJECT_NAME}::CustomControlsplugin ALIAS CustomControlsplugin)
 
-target_link_libraries(customControls PUBLIC Qt6::Gui Qt6::Quick SimpleStyle )
+target_link_libraries(CustomControls PUBLIC Qt6::Gui Qt6::Quick SimpleStyle )
 
 
-install(TARGETS customControls ${out_targets_var}
+install(TARGETS CustomControls ${out_targets_var}
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	COMPONENT CustomControls
@@ -30,7 +30,7 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/CustomControls
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv
 	COMPONENT CustomControls
 	)
-install(TARGETS customControlsplugin 
+install(TARGETS CustomControlsplugin 
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/CustomControls
 	COMPONENT CustomControls

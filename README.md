@@ -1,10 +1,10 @@
 # EstervDesigns
 
-This repo produce QML modules with custom QML types that can be used in GUI interfaces.
+This repo produces QML modules with custom QML types that can be used in GUI interfaces.
 
 It is composed of different Qt Quick Controls custom styles in the [Controls](Controls/README.md) directory.
-Also expose some higher level custom controls/types in the [CustomControls](CustomControls/README.md) directory.
-And some common resources are grouped in QML modules in the  [Styles](Styles/README.md) directory.
+Also, expose some higher-level custom controls/types in the [CustomControls](CustomControls/README.md) directory.
+Some common resources are grouped in QML modules in the  [Styles](Styles/README.md) directory.
 
 
 ## Installing the modules 
@@ -54,15 +54,21 @@ One needs to  make available to the QML engine the different modules by setting 
 
 2. Set the environment variable like `export QML_IMPORT_PATH=installDir/CMAKE_INSTALL_LIBDIR`  where `CMAKE_INSTALL_LIBDIR` is where `Esterv` folder was created.
 
+## Examples
+
+The [examples](examples) folder shows the use of the different custom types provided by the QML module.
+
+One can also play with the types [here](https://eddytheco.github.io/qmlonline/?example_url=flatcontrol)
+
 
 ## Contributing
 
 We appreciate any contribution!
 
 
-You can open an issue or request a feature also.
+You can open an issue or request a feature.
 You can open a PR to the `develop` branch and the CI/CD will take care of the rest.
-Make sure to acknowledge your work, ideas when contributing.
+Make sure to acknowledge your work, and ideas when contributing.
 
 
 
