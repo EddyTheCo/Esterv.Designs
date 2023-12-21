@@ -14,8 +14,8 @@ T.Switch {
 
     background: Item
     {
-        implicitWidth: 100
-        implicitHeight: 100
+        implicitWidth: 64
+        implicitHeight: 64
 
         ShaderEffect
         {
