@@ -3,6 +3,8 @@ qt6_add_qml_module(FlatControl
 	URI  Esterv.Controls.Flat
 	VERSION 1.0
 	QML_FILES
+	"qml/CheckBox.qml"
+	"qml/DelayButton.qml"
         "qml/Frame.qml"
         "qml/SpinBox.qml"
         "qml/Label.qml"
