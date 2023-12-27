@@ -277,6 +277,14 @@ ApplicationWindow {
                 }
             }
         }
+        CheckBox
+        {
+        }
+        DelayButton
+        {
+            text:"DelayButton"
+            delay:2000
+        }
 
     }
 
