@@ -205,7 +205,86 @@ ApplicationWindow {
             font.pixelSize: 30
 
         }
+        ComboBox
+        {
+            editable: true
+            model: ListModel {
 
+                ListElement { text: "rms" }
+                ListElement { text: "iota" }
+                ListElement { text: "smr" }
+            }
+            onAccepted: {
+                if (find(editText) === -1)
+                    hrplist.append({text: editText})
+            }
+        }
+        ComboBox
+        {
+            editable: true
+            enabled:false
+            model: ListModel {
+
+                ListElement { text: "rms" }
+                ListElement { text: "iota" }
+                ListElement { text: "smr" }
+            }
+            onAccepted: {
+                if (find(editText) === -1)
+                    hrplist.append({text: editText})
+            }
+        }
+        ComboBox
+        {
+            editable: false
+
+            model: ListModel {
+
+                ListElement { text: "rms" }
+                ListElement { text: "iota" }
+                ListElement { text: "smr" }
+            }
+
+        }
+        Frame
+        {
+            GridLayout
+            {
+                TabBar {
+
+                    TabButton {
+                        text: qsTr("Current")
+                    }
+                    TabButton {
+                        text: qsTr("Restore")
+
+                    }
+                }
+                SpinBox {
+                    id:accountnumber
+                    value: 0
+                    from:0
+                    to: 429496729
+                }
+                Label
+                {
+                    text:"this is a label"
+                }
+                Label
+                {
+                    text:"this is a label"
+                    font.pixelSize: 25
+                }
+            }
+        }
+        CheckBox
+        {
+        }
+        DelayButton
+        {
+            text:"DelayButton"
+            delay:2000
+        }
 
     }
 

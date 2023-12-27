@@ -1,7 +1,7 @@
 #version 440
 #define PI     3.1415926535898
 #define W    0.05
-
+#define BLUR   0.05
 layout(location = 0) in vec2 qt_TexCoord0;
 layout(location = 0) out vec4 fragColor;
 
@@ -33,7 +33,7 @@ void main( void)
     p.x=uv.x*cos(phi)+uv.y*sin(phi);
     p.y=-uv.x*sin(phi)+uv.y*cos(phi)+0.2;
 
-    float d1=1.0-smoothstep(0.0,0.03,abs(sdEquilateralTriangle(p,0.75))-0.08);
+    float d1=1.0-smoothstep(0.0,BLUR,abs(sdEquilateralTriangle(p,0.75))-0.08);
     d1-=1.0-step(-0.3,p.y);
 
     vec4 bcolor=texture(src, qt_TexCoord0).rgba;
