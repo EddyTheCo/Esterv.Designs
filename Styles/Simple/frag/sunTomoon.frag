@@ -3,7 +3,7 @@
 #define LIGHTREP 8.0
 
 
-#define BLUR 0.02
+#define BLUR 0.05
 #define SUNR1 0.3
 #define SUNR2 0.4
 #define SUNR3 0.6
