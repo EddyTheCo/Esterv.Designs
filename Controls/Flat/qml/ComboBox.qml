@@ -1,7 +1,6 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import QtQuick.Controls.impl
 import QtQuick.Templates as T
 import Esterv.Styles.Simple
 import QtQuick.Controls
@@ -35,7 +34,7 @@ T.ComboBox {
         x: control.mirrored ? control.padding : control.width - width - control.padding
         y: control.topPadding + (control.availableHeight - height) / 2
         color:control.down ? (Style.theme)?Style.backColor3.darker(1.1):Style.backColor3.lighter(1.1):
-                                            (control.highlighted || control.checked ? Style.backColor3.darker(1.1) :
+                                            (control.highlighted ? Style.backColor3.darker(1.1) :
                                             Style.backColor3)
 
         ShaderEffect
@@ -46,7 +45,7 @@ T.ComboBox {
             anchors.horizontalCenter: parent.horizontalCenter
             property var src:parent
             property color fcolor:(control.highlighted||control.flat)&&control.enabled?Style.frontColor1:(control.enabled?Style.frontColor2:Style.frontColor3)
-            property real iTime:popup.visible?0.0:1.0
+            property real iTime:control.popup.visible?0.0:1.0
             Behavior on iTime { SmoothedAnimation { velocity: 3.0} }
             property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
             fragmentShader: "qrc:/esterVtech.com/imports/Designs/frag/hollowArrowHead.frag.qsb"
@@ -59,7 +58,7 @@ T.ComboBox {
             anchors.horizontalCenter: parent.horizontalCenter
             property var src:parent
             property color fcolor:(control.highlighted||control.flat)&&control.enabled?Style.frontColor1:(control.enabled?Style.frontColor2:Style.frontColor3)
-            property real iTime:popup.visible?1.0:0.0
+            property real iTime:control.popup.visible?1.0:0.0
             Behavior on iTime { SmoothedAnimation { velocity: 3.0} }
             property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
             fragmentShader: "qrc:/esterVtech.com/imports/Designs/frag/hollowArrowHead.frag.qsb"
