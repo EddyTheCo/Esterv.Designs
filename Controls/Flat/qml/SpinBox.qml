@@ -1,8 +1,4 @@
-// Copyright (C) 2017 The Qt Company Ltd.
-// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
-
 import QtQuick
-import QtQuick.Controls.impl
 import QtQuick.Templates as T
 import Esterv.Styles.Simple
 
@@ -57,9 +53,8 @@ T.SpinBox {
         height: control.height
         implicitWidth: 40
         implicitHeight: 40
-        color: control.down ? (Style.theme)?Style.backColor3.darker(1.1):Style.backColor3.lighter(1.1):
-               (control.highlighted || control.checked ? Style.backColor3.darker(1.1) :
-               Style.backColor3)
+        color: control.down ? (Style.theme)?Style.backColor3.darker(1.1):Style.backColor3.lighter(1.1):Style.backColor3
+
 
         Rectangle {
             x: (parent.width - width) / 2
@@ -83,7 +78,7 @@ T.SpinBox {
         implicitWidth: 40
         implicitHeight: 40
         color: control.down ? (Style.theme)?Style.backColor3.darker(1.1):Style.backColor3.lighter(1.1):
-               (control.highlighted || control.checked ? Style.backColor3.darker(1.1) :
+               (control.checked ? Style.backColor3.darker(1.1) :
                Style.backColor3)
 
         Rectangle {
