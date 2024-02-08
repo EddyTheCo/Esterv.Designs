@@ -60,7 +60,7 @@ T.DelayButton {
         property int minspace:
             Math.min(control.leftPadding-control.leftInset,control.rightPadding-control.rightInset,
                      control.topPadding-control.topInset,control.bottomPadding-control.bottomInset)
-        border.width: (control.enabled && control.hovered&&!control.down&&!control.flat )?minspace*Style.thickScale/Style.Scale.Full:0
+        border.width: (control.enabled && control.hovered&&!control.down)?minspace*Style.thickScale/Style.Scale.Full:0
 
         PaddedRectangle {
             padding: control.visualFocus ? 2 : 0

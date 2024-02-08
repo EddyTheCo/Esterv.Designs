@@ -2,6 +2,7 @@ pragma Singleton
 import QtQuick 2.15
 
 QtObject {
+    id:control
     property font h1:
     Qt.font({
                 pointSize:40
@@ -45,9 +46,9 @@ QtObject {
 
     /* Dark theme from light to dark */
     /* Light theme from dark to light */
-    property color frontColor1: (Style.theme)?"#10141c":"#fdfdfd" //small areas
-    property color frontColor2: (Style.theme)?"#27282a":"#d9d9d9" //medium areas
-    property color frontColor3: (Style.theme)?"#176B87":"#9e9e9e" //large areas
+    property color frontColor1: (control.theme)?"#10141c":"#fdfdfd" //small areas
+    property color frontColor2: (control.theme)?"#27282a":"#d9d9d9" //medium areas
+    property color frontColor3: (control.theme)?"#176B87":"#9e9e9e" //large areas
 
     Behavior on frontColor1 { ColorAnimation { duration: 1000 } }
     Behavior on frontColor2 { ColorAnimation { duration: 1000 } }
@@ -56,13 +57,13 @@ QtObject {
 
     property color midColor1: "#F4BF96"
     property color midColor2: "#F4BF96"
-    property color midColor3: (Style.theme)?"#b0e5f7":"#a8a8a8"
+    property color midColor3: (control.theme)?"#b0e5f7":"#a8a8a8"
 
 
     /* from light to dark */
-    property color backColor1: (Style.theme)?"#FFF0F5":"#232D3F" //large areas
-    property color backColor2: (Style.theme)?"#FFD1DA":"#27282a" //medium areas
-    property color backColor3: (Style.theme)?"#FBA1B7":"#10141c" //small areas
+    property color backColor1: (control.theme)?"#FFF0F5":"#232D3F" //large areas
+    property color backColor2: (control.theme)?"#FFD1DA":"#27282a" //medium areas
+    property color backColor3: (control.theme)?"#FBA1B7":"#10141c" //small areas
 
 
     Behavior on backColor1 { ColorAnimation { duration: 1000 } }
