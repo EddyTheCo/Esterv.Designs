@@ -13,7 +13,6 @@ ApplicationWindow {
     {
         color:Style.backColor1
     }
-
     GridLayout
     {
         anchors.fill:parent
@@ -129,6 +128,7 @@ ApplicationWindow {
         {
 
         }
+
         CloseButton
         {
             Layout.preferredHeight: 100
@@ -209,6 +209,7 @@ ApplicationWindow {
         {
             editable: true
             model: ListModel {
+                id:hrplist
 
                 ListElement { text: "rms" }
                 ListElement { text: "iota" }
@@ -224,6 +225,7 @@ ApplicationWindow {
             editable: true
             enabled:false
             model: ListModel {
+                id:hrplist2
 
                 ListElement { text: "rms" }
                 ListElement { text: "iota" }
@@ -231,7 +233,7 @@ ApplicationWindow {
             }
             onAccepted: {
                 if (find(editText) === -1)
-                    hrplist.append({text: editText})
+                    hrplist2.append({text: editText})
             }
         }
         ComboBox
