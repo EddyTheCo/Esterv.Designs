@@ -1,5 +1,7 @@
 # Esterv.Controls
 
+[TOC]
+
 In this folder different custom Qt Quick Controls styles are listed.
 
 The controls styles are created following [this](https://doc.qt.io/qt-6/qtquickcontrols-customize.html#creating-a-custom-style).

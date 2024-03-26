@@ -1,5 +1,7 @@
 # Esterv.CustomControls
 
+[TOC]
+
 This folder produce a QML module with custom types,
 simple reusable types.
 This controls are higher level that the Quick Controls, so they have to be separated from them.

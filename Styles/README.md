@@ -1,5 +1,7 @@
 # Esterv.Styles 
 
+[TOC]
+
 In this folder different resources that are commonly used in GUI are listed.
 The different folders creates different QML modules grouping this resources. 
 
