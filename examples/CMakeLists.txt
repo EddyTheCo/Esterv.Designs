@@ -27,8 +27,8 @@ if(BUILD_EXAMPLES)
 			)
 		install(TARGETS ${example}
 			BUNDLE  DESTINATION .
-			DESTINATION ${CMAKE_INSTALL_BINDIR}
-			COMPONENT EXAMPLES
+			RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+			COMPONENT examples
 			)
 		if(QTDEPLOY)
 			qt_generate_deploy_qml_app_script(
