@@ -25,17 +25,15 @@ if(BUILD_EXAMPLES)
 			WIN32_EXECUTABLE ON
 			MACOSX_BUNDLE ON
 			)
-		install(TARGETS ${example}
-			BUNDLE  DESTINATION .
-			RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-			COMPONENT examples
+		install(TARGETS ${example} COMPONENT examples
+			BUNDLE  DESTINATION . COMPONENT examples
 			)
 		if(QTDEPLOY)
 			qt_generate_deploy_qml_app_script(
 				TARGET ${example}
 				OUTPUT_SCRIPT deploy_script
 				)
-			install(SCRIPT ${deploy_script})
+			install(SCRIPT ${deploy_script} COMPONENT examples)
 		endif(QTDEPLOY)
 		if(EMSCRIPTEN)
 			target_link_libraries(${example} PRIVATE EstervDesigns::FlatControl Qt6::QuickControls2
