@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.24)
 include(${CMAKE_CURRENT_BINARY_DIR}/local_conf.cmake OPTIONAL)
 include(FetchContent)
 FetchContent_Declare(
 	ccommon
 	GIT_REPOSITORY https://github.com/EddyTheCo/Common.git
-	GIT_TAG v0.1.1
+	GIT_TAG v0.3.0
 	)
 FetchContent_MakeAvailable(ccommon)
 version_from_git(
@@ -27,8 +27,8 @@ if (Qt6_FOUND)
 	if(NOT TARGET Qt6::ShaderTools)
 		FetchContent_Declare(
 			qtshadertools
-			GIT_REPOSITORY git://code.qt.io/qt/qtshadertools.git
-			GIT_TAG 6.5.0
+			GIT_REPOSITORY https://github.com/qt/qtshadertools.git
+			GIT_TAG 6.6.0
 			)
 		FetchContent_MakeAvailable(qtshadertools)
 	endif()
@@ -37,43 +37,15 @@ if (Qt6_FOUND)
 	add_subdirectory(Controls)
 	add_subdirectory(CustomControls)
 
-
-
-	install(EXPORT ${PROJECT_NAME}-config
-		DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
-		NAMESPACE ${PROJECT_NAME}::
-		COMPONENT ${PROJECT_NAME}
-		)
-
-	include(CMakePackageConfigHelpers)
-	configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
-		"${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
-		INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
-		)
-	write_basic_package_version_file(
-		"${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
-		VERSION ${VERSION}
-		COMPATIBILITY SameMajorVersion
-		)
-	install(FILES
-		${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-		${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
-		DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
-		)
-	export(EXPORT ${PROJECT_NAME}-config
-		FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake"
-		)
+	build_exports()
 	if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 		add_subdirectory(examples)
-		set(CPACK_PACKAGE_CONTACT "estervtech")
-		set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}-v${SEMVER}-${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_VERSION}-${CMAKE_SYSTEM_PROCESSOR}-${CMAKE_CXX_COMPILER_ID}")
-		include(CPack)
+		build_cpack()
 	endif()
 else()
 	message(STATUS "${PROJECT_NAME}" will not be build)
 endif()
 
 if(BUILD_DOCS)
-	get_target_property(build_docs cmake_build_docs SOURCES)
-	include(${build_docs})
+	build_docs()
 endif()

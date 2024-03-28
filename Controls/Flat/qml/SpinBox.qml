@@ -77,9 +77,7 @@ T.SpinBox {
         height: control.height
         implicitWidth: 40
         implicitHeight: 40
-        color: control.down ? (Style.theme)?Style.backColor3.darker(1.1):Style.backColor3.lighter(1.1):
-               (control.checked ? Style.backColor3.darker(1.1) :
-               Style.backColor3)
+        color: control.down ? (Style.theme)?Style.backColor3.darker(1.1):Style.backColor3.lighter(1.1):Style.backColor3
 
         Rectangle {
             x: (parent.width - width) / 2

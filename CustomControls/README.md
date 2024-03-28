@@ -1,5 +1,7 @@
 # Esterv.CustomControls
 
+[TOC]
+
 This folder produce a QML module with custom types,
 simple reusable types.
 This controls are higher level that the Quick Controls, so they have to be separated from them.
@@ -30,8 +32,8 @@ include(FetchContent)
 FetchContent_Declare(
 	EstervDesigns
 	GIT_REPOSITORY https://github.com/EddyTheCo/MyDesigns.git
-	GIT_TAG v1.0.0 
-	FIND_PACKAGE_ARGS 1.0  COMPONENTS CustomControls CONFIG
+	GIT_TAG vMAJOR.MINOR.PATCH 
+	FIND_PACKAGE_ARGS MAJOR.MINOR  COMPONENTS CustomControls CONFIG
 	)
 FetchContent_MakeAvailable(EstervDesigns)
 

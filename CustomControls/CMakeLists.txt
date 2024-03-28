@@ -16,6 +16,7 @@ qt6_add_qml_module(CustomControls
 	)
 
 add_library(${PROJECT_NAME}::CustomControls ALIAS CustomControls)
+set_target_properties(CustomControls PROPERTIES VERSION ${VERSION} SOVERSION ${VERSION_MAJOR})
 add_library(${PROJECT_NAME}::CustomControlsplugin ALIAS CustomControlsplugin)
 
 target_link_libraries(CustomControls PUBLIC Qt6::Gui Qt6::Quick SimpleStyle )
