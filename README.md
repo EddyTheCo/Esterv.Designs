@@ -1,5 +1,7 @@
 # EstervDesigns
 
+[TOC]
+
 This repo produces QML modules with custom QML types that can be used in GUI interfaces.
 
 It is composed of different Qt Quick Controls custom styles in the [Controls](Controls/README.md) directory.
@@ -35,8 +37,8 @@ include(FetchContent)
 FetchContent_Declare(
 	EstervDesigns
 	GIT_REPOSITORY https://github.com/EddyTheCo/MyDesigns.git
-	GIT_TAG v1.0.0 
-	FIND_PACKAGE_ARGS 1.0  CONFIG
+	GIT_TAG vMAJOR.MINOR.PATCH 
+	FIND_PACKAGE_ARGS MAJOR.MINOR CONFIG  
 	)
 FetchContent_MakeAvailable(EstervDesigns)
 
@@ -59,6 +61,14 @@ One needs to  make available to the QML engine the different modules by setting 
 The [examples](examples) folder shows the use of the different custom types provided by the QML module.
 
 One can also play with the types [here](https://eddytheco.github.io/qmlonline/?example_url=flatcontrol)
+
+## API reference
+
+You can read the [API reference](https://eddytheco.github.io/MyDesigns/), or generate it yourself like
+```
+cmake -DBUILD_DOCS=ON ../
+cmake --build . --target doxygen_docs
+```
 
 
 ## Contributing

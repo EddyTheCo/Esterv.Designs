@@ -14,6 +14,7 @@ qt6_add_qml_module(SimpleStyle
 	IMPORT_PATH ${CMAKE_BINARY_DIR}
 	)
 add_library(${PROJECT_NAME}::SimpleStyle ALIAS SimpleStyle)
+set_target_properties(SimpleStyle PROPERTIES VERSION ${VERSION} SOVERSION ${VERSION_MAJOR})
 add_library(${PROJECT_NAME}::SimpleStyleplugin ALIAS SimpleStyleplugin)
 qt6_add_shaders(SimpleStyle "esterVtech.com.imports.Styles.Simple"
 	BATCHABLE

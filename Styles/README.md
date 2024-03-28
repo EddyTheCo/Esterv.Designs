@@ -1,5 +1,7 @@
 # Esterv.Styles 
 
+[TOC]
+
 In this folder different resources that are commonly used in GUI are listed.
 The different folders creates different QML modules grouping this resources. 
 
@@ -30,8 +32,8 @@ include(FetchContent)
 FetchContent_Declare(
 	EstervDesigns
 	GIT_REPOSITORY https://github.com/EddyTheCo/MyDesigns.git
-	GIT_TAG v1.0.0 
-	FIND_PACKAGE_ARGS 1.0  COMPONENTS SimpleStyle CONFIG
+	GIT_TAG vMAJOR.MINOR.PATCH 
+	FIND_PACKAGE_ARGS MAJOR.MINOR  COMPONENTS SimpleStyle CONFIG
 	)
 FetchContent_MakeAvailable(EstervDesigns)
 
