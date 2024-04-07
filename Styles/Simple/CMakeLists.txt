@@ -38,6 +38,7 @@ install(TARGETS SimpleStyle ${out_targets_var}  ${out_targets_var2}
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	COMPONENT SimpleStyle 
+        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT SimpleStyle
 	)
 install(DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/Styles/Simple
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles
@@ -47,6 +48,7 @@ install(TARGETS SimpleStyleplugin
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles/Simple
 	COMPONENT SimpleStyle 
+        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT SimpleStyle
 	)
 
 
