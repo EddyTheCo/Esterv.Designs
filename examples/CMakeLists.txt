@@ -1,5 +1,6 @@
 
 if(BUILD_EXAMPLES)
+        include(InstallRequiredSystemLibraries)
 	if(EMSCRIPTEN)
 		find_package(Qt6 REQUIRED COMPONENTS QuickControls2)
 	endif(EMSCRIPTEN)
