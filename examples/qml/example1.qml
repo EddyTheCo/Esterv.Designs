@@ -18,6 +18,16 @@ ApplicationWindow {
         anchors.fill:parent
         columns:4
 
+        PinPad
+        {
+            id:pinPad
+            font.pointSize: 20
+            lenght:4
+            margins:10
+            inputMask:"D"
+            echoMode:TextInput.Normal
+            onFilled: console.log("filled:", pinPad.text)
+        }
 
         Button
         {
