@@ -7,7 +7,7 @@ Control
 {
     id:control
     property string text
-    property string inputMask:"X"
+    property string inputMask:"XXXX"
     property double margins:0
     property int echoMode: 0
     property int inputMethodHints: Qt.ImhDigitsOnly
@@ -22,7 +22,6 @@ Control
     }
     function getText() {
         stext.text="";
-        stext.inputMask=control.inputMask.repeat(control.lenght);
         for (var i = 0; i < repeater.count; i++)  {
             stext.text+=repeater.itemAt(i).text;
         }
@@ -145,6 +144,7 @@ Control
     {
         id:stext
         visible:false
+        inputMask: control.inputMask
     }
 
     Button
