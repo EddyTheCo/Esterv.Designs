@@ -33,7 +33,6 @@ Control
 
     }
     function setText(vtext) {
-        stext.inputMask=control.inputMask.repeat(control.lenght);
 
         if(vtext==="")
         {
