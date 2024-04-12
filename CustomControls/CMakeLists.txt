@@ -7,6 +7,7 @@ qt6_add_qml_module(CustomControls
         "qml/NextButton.qml"
         "qml/ThemeSwitch.qml"
         "qml/CloseButton.qml"
+        "qml/PinPad.qml"
 	RESOURCE_PREFIX
 	"/esterVtech.com/imports"
 	OUTPUT_TARGETS out_targets_var

@@ -18,10 +18,19 @@ ApplicationWindow {
         anchors.fill:parent
         columns:4
 
+        PinPad
+        {
+            id:pinPad
+            font.pointSize: 20
+            margins:10
+            inputMask:"DDDD"
+            echoMode:TextInput.PasswordEchoOnEdit
+
+        }
 
         Button
         {
-            text:"Button"
+            text:pinPad.text
             font.pixelSize: 20
             onClicked:popup.open();
         }
