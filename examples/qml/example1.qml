@@ -22,16 +22,15 @@ ApplicationWindow {
         {
             id:pinPad
             font.pointSize: 20
-            lenght:4
             margins:10
-            inputMask:"D"
-            echoMode:TextInput.Normal
-            onFilled: console.log("filled:", pinPad.text)
+            inputMask:"DDDD"
+            echoMode:TextInput.PasswordEchoOnEdit
+
         }
 
         Button
         {
-            text:"Button"
+            text:pinPad.text
             font.pixelSize: 20
             onClicked:popup.open();
         }

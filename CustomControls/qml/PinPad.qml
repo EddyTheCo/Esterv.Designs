@@ -6,31 +6,62 @@ import QtQml
 Control
 {
     id:control
-    property int lenght:4
     property string text
     property string inputMask:"X"
     property double margins:0
     property int echoMode: 0
-    signal filled
+    property int inputMethodHints: Qt.ImhDigitsOnly
 
     implicitWidth:rowlayout.implicitWidth
     implicitHeight:rowlayout.implicitHeight
+    focus:true
+
 
     onFocusChanged: {
         if(control.focus)repeater.itemAt(0).focus=true;
     }
     function getText() {
-        control.text="";
-        for (var i = 0; i < repeater.count; i++)  {
-            control.text+=repeater.itemAt(i).text;
-        }
-        control.filled();
-    }
-    function useClipBoard() {
+        stext.text="";
         stext.inputMask=control.inputMask.repeat(control.lenght);
-        stext.selectAll();
-        stext.paste();
+        for (var i = 0; i < repeater.count; i++)  {
+            stext.text+=repeater.itemAt(i).text;
+        }
         if(stext.text!==control.text&&stext.text.length===repeater.count&&stext.acceptableInput)
+        {
+            control.text=stext.text;
+            control.textChanged();
+        }
+
+    }
+    function setText(vtext) {
+        stext.inputMask=control.inputMask.repeat(control.lenght);
+
+        if(vtext==="")
+        {
+            stext.selectAll();
+            stext.paste();
+        }
+        else
+        {
+            stext.text=vtext;
+        }
+        return (stext.text!==control.text&&stext.text.length===repeater.count&&stext.acceptableInput)
+    }
+    function useStext(){
+        var ccount=0;
+        for (var i = 0; i < repeater.count; i++)  {
+            repeater.itemAt(i).text=stext.text.charAt(i);
+            if(repeater.itemAt(i).acceptableInput)
+                ccount++;
+
+        }
+        if(ccount===repeater.count)
+            control.getText();
+    }
+
+    function useClipBoard() {
+
+        if(control.setText(""))
         {
             pastebutt.visible=true;
         }
@@ -48,40 +79,61 @@ Control
 
         Repeater {
             id:repeater
-            model: control.lenght
+            model: control.inputMask.length
             delegate: TextField
             {
+                id:tdel
                 required property int index
-                inputMask:control.inputMask
+                inputMask:control.inputMask.charAt(tdel.index)
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.margins: control.margins
                 echoMode:control.echoMode
+                inputMethodHints:control.inputMethodHints
                 font:control.font
                 horizontalAlignment: TextInput.AlignHCenter
                 verticalAlignment: TextInput.AlignBottom
-                activeFocusOnPress:(index==0)
-                activeFocusOnTab :false
-                focus: (index==0)
                 cursorVisible: false
+
+
+                Keys.onPressed: (event)=> {
+                                    if (event.key === Qt.Key_Backspace) {
+                                        if(tdel.cursorPosition===0&&tdel.index)
+                                        {
+                                            repeater.itemAt(index-1).focus=true;
+                                        }
+                                    }
+                                    if (event.matches(StandardKey.Paste))
+                                    {
+                                        if(control.setText(""))
+                                        {
+                                            control.useStext();
+                                        }
+
+                                        event.accepted = true;
+                                    }
+                                }
+
+
                 onFocusChanged: {
                     timer.stop();
-                    if(focus)cursorPosition=0;
+                    if(tdel.focus)tdel.cursorPosition=0;
                 }
                 onPressAndHold: control.useClipBoard();
+
                 onTextEdited: {
-                    if(repeater.itemAt(index+1)&&acceptableInput)
+
+                    if(tdel.acceptableInput)
                     {
-                        timer.cindex=index+1;
-                        timer.restart();
-                    }
-                    else
-                    {
-                        if(index===repeater.count-1&&acceptableInput)
+
+                        if(repeater.itemAt(index+1))
                         {
-                            control.getText();
+                            timer.cindex=index+1;
+                            timer.restart();
                         }
+                        control.getText();
                     }
+
                 }
 
 
@@ -94,17 +146,6 @@ Control
         id:stext
         visible:false
     }
-    MouseArea {
-        anchors.fill: parent
-        onClicked:
-        {
-            timer.stop();
-            repeater.itemAt(0).focus=true;
-            pastebutt.visible=false;
-        }
-        onPressAndHold: control.useClipBoard();
-
-    }
 
     Button
     {
@@ -112,19 +153,7 @@ Control
         anchors.centerIn: parent
         visible:false
         text: qsTr("Paste")
-        onClicked:
-        {
-            var ccount=0;
-            for (var i = 0; i < repeater.count; i++)  {
-                repeater.itemAt(i).text=stext.text.charAt(i);
-                if(repeater.itemAt(i).acceptableInput)
-                    ccount++;
-
-            }
-            if(ccount===repeater.count)
-                control.getText();
-
-        }
+        onClicked: control.useStext();
         Timer {
             id: btimer
             interval: 5000; running: false; repeat: false
