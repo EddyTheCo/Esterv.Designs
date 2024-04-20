@@ -7,6 +7,7 @@ qt6_add_qml_module(CustomControls
         "qml/NextButton.qml"
         "qml/ThemeSwitch.qml"
         "qml/CloseButton.qml"
+        "qml/PinPad.qml"
 	RESOURCE_PREFIX
 	"/esterVtech.com/imports"
 	OUTPUT_TARGETS out_targets_var
@@ -26,6 +27,7 @@ install(TARGETS CustomControls ${out_targets_var}
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	COMPONENT CustomControls
+        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT CustomControls
 	)
 install(DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/CustomControls
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv
@@ -35,5 +37,6 @@ install(TARGETS CustomControlsplugin
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/CustomControls
 	COMPONENT CustomControls
+        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT CustomControls
 	)
 
