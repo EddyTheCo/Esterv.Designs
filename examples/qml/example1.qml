@@ -24,7 +24,6 @@ ApplicationWindow {
             font.pointSize: 20
             margins:10
             inputMask:"DDDD"
-            echoMode:TextInput.PasswordEchoOnEdit
 
         }
 
