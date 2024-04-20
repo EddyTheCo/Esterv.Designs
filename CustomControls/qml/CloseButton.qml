@@ -4,7 +4,7 @@ import Esterv.Styles.Simple
 
 RoundButton {
     id: control
-    hoverEnabled :true
+    hoverEnabled :Maria.hoover
     contentItem: ShaderEffect
     {
         implicitWidth: 32
