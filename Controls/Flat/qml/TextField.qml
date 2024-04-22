@@ -6,15 +6,12 @@ import Esterv.Styles.Simple
 T.TextField {
     id: control
 
-    implicitWidth: implicitBackgroundWidth + leftInset + rightInset
-                   || Math.max(contentWidth, placeholder.implicitWidth) + leftPadding + rightPadding
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding,
-                             placeholder.implicitHeight + topPadding + bottomPadding)
+    implicitWidth: implicitBackgroundWidth + leftInset + rightInset || Math.max(contentWidth, placeholder.implicitWidth) + leftPadding + rightPadding
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, contentHeight + topPadding + bottomPadding, placeholder.implicitHeight + topPadding + bottomPadding)
 
     padding: 6
 
-    opacity:(control.enabled)?1.0:0.7
+    opacity: (control.enabled) ? 1.0 : 0.7
     color: Style.frontColor2
     selectionColor: Style.backColor3
     selectedTextColor: Style.frontColor1
@@ -40,24 +37,26 @@ T.TextField {
     background: Item {
         implicitWidth: 200
         implicitHeight: 40
-        Rectangle
-        {
-            id:botomline
-            width:parent.width
-            height:1
+        Rectangle {
+            id: botomline
+            width: parent.width
+            height: 1
             anchors.bottom: parent.bottom
-            color:Style.frontColor3
+            color: Style.frontColor3
         }
-        Rectangle
-        {
-            width:parent.width*((control.activeFocus)?1.0:0.4)
-            Behavior on width { SmoothedAnimation { velocity: 200 } }
-            height:4
+        Rectangle {
+            width: parent.width * ((control.activeFocus) ? 1.0 : 0.4)
+            Behavior on width {
+                SmoothedAnimation {
+                    velocity: 200
+                }
+            }
+            height: 4
             anchors.verticalCenter: botomline.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
-            color:Style.frontColor3
-            radius:Math.min(width,height);
-            visible:control.enabled
+            color: Style.frontColor3
+            radius: Math.min(width, height)
+            visible: control.enabled
         }
     }
 }

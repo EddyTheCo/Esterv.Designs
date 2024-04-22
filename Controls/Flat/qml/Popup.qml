@@ -7,16 +7,14 @@ import Esterv.Styles.Simple
 T.Popup {
     id: control
 
-    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding)
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, contentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, contentHeight + topPadding + bottomPadding)
 
-    padding: 6*Style.paddingScale
+    padding: 6 * Style.paddingScale
 
     background: Rectangle {
         color: Style.backColor2
-        radius: Math.min(width,height)*0.1*Style.roundedScale/Style.Scale.Full
+        radius: Math.min(width, height) * 0.1 * Style.roundedScale / Style.Scale.Full
     }
 
     T.Overlay.modal: Rectangle {

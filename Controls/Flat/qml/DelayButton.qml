@@ -6,10 +6,8 @@ import Esterv.Styles.Simple
 T.DelayButton {
     id: control
 
-    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            implicitContentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             implicitContentHeight + topPadding + bottomPadding)
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, implicitContentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, implicitContentHeight + topPadding + bottomPadding)
 
     padding: 6
     horizontalPadding: padding + 2
@@ -57,10 +55,8 @@ T.DelayButton {
         implicitHeight: 40
         color: Color.blend(Style.backColor3, Style.backColor2, control.down ? 0.5 : 0.0)
         border.color: Style.frontColor3
-        property int minspace:
-            Math.min(control.leftPadding-control.leftInset,control.rightPadding-control.rightInset,
-                     control.topPadding-control.topInset,control.bottomPadding-control.bottomInset)
-        border.width: (control.enabled && control.hovered&&!control.down)?minspace*Style.thickScale/Style.Scale.Full:0
+        property int minspace: Math.min(control.leftPadding - control.leftInset, control.rightPadding - control.rightInset, control.topPadding - control.topInset, control.bottomPadding - control.bottomInset)
+        border.width: (control.enabled && control.hovered && !control.down) ? minspace * Style.thickScale / Style.Scale.Full : 0
 
         PaddedRectangle {
             padding: control.visualFocus ? 2 : 0
@@ -68,6 +64,6 @@ T.DelayButton {
             height: parent.height
             color: Color.blend(Style.backColor2, Style.backColor1, control.down ? 0.5 : 0.0)
         }
-        radius: Math.min(width,height)*Style.roundedScale/Style.Scale.Full
+        radius: Math.min(width, height) * Style.roundedScale / Style.Scale.Full
     }
 }
