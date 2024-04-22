@@ -1,6 +1,6 @@
 import QtQuick.Templates as T
-
 import Esterv.Styles.Simple
+
 T.Label {
     id: control
 

@@ -6,13 +6,10 @@ import Esterv.Styles.Simple
 T.Switch {
     id: control
 
-    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            implicitContentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             implicitContentHeight + topPadding + bottomPadding,
-                             implicitIndicatorHeight + topPadding + bottomPadding)
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, implicitContentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, implicitContentHeight + topPadding + bottomPadding, implicitIndicatorHeight + topPadding + bottomPadding)
 
-    padding: 6*Style.paddingScale
+    padding: 6 * Style.paddingScale
     spacing: 6
 
     indicator: PaddedRectangle {
@@ -36,11 +33,13 @@ T.Switch {
             radius: 16
             color: Style.backColor3
             border.width: control.visualFocus ? 2 : 1
-            border.color: control.visualFocus ? Style.frontColor1 : control.enabled ? Style.frontColor2 :Style.frontColor3
+            border.color: control.visualFocus ? Style.frontColor1 : control.enabled ? Style.frontColor2 : Style.frontColor3
 
             Behavior on x {
                 enabled: !control.down
-                SmoothedAnimation { velocity: 200 }
+                SmoothedAnimation {
+                    velocity: 200
+                }
             }
         }
     }

@@ -6,12 +6,8 @@ import Esterv.Styles.Simple
 T.Switch {
     id: control
 
-    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            implicitContentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             implicitContentHeight + topPadding + bottomPadding,
-                             implicitIndicatorHeight + topPadding + bottomPadding)
-
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, implicitContentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, implicitContentHeight + topPadding + bottomPadding, implicitIndicatorHeight + topPadding + bottomPadding)
 
     indicator: Rectangle {
         implicitWidth: 64
@@ -30,23 +26,28 @@ T.Switch {
             width: 32
             height: 32
             radius: 16
-            color:"transparent"
+            color: "transparent"
 
             Behavior on x {
                 enabled: !control.down
-                SmoothedAnimation { velocity: 100 }
+                SmoothedAnimation {
+                    velocity: 100
+                }
             }
-            ShaderEffect
-            {
-                id:shader
-                width:Math.min(parent.height,parent.width)
-                height:width
+            ShaderEffect {
+                id: shader
+                width: Math.min(parent.height, parent.width)
+                height: width
                 anchors.centerIn: parent
-                property var src:parent
-                property color fcolor:Style.frontColor1
-                property real iTime:control.checked?1.0:0.0
-                Behavior on iTime { SmoothedAnimation { velocity: 0.9 } }
-                property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
+                property var src: parent
+                property color fcolor: Style.frontColor1
+                property real iTime: control.checked ? 1.0 : 0.0
+                Behavior on iTime {
+                    SmoothedAnimation {
+                        velocity: 0.9
+                    }
+                }
+                property var pixelStep: Qt.vector2d(1 / src.width, 1 / src.height)
                 fragmentShader: "qrc:/esterVtech.com/imports/Designs/frag/sunTomoon.frag.qsb"
             }
         }
@@ -60,9 +61,7 @@ T.Switch {
         font: control.font
         color: control.palette.windowText
     }
-    onCheckedChanged:
-    {
-        Style.theme=(Style.theme===Style.Theme.Dark)?Style.Theme.Light:Style.Theme.Dark;
+    onCheckedChanged: {
+        Style.theme = (Style.theme === Style.Theme.Dark) ? Style.Theme.Light : Style.Theme.Dark;
     }
-
 }
