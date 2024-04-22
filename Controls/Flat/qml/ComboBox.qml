@@ -1,5 +1,4 @@
 pragma ComponentBehavior: Bound
-
 import QtQuick
 import QtQuick.Templates as T
 import Esterv.Styles.Simple
@@ -8,11 +7,8 @@ import QtQuick.Controls
 T.ComboBox {
     id: control
 
-    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            implicitContentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             implicitContentHeight + topPadding + bottomPadding,
-                             implicitIndicatorHeight + topPadding + bottomPadding)
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, implicitContentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, implicitContentHeight + topPadding + bottomPadding, implicitIndicatorHeight + topPadding + bottomPadding)
 
     leftPadding: padding + (!control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing)
     rightPadding: padding + (control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing)
@@ -33,34 +29,38 @@ T.ComboBox {
         implicitHeight: 32
         x: control.mirrored ? control.padding : control.width - width - control.padding
         y: control.topPadding + (control.availableHeight - height) / 2
-        color:control.down ? (Style.theme)?Style.backColor3.darker(1.1):Style.backColor3.lighter(1.1):
-                                            (control.highlighted ? Style.backColor3.darker(1.1) :
-                                            Style.backColor3)
+        color: control.down ? (Style.theme) ? Style.backColor3.darker(1.1) : Style.backColor3.lighter(1.1) : (control.highlighted ? Style.backColor3.darker(1.1) : Style.backColor3)
 
-        ShaderEffect
-        {
-            width:Math.min(parent.width,parent.height)*0.5
-            height:width
+        ShaderEffect {
+            width: Math.min(parent.width, parent.height) * 0.5
+            height: width
             anchors.bottom: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
-            property var src:parent
-            property color fcolor:(control.highlighted||control.flat)&&control.enabled?Style.frontColor1:(control.enabled?Style.frontColor2:Style.frontColor3)
-            property real iTime:control.popup.visible?0.0:1.0
-            Behavior on iTime { SmoothedAnimation { velocity: 3.0} }
-            property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
+            property var src: parent
+            property color fcolor: (control.highlighted || control.flat) && control.enabled ? Style.frontColor1 : (control.enabled ? Style.frontColor2 : Style.frontColor3)
+            property real iTime: control.popup.visible ? 0.0 : 1.0
+            Behavior on iTime {
+                SmoothedAnimation {
+                    velocity: 3.0
+                }
+            }
+            property var pixelStep: Qt.vector2d(1 / src.width, 1 / src.height)
             fragmentShader: "qrc:/esterVtech.com/imports/Designs/frag/hollowArrowHead.frag.qsb"
         }
-        ShaderEffect
-        {
-            width:Math.min(parent.width,parent.height)*0.5
-            height:width
-            anchors.top:  parent.verticalCenter
+        ShaderEffect {
+            width: Math.min(parent.width, parent.height) * 0.5
+            height: width
+            anchors.top: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
-            property var src:parent
-            property color fcolor:(control.highlighted||control.flat)&&control.enabled?Style.frontColor1:(control.enabled?Style.frontColor2:Style.frontColor3)
-            property real iTime:control.popup.visible?1.0:0.0
-            Behavior on iTime { SmoothedAnimation { velocity: 3.0} }
-            property var pixelStep: Qt.vector2d(1/src.width, 1/src.height)
+            property var src: parent
+            property color fcolor: (control.highlighted || control.flat) && control.enabled ? Style.frontColor1 : (control.enabled ? Style.frontColor2 : Style.frontColor3)
+            property real iTime: control.popup.visible ? 1.0 : 0.0
+            Behavior on iTime {
+                SmoothedAnimation {
+                    velocity: 3.0
+                }
+            }
+            property var pixelStep: Qt.vector2d(1 / src.width, 1 / src.height)
             fragmentShader: "qrc:/esterVtech.com/imports/Designs/frag/hollowArrowHead.frag.qsb"
         }
         opacity: enabled ? 1 : 0.3
@@ -90,24 +90,26 @@ T.ComboBox {
         background: Item {
             implicitWidth: 200
             implicitHeight: 40
-            Rectangle
-            {
-                id:botomline
-                width:parent.width
-                height:1
+            Rectangle {
+                id: botomline
+                width: parent.width
+                height: 1
                 anchors.bottom: parent.bottom
-                color:Style.frontColor3
+                color: Style.frontColor3
             }
-            Rectangle
-            {
-                width:parent.width*((control.activeFocus)?1.0:0.4)
-                Behavior on width { SmoothedAnimation { velocity: 200 } }
-                height:4
+            Rectangle {
+                width: parent.width * ((control.activeFocus) ? 1.0 : 0.4)
+                Behavior on width {
+                    SmoothedAnimation {
+                        velocity: 200
+                    }
+                }
+                height: 4
                 anchors.verticalCenter: botomline.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
-                color:Style.frontColor3
-                radius:Math.min(width,height);
-                visible:control.enabled
+                color: Style.frontColor3
+                radius: Math.min(width, height)
+                visible: control.enabled
             }
         }
     }
@@ -142,7 +144,8 @@ T.ComboBox {
                 border.color: Style.frontColor1
             }
 
-            T.ScrollIndicator.vertical: ScrollIndicator { }
+            T.ScrollIndicator.vertical: ScrollIndicator {
+            }
         }
 
         background: Rectangle {

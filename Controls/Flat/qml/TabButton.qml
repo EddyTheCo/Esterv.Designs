@@ -1,4 +1,3 @@
-
 import QtQuick
 import QtQuick.Controls.impl
 import QtQuick.Templates as T
@@ -7,10 +6,8 @@ import Esterv.Styles.Simple
 T.TabButton {
     id: control
 
-    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            implicitContentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             implicitContentHeight + topPadding + bottomPadding)
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, implicitContentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, implicitContentHeight + topPadding + bottomPadding)
 
     padding: 6
     spacing: 6
@@ -32,7 +29,6 @@ T.TabButton {
 
     background: Rectangle {
         implicitHeight: 40
-        color: Color.blend(control.checked ? Style.backColor2 : Style.backColor3,
-                                             Style.frontColor3, control.down ? 0.5 : 0.0)
+        color: Color.blend(control.checked ? Style.backColor2 : Style.backColor3, Style.frontColor3, control.down ? 0.5 : 0.0)
     }
 }

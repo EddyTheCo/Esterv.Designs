@@ -1,4 +1,3 @@
-
 import QtQuick
 import QtQuick.Templates as T
 import Esterv.Styles.Simple
@@ -9,13 +8,11 @@ T.ToolTip {
     x: parent ? (parent.width - implicitWidth) / 2 : 0
     y: -implicitHeight - 3
 
-    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding)
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, contentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, contentHeight + topPadding + bottomPadding)
 
     margins: 6
-    padding: 6*Style.paddingScale
+    padding: 6 * Style.paddingScale
 
     closePolicy: T.Popup.CloseOnEscape | T.Popup.CloseOnPressOutsideParent | T.Popup.CloseOnReleaseOutsideParent
 
@@ -28,6 +25,6 @@ T.ToolTip {
 
     background: Rectangle {
         color: Style.backColor2
-        radius: Math.min(width,height)*Style.roundedScale/Style.Scale.Full
+        radius: Math.min(width, height) * Style.roundedScale / Style.Scale.Full
     }
 }

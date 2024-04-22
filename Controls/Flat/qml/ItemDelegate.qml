@@ -6,11 +6,8 @@ import Esterv.Styles.Simple
 T.ItemDelegate {
     id: control
 
-    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            implicitContentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             implicitContentHeight + topPadding + bottomPadding,
-                             implicitIndicatorHeight + topPadding + bottomPadding)
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, implicitContentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, implicitContentHeight + topPadding + bottomPadding, implicitIndicatorHeight + topPadding + bottomPadding)
 
     padding: 12
     spacing: 8
@@ -35,7 +32,6 @@ T.ItemDelegate {
         implicitWidth: 100
         implicitHeight: 40
         visible: control.down || control.highlighted || control.visualFocus
-        color: Color.blend(control.down ? Style.backColor3 : Style.frontColor3,
-                                          Style.backColor2, control.visualFocus ? 0.15 : 0.0)
+        color: Color.blend(control.down ? Style.backColor3 : Style.frontColor3, Style.backColor2, control.visualFocus ? 0.15 : 0.0)
     }
 }
