@@ -1,4 +1,19 @@
 
+
+add_library(aboutthis include/about.hpp src/about.cpp)
+target_compile_definitions(aboutthis PRIVATE CMAKE_PROJECT_VERSION="${CMAKE_PROJECT_VERSION}")
+target_compile_definitions(aboutthis PRIVATE CMAKE_PROJECT_NAME="${CMAKE_PROJECT_NAME}")
+target_compile_definitions(aboutthis PRIVATE CMAKE_ARCH="${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION} \(${CMAKE_SYSTEM_NAME} ${CMAKE_SYSTEM_VERSION}\),${CMAKE_SYSTEM_PROCESSOR}" )
+
+target_link_libraries(aboutthis PUBLIC Qt6::Core)
+target_include_directories(aboutthis PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+                "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Esterv/>")
+
+if(USE_QML)
+target_link_libraries(aboutthis PUBLIC Qt6::Gui Qt6::Quick)
+target_compile_definitions(aboutthis PRIVATE USE_QML)
+endif(USE_QML)
+
 qt6_add_qml_module(CustomControls
 	URI  Esterv.CustomControls
 	VERSION 1.0
