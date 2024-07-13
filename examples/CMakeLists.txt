@@ -3,8 +3,12 @@ if(BUILD_EXAMPLES)
         include(InstallRequiredSystemLibraries)
 	if(EMSCRIPTEN)
 		find_package(Qt6 REQUIRED COMPONENTS QuickControls2)
-	endif(EMSCRIPTEN)
-	foreach(example "example1"
+        endif(EMSCRIPTEN)
+
+        qt_add_executable(aboutCli aboutCli.cpp)
+        target_link_libraries(aboutCli PRIVATE aboutthis)
+
+        foreach(example "example1"
 			)
 		qt_add_executable(${example} ${example}.cpp )
 
