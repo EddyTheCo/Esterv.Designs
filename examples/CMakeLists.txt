@@ -16,7 +16,7 @@ if(BUILD_EXAMPLES)
                 BUNDLE  DESTINATION . COMPONENT examples
                 )
         if(QTDEPLOY)
-                qt_generate_deploy_qml_app_script(
+                qt_generate_deploy_app_script(
                         TARGET aboutCli
                         OUTPUT_SCRIPT deploy_script
                         )
