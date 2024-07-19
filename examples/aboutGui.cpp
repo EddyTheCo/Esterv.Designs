@@ -14,7 +14,8 @@ int main(int argc, char *argv[]) {
 
   engine.addImportPath("qrc:/esterVtech.com/imports");
 
-  const QUrl url = QUrl("qrc:/esterVtech.com/imports/EaboutGui/qml/aboutGui.qml");
+  const QUrl url =
+      QUrl("qrc:/esterVtech.com/imports/EaboutGui/qml/aboutGui.qml");
 
   engine.load(url);
 
