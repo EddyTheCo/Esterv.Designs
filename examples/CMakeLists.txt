@@ -3,8 +3,27 @@ if(BUILD_EXAMPLES)
         include(InstallRequiredSystemLibraries)
 	if(EMSCRIPTEN)
 		find_package(Qt6 REQUIRED COMPONENTS QuickControls2)
-	endif(EMSCRIPTEN)
-	foreach(example "example1"
+        endif(EMSCRIPTEN)
+
+        qt_add_executable(aboutCli aboutCli.cpp)
+        target_link_libraries(aboutCli PRIVATE AboutThis)
+
+        set_target_properties(aboutCli PROPERTIES
+                WIN32_EXECUTABLE ON
+                MACOSX_BUNDLE ON
+                )
+        install(TARGETS aboutCli COMPONENT examples
+                BUNDLE  DESTINATION . COMPONENT examples
+                )
+        if(QTDEPLOY)
+                qt_generate_deploy_app_script(
+                        TARGET aboutCli
+                        OUTPUT_SCRIPT deploy_script
+                        )
+                install(SCRIPT ${deploy_script} COMPONENT examples)
+        endif(QTDEPLOY)
+
+        foreach(example "example1" "aboutGui"
 			)
 		qt_add_executable(${example} ${example}.cpp )
 

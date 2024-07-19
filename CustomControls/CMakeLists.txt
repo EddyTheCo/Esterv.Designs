@@ -1,4 +1,8 @@
 
+add_library(AboutThis include/about.hpp src/about.cpp)
+target_link_libraries(AboutThis PUBLIC Qt6::Core)
+
+
 qt6_add_qml_module(CustomControls
 	URI  Esterv.CustomControls
 	VERSION 1.0
@@ -8,6 +12,10 @@ qt6_add_qml_module(CustomControls
         "qml/ThemeSwitch.qml"
         "qml/CloseButton.qml"
         "qml/PinPad.qml"
+        "qml/About.qml"
+        SOURCES
+        "include/about.hpp"
+        "src/about.cpp"
 	RESOURCE_PREFIX
 	"/esterVtech.com/imports"
 	OUTPUT_TARGETS out_targets_var
@@ -16,8 +24,21 @@ qt6_add_qml_module(CustomControls
 	IMPORT_PATH ${CMAKE_BINARY_DIR}
 	)
 
-add_library(${PROJECT_NAME}::CustomControls ALIAS CustomControls)
-set_target_properties(CustomControls PROPERTIES VERSION ${VERSION} SOVERSION ${VERSION_MAJOR})
+    target_compile_definitions(CustomControls PRIVATE USE_QML)
+    foreach(target "AboutThis" "CustomControls"
+                    )
+                target_compile_definitions(${target} PRIVATE CMAKE_PROJECT_VERSION="${CMAKE_PROJECT_VERSION}")
+                target_compile_definitions(${target} PRIVATE CMAKE_PROJECT_NAME="${CMAKE_PROJECT_NAME}")
+                target_compile_definitions(${target} PRIVATE CMAKE_ARCH="${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION} \(${CMAKE_SYSTEM_NAME} ${CMAKE_SYSTEM_VERSION}\),${CMAKE_SYSTEM_PROCESSOR}" )
+                target_include_directories(${target} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+                                "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Esterv/>")
+                target_compile_definitions(${target} PRIVATE WINDOWS_ABOUT)
+                set_target_properties(${target} PROPERTIES VERSION ${VERSION} SOVERSION ${VERSION_MAJOR})
+                add_library(${PROJECT_NAME}::${target} ALIAS ${target})
+    endforeach()
+
+
+
 add_library(${PROJECT_NAME}::CustomControlsplugin ALIAS CustomControlsplugin)
 
 target_link_libraries(CustomControls PUBLIC Qt6::Gui Qt6::Quick SimpleStyle )
@@ -29,14 +50,18 @@ install(TARGETS CustomControls ${out_targets_var}
 	COMPONENT CustomControls
         RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT CustomControls
 	)
+install(
+          TARGETS AboutThis
+          COMPONENT AboutThis-cli
+          BUNDLE DESTINATION . COMPONENT AboutThis-cli)
 install(DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/CustomControls
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv
-	COMPONENT CustomControls
+        COMPONENT CustomControls-qml
 	)
 install(TARGETS CustomControlsplugin 
         EXPORT ${PROJECT_NAME}-config
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/CustomControls
-	COMPONENT CustomControls
-        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT CustomControls
+        COMPONENT CustomControls-qml
+        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT CustomControls-qml
 	)
 
