@@ -12,18 +12,15 @@ ApplicationWindow {
         color: Style.backColor1
     }
 
-
-    ColumnLayout
-    {
+    ColumnLayout {
         anchors.fill: parent
         ThemeSwitch {
             Layout.alignment: Qt.AlignCenter
         }
-        About
-        {
+        About {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            logo:"https://eddytheco.github.io/NftMinter/img/esterlogo.png"
+            logo: "https://eddytheco.github.io/NftMinter/img/esterlogo.png"
             description: "Esto es una prueva the una descripcion\nEsto es otra linea en la description"
         }
     }

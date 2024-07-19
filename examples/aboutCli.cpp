@@ -1,16 +1,15 @@
-#include <QCoreApplication>
 #include "about.hpp"
+#include <QCoreApplication>
 
 using namespace esterv::CustomControls;
 
-int main(int argc, char *argv[])
-{
-    QCoreApplication app(argc, argv);
+int main(int argc, char *argv[]) {
+  QCoreApplication app(argc, argv);
 
-    qDebug() << "name:" << AboutThis::instance()->name();
-    qDebug() << "version:" << AboutThis::instance()->version();
-    qDebug() << "buildArch:" << AboutThis::instance()->buildArch();
-    qDebug() << "buildTime:" << AboutThis::instance()->buildTime().toString();
+  qDebug() << "name:" << AboutThis::instance()->name();
+  qDebug() << "version:" << AboutThis::instance()->version();
+  qDebug() << "buildArch:" << AboutThis::instance()->buildArch();
+  qDebug() << "buildTime:" << AboutThis::instance()->buildTime().toString();
 
-    return app.exec();
+  return app.exec();
 }
