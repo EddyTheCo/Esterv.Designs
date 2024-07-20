@@ -38,7 +38,7 @@ Item {
             Label {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                text: (control.name.length) ? control.name : AboutThis.name
+                text:((control.name.length)?control.name:AboutThis.name) + " " + ((control.version.length)?control.version:AboutThis.version)
                 fontSizeMode: Text.Fit
                 font.pointSize: 250
                 font.bold: true
