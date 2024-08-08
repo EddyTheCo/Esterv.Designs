@@ -4,41 +4,13 @@
 
 This folder produce a QML module with custom types,
 simple reusable types.
-This controls are higher level that the Quick Controls, so they have to be separated from them.
-
-## Installing the custom controls
-
-### From source code
-```
-git clone https://github.com/EddyTheCo/MyDesigns.git 
-
-mkdir build
-cd build
-qt-cmake -G Ninja -DCMAKE_INSTALL_PREFIX=installDir -DCMAKE_BUILD_TYPE=Release -DQTDEPLOY=OFF -DBUILD_EXAMPLES=OFF -DBUILD_DOCS=OFF ../MyDesigns
-
-cmake --build . 
-
-cmake --install . --component CustomControls
-```
-where `installDir` is the installation path.
-
-### From GitHub releases
-Download the releases from this repo. 
+This controls are higher level than the Quick Controls, so they have to be separated from them.
 
 ## Using the custom controls in your CMake project 
 
 ```CMake
-include(FetchContent)
-FetchContent_Declare(
-	EstervDesigns
-	GIT_REPOSITORY https://github.com/EddyTheCo/MyDesigns.git
-	GIT_TAG vMAJOR.MINOR.PATCH 
-	FIND_PACKAGE_ARGS MAJOR.MINOR  COMPONENTS CustomControls CONFIG
-	)
-FetchContent_MakeAvailable(EstervDesigns)
-
-target_link_libraries(<target> <PRIVATE|PUBLIC|INTERFACE> EstervDesigns::CustomControls
-$<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::CustomControls,TYPE>,STATIC_LIBRARY>:EstervDesigns::CustomControlsplugin>
+target_link_libraries(<target> <PRIVATE|PUBLIC|INTERFACE> Esterv::CustomControls
+$<$<STREQUAL:$<TARGET_PROPERTY:Esterv::CustomControls,TYPE>,STATIC_LIBRARY>:Esterv::CustomControlsplugin>
 )
 ```
 ## Using the custom controls

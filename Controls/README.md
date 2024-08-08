@@ -6,39 +6,11 @@ In this folder different custom Qt Quick Controls styles are listed.
 
 The controls styles are created following [this](https://doc.qt.io/qt-6/qtquickcontrols-customize.html#creating-a-custom-style).
 
-## Installing the controls
-
-### From source code
-```
-git clone https://github.com/EddyTheCo/MyDesigns.git 
-
-mkdir build
-cd build
-qt-cmake -G Ninja -DCMAKE_INSTALL_PREFIX=installDir -DCMAKE_BUILD_TYPE=Release -DQTDEPLOY=OFF -DBUILD_EXAMPLES=OFF -DBUILD_DOCS=OFF ../MyDesigns
-
-cmake --build . 
-
-cmake --install . --component FlatControl
-```
-where `installDir` is the installation path.
-
-### From GitHub releases
-Download the releases from this repo. 
-
 ## Using the controls in your CMake project 
 
 ```CMake
-include(FetchContent)
-FetchContent_Declare(
-	EstervDesigns
-	GIT_REPOSITORY https://github.com/EddyTheCo/MyDesigns.git
-	GIT_TAG vMAJOR.MINOR.PATCH 
-	FIND_PACKAGE_ARGS MAJOR.MINOR  COMPONENTS FlatControl CONFIG
-	)
-FetchContent_MakeAvailable(EstervDesigns)
-
-target_link_libraries(<target> <PRIVATE|PUBLIC|INTERFACE> EstervDesigns::FlatControl
-$<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::FlatControl,TYPE>,STATIC_LIBRARY>:EstervDesigns::FlatControlplugin>
+target_link_libraries(<target> <PRIVATE|PUBLIC|INTERFACE> Esterv::FlatControl
+$<$<STREQUAL:$<TARGET_PROPERTY:Esterv::FlatControl,TYPE>,STATIC_LIBRARY>:Esterv::FlatControlplugin>
 )
 ```
 ## Using the controls

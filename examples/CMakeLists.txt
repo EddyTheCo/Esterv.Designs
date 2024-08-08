@@ -11,11 +11,11 @@ if(BUILD_EXAMPLES)
                                                                 ON)
   install(
     TARGETS aboutCli
-    COMPONENT examples
-    BUNDLE DESTINATION . COMPONENT examples)
+    COMPONENT ${PROJECT_NAME}-examples 
+    BUNDLE DESTINATION . COMPONENT ${PROJECT_NAME}-examples)
   if(QTDEPLOY)
     qt_generate_deploy_app_script(TARGET aboutCli OUTPUT_SCRIPT deploy_script)
-    install(SCRIPT ${deploy_script} COMPONENT examples)
+    install(SCRIPT ${deploy_script} COMPONENT ${PROJECT_NAME}-examples)
   endif(QTDEPLOY)
 
   foreach(example "example1" "aboutGui")
@@ -48,12 +48,12 @@ if(BUILD_EXAMPLES)
                                                 MACOSX_BUNDLE ON)
     install(
       TARGETS ${example}
-      COMPONENT examples
-      BUNDLE DESTINATION . COMPONENT examples)
+      COMPONENT ${PROJECT_NAME}-examples 
+      BUNDLE DESTINATION . COMPONENT ${PROJECT_NAME}-examples)
     if(QTDEPLOY)
       qt_generate_deploy_qml_app_script(TARGET ${example} OUTPUT_SCRIPT
                                         deploy_script)
-      install(SCRIPT ${deploy_script} COMPONENT examples)
+      install(SCRIPT ${deploy_script} COMPONENT ${PROJECT_NAME}-examples)
     endif(QTDEPLOY)
     if(EMSCRIPTEN)
       target_link_libraries(
