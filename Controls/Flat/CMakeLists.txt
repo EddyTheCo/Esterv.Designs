@@ -30,10 +30,10 @@ qt6_add_qml_module(
   IMPORT_PATH
   ${CMAKE_BINARY_DIR})
 
-add_library(${PROJECT_NAME}::FlatControl ALIAS FlatControl)
+add_library(Esterv::FlatControl ALIAS FlatControl)
 set_target_properties(FlatControl PROPERTIES VERSION ${VERSION}
                                              SOVERSION ${VERSION_MAJOR})
-add_library(${PROJECT_NAME}::FlatControlplugin ALIAS FlatControlplugin)
+				     add_library(Esterv::FlatControlplugin ALIAS FlatControlplugin)
 
 target_link_libraries(FlatControl PUBLIC Qt6::Gui Qt6::Quick SimpleStyle)
 
@@ -41,15 +41,15 @@ install(
   TARGETS FlatControl ${out_targets_var}
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}
-  COMPONENT FlatControl
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT FlatControl)
+  COMPONENT EstervFlatControl
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervFlatControl)
 install(
   DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/Controls/Flat
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Controls
-  COMPONENT FlatControl)
+  COMPONENT EstervFlatControl-qml)
 install(
   TARGETS FlatControlplugin
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Controls/Flat
-  COMPONENT FlatControl
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT FlatControl)
+  COMPONENT EstervFlatControl-qml
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervFlatControl-qml)

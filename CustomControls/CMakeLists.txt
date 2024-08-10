@@ -43,10 +43,10 @@ foreach(target "AboutThis" "CustomControls")
   target_compile_definitions(${target} PRIVATE WINDOWS_ABOUT)
   set_target_properties(${target} PROPERTIES VERSION ${VERSION}
                                              SOVERSION ${VERSION_MAJOR})
-  add_library(${PROJECT_NAME}::${target} ALIAS ${target})
+				     add_library(Esterv::${target} ALIAS ${target})
 endforeach()
 
-add_library(${PROJECT_NAME}::CustomControlsplugin ALIAS CustomControlsplugin)
+add_library(Esterv::CustomControlsplugin ALIAS CustomControlsplugin)
 
 target_link_libraries(CustomControls PUBLIC Qt6::Gui Qt6::Quick SimpleStyle)
 
@@ -54,19 +54,19 @@ install(
   TARGETS CustomControls ${out_targets_var}
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}
-  COMPONENT CustomControls
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT CustomControls)
+  COMPONENT EstervCustomControls
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervCustomControls)
 install(
   TARGETS AboutThis
-  COMPONENT AboutThis-cli
-  BUNDLE DESTINATION . COMPONENT AboutThis-cli)
+  COMPONENT EstervAboutThis-cli
+  BUNDLE DESTINATION . COMPONENT EstervAboutThis-cli)
 install(
   DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/CustomControls
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv
-  COMPONENT CustomControls-qml)
+  COMPONENT EstervCustomControls-qml)
 install(
   TARGETS CustomControlsplugin
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/CustomControls
-  COMPONENT CustomControls-qml
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT CustomControls-qml)
+  COMPONENT EstervCustomControls-qml
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervCustomControls-qml)

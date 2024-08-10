@@ -15,10 +15,10 @@ qt6_add_qml_module(
   ${CMAKE_BINARY_DIR}/Esterv/Styles/Simple
   IMPORT_PATH
   ${CMAKE_BINARY_DIR})
-add_library(${PROJECT_NAME}::SimpleStyle ALIAS SimpleStyle)
+add_library(Esterv::SimpleStyle ALIAS SimpleStyle)
 set_target_properties(SimpleStyle PROPERTIES VERSION ${VERSION}
                                              SOVERSION ${VERSION_MAJOR})
-add_library(${PROJECT_NAME}::SimpleStyleplugin ALIAS SimpleStyleplugin)
+				     add_library(Esterv::SimpleStyleplugin ALIAS SimpleStyleplugin)
 qt6_add_shaders(
   SimpleStyle
   "esterVtech.com.imports.Styles.Simple"
@@ -41,15 +41,15 @@ install(
   TARGETS SimpleStyle ${out_targets_var} ${out_targets_var2}
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}
-  COMPONENT SimpleStyle
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT SimpleStyle)
+  COMPONENT EstervSimpleStyle
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervSimpleStyle)
 install(
   DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/Styles/Simple
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles
-  COMPONENT SimpleStyle)
+  COMPONENT EstervSimpleStyle-qml)
 install(
   TARGETS SimpleStyleplugin
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles/Simple
-  COMPONENT SimpleStyle
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT SimpleStyle)
+  COMPONENT EstervSimpleStyle-qml
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervSimpleStyle-qml)
