@@ -18,7 +18,7 @@ qt6_add_qml_module(
 add_library(Esterv::SimpleStyle ALIAS SimpleStyle)
 set_target_properties(SimpleStyle PROPERTIES VERSION ${VERSION}
                                              SOVERSION ${VERSION_MAJOR})
-				     add_library(Esterv::SimpleStyleplugin ALIAS SimpleStyleplugin)
+add_library(Esterv::SimpleStyleplugin ALIAS SimpleStyleplugin)
 qt6_add_shaders(
   SimpleStyle
   "esterVtech.com.imports.Styles.Simple"

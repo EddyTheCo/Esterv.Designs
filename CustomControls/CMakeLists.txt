@@ -43,7 +43,7 @@ foreach(target "AboutThis" "CustomControls")
   target_compile_definitions(${target} PRIVATE WINDOWS_ABOUT)
   set_target_properties(${target} PROPERTIES VERSION ${VERSION}
                                              SOVERSION ${VERSION_MAJOR})
-				     add_library(Esterv::${target} ALIAS ${target})
+  add_library(Esterv::${target} ALIAS ${target})
 endforeach()
 
 add_library(Esterv::CustomControlsplugin ALIAS CustomControlsplugin)
@@ -69,4 +69,5 @@ install(
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/CustomControls
   COMPONENT EstervCustomControls-qml
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervCustomControls-qml)
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+          COMPONENT EstervCustomControls-qml)
