@@ -11,7 +11,7 @@ if(BUILD_EXAMPLES)
                                                                 ON)
   install(
     TARGETS aboutCli
-    COMPONENT ${PROJECT_NAME}-examples 
+    COMPONENT ${PROJECT_NAME}-examples
     BUNDLE DESTINATION . COMPONENT ${PROJECT_NAME}-examples)
   if(QTDEPLOY)
     qt_generate_deploy_app_script(TARGET aboutCli OUTPUT_SCRIPT deploy_script)
@@ -48,7 +48,7 @@ if(BUILD_EXAMPLES)
                                                 MACOSX_BUNDLE ON)
     install(
       TARGETS ${example}
-      COMPONENT ${PROJECT_NAME}-examples 
+      COMPONENT ${PROJECT_NAME}-examples
       BUNDLE DESTINATION . COMPONENT ${PROJECT_NAME}-examples)
     if(QTDEPLOY)
       qt_generate_deploy_qml_app_script(TARGET ${example} OUTPUT_SCRIPT

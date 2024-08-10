@@ -6,24 +6,24 @@ import Esterv.Styles.Simple
 T.Switch {
     id: control
 
-    implicitWidth: control.text?192:64
+    implicitWidth: control.text ? 192 : 64
     implicitHeight: 32
 
     indicator: Rectangle {
-        width: control.availableWidth*(control.text?0.3:1.0)
-        height: width*0.5
+        width: control.availableWidth * (control.text ? 0.3 : 1.0)
+        height: width * 0.5
 
         x: control.text ? (control.mirrored ? control.width - width - control.rightPadding : control.leftPadding) : control.leftPadding + (control.availableWidth - width) / 2
         y: control.topPadding + (control.availableHeight - height) / 2
 
-        radius: Math.min(width,height)
+        radius: Math.min(width, height)
 
         color: Style.backColor3
 
         Rectangle {
             x: Math.max(0, Math.min(parent.width - width, control.visualPosition * parent.width - (width / 2)))
             y: (parent.height - height) / 2
-            width: Math.min(parent.width,parent.height)
+            width: Math.min(parent.width, parent.height)
             height: width
             radius: width
             color: "transparent"

@@ -33,7 +33,7 @@ qt6_add_qml_module(
 add_library(Esterv::FlatControl ALIAS FlatControl)
 set_target_properties(FlatControl PROPERTIES VERSION ${VERSION}
                                              SOVERSION ${VERSION_MAJOR})
-				     add_library(Esterv::FlatControlplugin ALIAS FlatControlplugin)
+add_library(Esterv::FlatControlplugin ALIAS FlatControlplugin)
 
 target_link_libraries(FlatControl PUBLIC Qt6::Gui Qt6::Quick SimpleStyle)
 
