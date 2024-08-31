@@ -1,13 +1,12 @@
 add_library(about${CMAKE_PROJECT_NAME}-cli include/about.hpp about.cpp)
 target_link_libraries(about${CMAKE_PROJECT_NAME}-cli PUBLIC Qt6::Core)
 
-
 set(IMPORT_NAME Esterv.About${CMAKE_PROJECT_NAME})
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/About.qml.in
-	${CMAKE_CURRENT_SOURCE_DIR}/qml/About.qml)
+               ${CMAKE_CURRENT_SOURCE_DIR}/qml/About.qml)
 
 qt6_add_qml_module(
-	About${CMAKE_PROJECT_NAME}
+  About${CMAKE_PROJECT_NAME}
   URI
   Esterv.About${CMAKE_PROJECT_NAME}
   VERSION
@@ -25,7 +24,6 @@ qt6_add_qml_module(
   ${CMAKE_BINARY_DIR}/Esterv/About${CMAKE_PROJECT_NAME}
   IMPORT_PATH
   ${CMAKE_BINARY_DIR})
-
 
 target_compile_definitions(About${CMAKE_PROJECT_NAME} PRIVATE USE_QML)
 foreach(target "about${CMAKE_PROJECT_NAME}-cli" "About${CMAKE_PROJECT_NAME}")
@@ -47,14 +45,16 @@ foreach(target "about${CMAKE_PROJECT_NAME}-cli" "About${CMAKE_PROJECT_NAME}")
   add_library(Esterv::${target} ALIAS ${target})
 endforeach()
 
-add_library(Esterv::About${CMAKE_PROJECT_NAME}plugin ALIAS About${CMAKE_PROJECT_NAME}plugin)
+add_library(Esterv::About${CMAKE_PROJECT_NAME}plugin ALIAS
+            About${CMAKE_PROJECT_NAME}plugin)
 
 install(
   TARGETS About${CMAKE_PROJECT_NAME} ${out_targets_var}
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}
   COMPONENT EstervAbout${CMAKE_PROJECT_NAME}
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervAbout${CMAKE_PROJECT_NAME})
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+          COMPONENT EstervAbout${CMAKE_PROJECT_NAME})
 install(
   TARGETS about${CMAKE_PROJECT_NAME}-cli
   COMPONENT Estervabout${CMAKE_PROJECT_NAME}-cli
