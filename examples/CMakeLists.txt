@@ -5,7 +5,7 @@ if(BUILD_EXAMPLES)
   endif(EMSCRIPTEN)
 
   qt_add_executable(aboutCli aboutCli.cpp)
-  target_link_libraries(aboutCli PRIVATE AboutThis)
+  target_link_libraries(aboutCli PRIVATE about${CMAKE_PROJECT_NAME}-cli)
 
   set_target_properties(aboutCli PROPERTIES WIN32_EXECUTABLE ON MACOSX_BUNDLE
                                                                 ON)
@@ -42,6 +42,8 @@ if(BUILD_EXAMPLES)
         Qt::Quick
         CustomControls
         $<$<STREQUAL:$<TARGET_PROPERTY:CustomControls,TYPE>,STATIC_LIBRARY>:CustomControlsplugin>
+        About${CMAKE_PROJECT_NAME}
+        $<$<STREQUAL:$<TARGET_PROPERTY:About${CMAKE_PROJECT_NAME},TYPE>,STATIC_LIBRARY>:About${CMAKE_PROJECT_NAME}plugin>
     )
 
     set_target_properties(${example} PROPERTIES WIN32_EXECUTABLE ON
@@ -59,9 +61,9 @@ if(BUILD_EXAMPLES)
       target_link_libraries(
         ${example}
         PRIVATE
-          EstervDesigns::FlatControl
+          FlatControl
           Qt6::QuickControls2
-          $<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::FlatControl,TYPE>,STATIC_LIBRARY>:EstervDesigns::FlatControlplugin>
+          $<$<STREQUAL:$<TARGET_PROPERTY:FlatControl,TYPE>,STATIC_LIBRARY>:FlatControlplugin>
       )
       target_compile_definitions(${example}
                                  PRIVATE FORCE_STYLE="Esterv.Controls.Flat")
