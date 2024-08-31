@@ -2,7 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Esterv.Styles.Simple
-import Esterv.CustomControls
+import Esterv.AboutEstervDesigns
+import Esterv.CustomControls 
 
 ApplicationWindow {
     id: window
