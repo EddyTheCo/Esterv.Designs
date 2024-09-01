@@ -16,6 +16,7 @@ ColumnLayout {
         visible: control.logo.toString().length
         Layout.preferredHeight :nameLabel.height*5
         Layout.preferredWidth :nameLabel.width
+        Layout.alignment: Qt.AlignTop|Qt.AlignLeft
     }
     Label {
     id:nameLabel
