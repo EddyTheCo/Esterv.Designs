@@ -42,7 +42,7 @@ install(
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}
   COMPONENT EstervSimpleStyle
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervSimpleStyle)
+  ARCHIVE COMPONENT EstervSimpleStyle-dev)
 install(
   DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/Styles/Simple
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles
@@ -52,4 +52,4 @@ install(
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles/Simple
   COMPONENT EstervSimpleStyle-qml
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervSimpleStyle-qml)
+  ARCHIVE COMPONENT EstervSimpleStyle-dev)

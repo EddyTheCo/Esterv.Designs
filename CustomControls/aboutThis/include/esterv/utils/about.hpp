@@ -8,14 +8,18 @@
 #include <QtQml>
 #endif
 
+#if defined(ABOUT_SHARED)
 #include <QtCore/QtGlobal>
-#if defined(WINDOWS_ABOUT)
-#define ABOUT_EXPORT Q_DECL_EXPORT
+  #ifdef WINDOWS_EXPORT
+    #define ABOUT_EXPORT Q_DECL_EXPORT
+  #else
+    #define ABOUT_EXPORT Q_DECL_IMPORT
+  #endif
 #else
-#define ABOUT_EXPORT Q_DECL_IMPORT
+  #define ABOUT_EXPORT
 #endif
 
-namespace esterv::CustomControls {
+namespace Esterv::Utils {
 
 class ABOUT_EXPORT AboutThis : public QObject {
   QString m_version;

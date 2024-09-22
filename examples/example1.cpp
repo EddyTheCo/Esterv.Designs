@@ -4,6 +4,7 @@
 #if defined(FORCE_STYLE)
 #include <QQuickStyle>
 #endif
+
 int main(int argc, char *argv[]) {
   QGuiApplication app(argc, argv);
 

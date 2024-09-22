@@ -1,6 +1,6 @@
 #include "about.hpp"
 
-namespace esterv::CustomControls {
+namespace Esterv::Utils {
 AboutThis *AboutThis::m_instance = nullptr;
 AboutThis::AboutThis(QObject *parent)
     : QObject(parent), m_buildTime{QDateTime::fromString(
