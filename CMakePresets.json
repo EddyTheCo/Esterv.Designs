@@ -9,7 +9,7 @@
       "binaryDir": "${sourceDir}/build/release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
-	"REPO_URL":"https://eddytheco.github.io/Esterv.Designs"
+        "REPO_URL": "https://eddytheco.github.io/Esterv.Designs"
       }
     },
     {
@@ -18,9 +18,9 @@
       "description": "Release build type using Ninja generator, add tests and docs",
       "inherits": "default-release",
       "cacheVariables": {
-	"BUILD_DOCS":"ON",
-	"BUILD_EXAMPLES": "ON",
-	"QTDEPLOY":"ON"
+        "BUILD_DOCS": "ON",
+        "BUILD_EXAMPLES": "ON",
+        "QTDEPLOY": "ON"
       }
     },
     {
@@ -50,12 +50,12 @@
     {
       "name": "default-documentation",
       "configurePreset": "default-develop",
-      "targets":"doxygen_docs"
+      "targets": "doxygen_docs"
     },
     {
       "name": "default-qmllint",
       "configurePreset": "default-develop",
-      "targets":"all_qmllint_json"
+      "targets": "all_qmllint_json"
     }
   ],
   "workflowPresets": [
@@ -131,13 +131,14 @@
       "description": "Release runtime components",
       "configurePreset": "default-release",
       "generators": [
-        "IFW","TGZ"
+        "IFW",
+        "TGZ"
       ],
       "variables": {
-	      "CPACK_ARCHIVE_COMPONENT_INSTALL":"ON",
-	      "CPACK_COMPONENTS_ALL": "EstervDesigns;EstervFlatControl;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-qml",
-	      "CPACK_PACKAGE_CONTACT":"estervtech@gmail.com",
-	      "CPACK_PACKAGE_VENDOR":"estervtech"
+        "CPACK_ARCHIVE_COMPONENT_INSTALL": "ON",
+        "CPACK_COMPONENTS_ALL": "EstervDesigns;EstervFlatControl;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-qml",
+        "CPACK_PACKAGE_CONTACT": "estervtech@gmail.com",
+        "CPACK_PACKAGE_VENDOR": "estervtech"
       },
       "packageDirectory": "packages"
     },
@@ -147,12 +148,11 @@
       "configurePreset": "default-develop",
       "inherits": "default-release",
       "variables": {
-	      "CPACK_ARCHIVE_COMPONENT_INSTALL":"ON",
-	      "CPACK_COMPONENTS_ALL": "EstervDesigns;EstervDesigns-examples;EstervDesigns-dev;EstervFlatControl;EstervFlatControl-dev;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-dev;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-dev;EstervSimpleStyle-qml",
-	      "CPACK_PACKAGE_CONTACT":"estervtech@gmail.com",
-	      "CPACK_PACKAGE_VENDOR":"estervtech"
+        "CPACK_ARCHIVE_COMPONENT_INSTALL": "ON",
+        "CPACK_COMPONENTS_ALL": "EstervDesigns;EstervDesigns-examples;EstervDesigns-dev;EstervFlatControl;EstervFlatControl-dev;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-dev;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-dev;EstervSimpleStyle-qml",
+        "CPACK_PACKAGE_CONTACT": "estervtech@gmail.com",
+        "CPACK_PACKAGE_VENDOR": "estervtech"
       }
     }
   ]
-
 }

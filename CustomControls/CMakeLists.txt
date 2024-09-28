@@ -33,8 +33,7 @@ install(
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}
   COMPONENT EstervCustomControls
-  ARCHIVE COMPONENT EstervCustomControls-dev
-)
+  ARCHIVE COMPONENT EstervCustomControls-dev)
 install(
   DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/CustomControls
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv
@@ -44,5 +43,4 @@ install(
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/CustomControls
   COMPONENT EstervCustomControls-qml
-  ARCHIVE COMPONENT EstervCustomControls-dev
-)
+  ARCHIVE COMPONENT EstervCustomControls-dev)
