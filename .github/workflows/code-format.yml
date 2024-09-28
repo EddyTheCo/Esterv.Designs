@@ -11,6 +11,8 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    
-    uses: EddyTheCo/Common/.github/workflows/code-format.yml@ndk26
+
+    steps:
+      - name: Run code format action
+        uses: EddyTheCo/Common/.github/workflows/code-format.yml@ndk26
         
