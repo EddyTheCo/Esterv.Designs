@@ -10,4 +10,4 @@ AboutThis::AboutThis(QObject *parent)
       m_buildArch{CMAKE_ARCH}, m_version{CMAKE_PROJECT_VERSION},
       m_name{CMAKE_PROJECT_NAME} {}
 
-} // namespace esterv::CustomControls
+} // namespace Esterv::Utils

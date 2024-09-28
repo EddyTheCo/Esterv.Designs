@@ -10,13 +10,13 @@
 
 #if defined(ABOUT_SHARED)
 #include <QtCore/QtGlobal>
-  #ifdef WINDOWS_EXPORT
-    #define ABOUT_EXPORT Q_DECL_EXPORT
-  #else
-    #define ABOUT_EXPORT Q_DECL_IMPORT
-  #endif
+#ifdef WINDOWS_EXPORT
+#define ABOUT_EXPORT Q_DECL_EXPORT
 #else
-  #define ABOUT_EXPORT
+#define ABOUT_EXPORT Q_DECL_IMPORT
+#endif
+#else
+#define ABOUT_EXPORT
 #endif
 
 namespace Esterv::Utils {
@@ -74,4 +74,4 @@ signals:
   void changed();
 };
 
-}; // namespace esterv::CustomControls
+}; // namespace Esterv::Utils

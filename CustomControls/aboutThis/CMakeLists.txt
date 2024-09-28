@@ -1,4 +1,5 @@
-add_library(About${CMAKE_PROJECT_NAME}-cli include/esterv/utils/about.hpp src/about.cpp)
+add_library(About${CMAKE_PROJECT_NAME}-cli include/esterv/utils/about.hpp
+                                           src/about.cpp)
 target_link_libraries(About${CMAKE_PROJECT_NAME}-cli PUBLIC Qt6::Core)
 
 set(IMPORT_NAME Esterv.About${CMAKE_PROJECT_NAME})
@@ -39,17 +40,14 @@ foreach(target "About${CMAKE_PROJECT_NAME}-cli" "About${CMAKE_PROJECT_NAME}")
   target_include_directories(
     ${target} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
                      "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
-  target_include_directories(${target} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/esterv/utils)
+  target_include_directories(
+    ${target} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/esterv/utils)
   target_compile_definitions(
-    ${target} 
+    ${target}
     PUBLIC
-    $<IF:$<AND:$<BOOL:WIN32>,$<STREQUAL:$<TARGET_PROPERTY:${target},TYPE>,SHARED_LIBRARY>>,ABOUT_SHARED,>
+      $<IF:$<AND:$<BOOL:WIN32>,$<STREQUAL:$<TARGET_PROPERTY:${target},TYPE>,SHARED_LIBRARY>>,ABOUT_SHARED,>
   )
-  target_compile_definitions(
-	  ${target}
-	  PRIVATE 
-	  WINDOWS_EXPORT
-  )
+  target_compile_definitions(${target} PRIVATE WINDOWS_EXPORT)
   set_target_properties(${target} PROPERTIES VERSION ${VERSION}
                                              SOVERSION ${VERSION_MAJOR})
   add_library(Esterv::${target} ALIAS ${target})
@@ -62,8 +60,7 @@ install(
   TARGETS About${CMAKE_PROJECT_NAME} ${out_targets_var}
   EXPORT ${CMAKE_PROJECT_NAME}-config
   COMPONENT EstervAbout${CMAKE_PROJECT_NAME}
-  ARCHIVE COMPONENT EstervAbout${CMAKE_PROJECT_NAME}-dev
-        )
+  ARCHIVE COMPONENT EstervAbout${CMAKE_PROJECT_NAME}-dev)
 install(
   TARGETS About${CMAKE_PROJECT_NAME}-cli
   EXPORT ${CMAKE_PROJECT_NAME}-config
