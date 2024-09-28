@@ -1,7 +1,7 @@
-#include "about.hpp"
+#include "esterv/utils/about.hpp"
 #include <QCoreApplication>
 
-using namespace esterv::CustomControls;
+using namespace Esterv::Utils;
 
 int main(int argc, char *argv[]) {
   QCoreApplication app(argc, argv);

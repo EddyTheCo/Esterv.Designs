@@ -40,9 +40,9 @@ target_link_libraries(FlatControl PUBLIC Qt6::Gui Qt6::Quick SimpleStyle)
 install(
   TARGETS FlatControl ${out_targets_var}
   EXPORT ${PROJECT_NAME}-config
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}
   COMPONENT EstervFlatControl
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervFlatControl)
+  ARCHIVE COMPONENT EstervFlatControl-dev
+  )
 install(
   DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/Controls/Flat
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Controls
@@ -51,5 +51,6 @@ install(
   TARGETS FlatControlplugin
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Controls/Flat
-  COMPONENT EstervFlatControl-qml
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT EstervFlatControl-qml)
+  COMPONENT EstervFlatControl-qml 
+  ARCHIVE COMPONENT EstervFlatControl-dev
+  )

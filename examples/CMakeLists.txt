@@ -5,7 +5,7 @@ if(BUILD_EXAMPLES)
   endif(EMSCRIPTEN)
 
   qt_add_executable(aboutCli aboutCli.cpp)
-  target_link_libraries(aboutCli PRIVATE about${CMAKE_PROJECT_NAME}-cli)
+  target_link_libraries(aboutCli PRIVATE About${CMAKE_PROJECT_NAME}-cli)
 
   set_target_properties(aboutCli PROPERTIES WIN32_EXECUTABLE ON MACOSX_BUNDLE
                                                                 ON)

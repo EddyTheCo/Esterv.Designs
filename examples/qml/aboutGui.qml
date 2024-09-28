@@ -21,7 +21,7 @@ ApplicationWindow {
         About {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            logo: "https://eddytheco.github.io/NftMinter/img/esterlogo.png"
+            logo: "https://eddytheco.github.io/Esterv.Crypto.NFTWallet/img/esterlogo.png"
             description: "Esto es una prueva the una descripcion\nEsto es otra linea en la description"
         }
     }
