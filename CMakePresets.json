@@ -134,7 +134,8 @@
         "IFW","TGZ"
       ],
       "variables": {
-	      "CPACK_COMPONENTS_ALL": "EstervFlatControl;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-qml",
+	      "CPACK_ARCHIVE_COMPONENT_INSTALL":"ON",
+	      "CPACK_COMPONENTS_ALL": "EstervDesigns;EstervFlatControl;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-qml",
 	      "CPACK_PACKAGE_CONTACT":"estervtech@gmail.com",
 	      "CPACK_PACKAGE_VENDOR":"estervtech"
       },
@@ -144,10 +145,13 @@
       "name": "default-develop",
       "description": "Release development components",
       "configurePreset": "default-develop",
-      "generators": [
-        "IFW","TGZ"
-      ],
-      "packageDirectory": "packages"
+      "inherits": "default-release",
+      "variables": {
+	      "CPACK_ARCHIVE_COMPONENT_INSTALL":"ON",
+	      "CPACK_COMPONENTS_ALL": "EstervDesigns;EstervDesigns-dev;EstervFlatControl;EstervFlatControl-dev;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-dev;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-dev;EstervSimpleStyle-qml",
+	      "CPACK_PACKAGE_CONTACT":"estervtech@gmail.com",
+	      "CPACK_PACKAGE_VENDOR":"estervtech"
+      }
     }
   ]
 

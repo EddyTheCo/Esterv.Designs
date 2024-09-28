@@ -40,7 +40,6 @@ target_link_libraries(FlatControl PUBLIC Qt6::Gui Qt6::Quick SimpleStyle)
 install(
   TARGETS FlatControl ${out_targets_var}
   EXPORT ${PROJECT_NAME}-config
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}
   COMPONENT EstervFlatControl
   ARCHIVE COMPONENT EstervFlatControl-dev
   )
