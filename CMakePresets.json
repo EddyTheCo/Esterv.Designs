@@ -148,7 +148,7 @@
       "inherits": "default-release",
       "variables": {
 	      "CPACK_ARCHIVE_COMPONENT_INSTALL":"ON",
-	      "CPACK_COMPONENTS_ALL": "EstervDesigns;EstervDesigns-dev;EstervFlatControl;EstervFlatControl-dev;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-dev;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-dev;EstervSimpleStyle-qml",
+	      "CPACK_COMPONENTS_ALL": "EstervDesigns;EstervDesigns-examples;EstervDesigns-dev;EstervFlatControl;EstervFlatControl-dev;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-dev;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-dev;EstervSimpleStyle-qml",
 	      "CPACK_PACKAGE_CONTACT":"estervtech@gmail.com",
 	      "CPACK_PACKAGE_VENDOR":"estervtech"
       }
