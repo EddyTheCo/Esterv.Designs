@@ -41,7 +41,7 @@ install(
   TARGETS SimpleStyle ${out_targets_var} ${out_targets_var2}
   EXPORT ${PROJECT_NAME}-config
   COMPONENT EstervSimpleStyle
-  ARCHIVE COMPONENT EstervSimpleStyle-dev)
+  ARCHIVE COMPONENT ${PROJECT_NAME}-dev)
 install(
   DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/Styles/Simple
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles
@@ -51,4 +51,4 @@ install(
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Styles/Simple
   COMPONENT EstervSimpleStyle-qml
-  ARCHIVE COMPONENT EstervSimpleStyle-dev)
+  ARCHIVE COMPONENT ${PROJECT_NAME}-dev)
