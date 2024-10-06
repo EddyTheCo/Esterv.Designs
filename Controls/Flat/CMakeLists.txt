@@ -1,3 +1,4 @@
+if(TARGET SimpleStyle)
 qt6_add_qml_module(
   FlatControl
   URI
@@ -41,7 +42,7 @@ install(
   TARGETS FlatControl ${out_targets_var}
   EXPORT ${PROJECT_NAME}-config
   COMPONENT EstervFlatControl
-  ARCHIVE COMPONENT EstervFlatControl-dev)
+  ARCHIVE COMPONENT ${PROJECT_NAME}-dev)
 install(
   DIRECTORY ${CMAKE_BINARY_DIR}/Esterv/Controls/Flat
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Controls
@@ -51,4 +52,5 @@ install(
   EXPORT ${PROJECT_NAME}-config
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/Controls/Flat
   COMPONENT EstervFlatControl-qml
-  ARCHIVE COMPONENT EstervFlatControl-dev)
+  ARCHIVE COMPONENT ${PROJECT_NAME}-dev)
+endif(TARGET SimpleStyle)

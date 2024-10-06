@@ -23,7 +23,7 @@ FetchContent_Declare(
 	EstervDesigns
 	GIT_REPOSITORY https://github.com/EddyTheCo/Esterv.Designs.git
 	GIT_TAG vMAJOR.MINOR.PATCH 
-	FIND_PACKAGE_ARGS MAJOR.MINOR CONFIG  
+	FIND_PACKAGE_ARGS MAJOR.MINOR COMPONENTS FlatControl CustomControls SimpleStyle CONFIG
 	)
 FetchContent_MakeAvailable(EstervDesigns)
 

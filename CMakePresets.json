@@ -146,13 +146,16 @@
       "name": "default-develop",
       "description": "Release development components",
       "configurePreset": "default-develop",
-      "inherits": "default-release",
+      "generators": [
+        "IFW",
+        "TGZ"
+      ],
       "variables": {
-        "CPACK_ARCHIVE_COMPONENT_INSTALL": "ON",
-        "CPACK_COMPONENTS_ALL": "EstervDesigns;EstervDesigns-examples;EstervDesigns-dev;EstervFlatControl;EstervFlatControl-dev;EstervFlatControl-qml;EstervCustomControls;EstervCustomControls-dev;EstervCustomControls-qml;EstervSimpleStyle;EstervSimpleStyle-dev;EstervSimpleStyle-qml",
+	"CPACK_COMPONENTS_GROUPING": "ALL_COMPONENTS_IN_ONE",
         "CPACK_PACKAGE_CONTACT": "estervtech@gmail.com",
         "CPACK_PACKAGE_VENDOR": "estervtech"
-      }
+      },
+      "packageDirectory": "packages-dev"
     }
   ]
 }

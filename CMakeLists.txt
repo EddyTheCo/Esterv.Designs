@@ -1,4 +1,11 @@
 cmake_minimum_required(VERSION 3.24)
+
+
+option(BUILD_STYLES "Build Styles part" ON)
+option(BUILD_CONTROLS "Build Controls part" ON)
+option(BUILD_CUSTOM_CONTROLS "Build Custom Controls part" ON)
+option(BUILD_EXAMPLES "Build Examples" OFF)
+
 include(${CMAKE_CURRENT_BINARY_DIR}/local_conf.cmake OPTIONAL)
 include(FetchContent)
 FetchContent_Declare(
@@ -34,15 +41,27 @@ if(Qt6_FOUND)
     FetchContent_MakeAvailable(qtshadertools)
   endif()
 
+  if(BUILD_STYLES)
   add_subdirectory(Styles)
+  endif(BUILD_STYLES)
+  if(BUILD_CONTROLS)
   add_subdirectory(Controls)
+  endif(BUILD_CONTROLS)
+  if(BUILD_CUSTOM_CONTROLS)
   add_subdirectory(CustomControls)
+  endif(BUILD_CUSTOM_CONTROLS)
+
+  set(SET_COMPONENTS "")
+  foreach(component "FlatControl" "SimpleStyle" "CustomControls")
+  if(TARGET "${component}")
+	string(APPEND SET_COMPONENTS "set(${PROJECT_NAME}_${component}_FOUND \"ON\")\n")
+  endif()
+endforeach()
 
   build_exports()
   if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-    add_subdirectory(examples)
     build_cpack()
-  endif()
+  endif(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 else()
   message(STATUS "${PROJECT_NAME}" will not be build)
 endif(Qt6_FOUND)

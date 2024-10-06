@@ -4,27 +4,13 @@ if(BUILD_EXAMPLES)
     find_package(Qt6 REQUIRED COMPONENTS QuickControls2)
   endif(EMSCRIPTEN)
 
-  qt_add_executable(aboutCli aboutCli.cpp)
-  target_link_libraries(aboutCli PRIVATE About${CMAKE_PROJECT_NAME}-cli)
-
-  set_target_properties(aboutCli PROPERTIES WIN32_EXECUTABLE ON MACOSX_BUNDLE
-                                                                ON)
-  install(
-    TARGETS aboutCli
-    COMPONENT ${PROJECT_NAME}-examples
-    BUNDLE DESTINATION . COMPONENT ${PROJECT_NAME}-examples)
-  if(QTDEPLOY)
-    qt_generate_deploy_app_script(TARGET aboutCli OUTPUT_SCRIPT deploy_script)
-    install(SCRIPT ${deploy_script} COMPONENT ${PROJECT_NAME}-examples)
-  endif(QTDEPLOY)
-
-  foreach(example "example1" "aboutGui")
+  foreach(example "GalleryCustomControls")
     qt_add_executable(${example} ${example}.cpp)
 
     qt6_add_qml_module(
       ${example}
       URI
-      E${example}
+      ExamplesCustomControls 
       VERSION
       1.0
       QML_FILES
@@ -40,10 +26,8 @@ if(BUILD_EXAMPLES)
         Qt::Gui
         Qt::Qml
         Qt::Quick
-        CustomControls
-        $<$<STREQUAL:$<TARGET_PROPERTY:CustomControls,TYPE>,STATIC_LIBRARY>:CustomControlsplugin>
-        About${CMAKE_PROJECT_NAME}
-        $<$<STREQUAL:$<TARGET_PROPERTY:About${CMAKE_PROJECT_NAME},TYPE>,STATIC_LIBRARY>:About${CMAKE_PROJECT_NAME}plugin>
+	CustomControls
+	 $<$<STREQUAL:$<TARGET_PROPERTY:CustomControls,TYPE>,STATIC_LIBRARY>:CustomControlsplugin>
     )
 
     set_target_properties(${example} PROPERTIES WIN32_EXECUTABLE ON
