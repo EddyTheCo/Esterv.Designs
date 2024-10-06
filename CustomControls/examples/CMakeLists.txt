@@ -10,7 +10,7 @@ if(BUILD_EXAMPLES)
     qt6_add_qml_module(
       ${example}
       URI
-      ExamplesCustomControls 
+      ExamplesCustomControls
       VERSION
       1.0
       QML_FILES
@@ -26,8 +26,8 @@ if(BUILD_EXAMPLES)
         Qt::Gui
         Qt::Qml
         Qt::Quick
-	CustomControls
-	 $<$<STREQUAL:$<TARGET_PROPERTY:CustomControls,TYPE>,STATIC_LIBRARY>:CustomControlsplugin>
+        CustomControls
+        $<$<STREQUAL:$<TARGET_PROPERTY:CustomControls,TYPE>,STATIC_LIBRARY>:CustomControlsplugin>
     )
 
     set_target_properties(${example} PROPERTIES WIN32_EXECUTABLE ON

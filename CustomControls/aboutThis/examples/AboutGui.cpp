@@ -15,7 +15,6 @@ int main(int argc, char *argv[]) {
 
   engine.addImportPath("qrc:/esterVtech.com/imports");
 
-
-engine.loadFromModule("ExamplesAboutGui", "AboutGui");
+  engine.loadFromModule("ExamplesAboutGui", "AboutGui");
   return app.exec();
 }
