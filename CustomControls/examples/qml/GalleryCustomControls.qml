@@ -95,7 +95,6 @@ ApplicationWindow {
             enabled: false
         }
 
-
         CloseButton {
             Layout.preferredHeight: 100
             Layout.preferredWidth: 100
@@ -119,5 +118,5 @@ ApplicationWindow {
             Layout.preferredHeight: 100
             Layout.preferredWidth: 100
         }
-}
+    }
 }

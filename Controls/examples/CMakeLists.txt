@@ -10,7 +10,7 @@ if(BUILD_EXAMPLES)
     qt6_add_qml_module(
       ${example}
       URI
-      ExamplesControls 
+      ExamplesControls
       VERSION
       1.0
       QML_FILES
@@ -20,13 +20,7 @@ if(BUILD_EXAMPLES)
       IMPORT_PATH
       ${CMAKE_BINARY_DIR})
 
-    target_link_libraries(
-      ${example}
-      PRIVATE
-        Qt::Gui
-        Qt::Qml
-        Qt::Quick
-    )
+    target_link_libraries(${example} PRIVATE Qt::Gui Qt::Qml Qt::Quick)
 
     set_target_properties(${example} PROPERTIES WIN32_EXECUTABLE ON
                                                 MACOSX_BUNDLE ON)
