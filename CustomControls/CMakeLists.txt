@@ -28,6 +28,8 @@ add_library(Esterv::CustomControlsplugin ALIAS CustomControlsplugin)
 
 target_link_libraries(CustomControls PUBLIC Qt6::Gui Qt6::Quick SimpleStyle)
 
+
+
 install(
   TARGETS CustomControls ${out_targets_var}
   EXPORT ${PROJECT_NAME}-config
@@ -44,5 +46,8 @@ install(
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/Esterv/CustomControls
   COMPONENT EstervCustomControls-qml
   ARCHIVE COMPONENT ${PROJECT_NAME}-dev)
+  if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+   add_subdirectory(examples) 
+  endif(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 endif(TARGET SimpleStyle)
 add_subdirectory(aboutThis)

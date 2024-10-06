@@ -15,14 +15,11 @@ ApplicationWindow {
 
     ColumnLayout {
         anchors.fill: parent
-        ThemeSwitch {
-            Layout.alignment: Qt.AlignCenter
-        }
         About {
             Layout.fillHeight: true
             Layout.fillWidth: true
             logo: "https://eddytheco.github.io/Esterv.Crypto.NFTWallet/img/esterlogo.png"
-            description: "Esto es una prueva the una descripcion\nEsto es otra linea en la description"
+            description: "This a custom Control that uses CMake variables \nto show information about the application"
         }
     }
 }
