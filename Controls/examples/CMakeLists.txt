@@ -27,7 +27,8 @@ if(BUILD_EXAMPLES)
     install(
       TARGETS ${example}
       COMPONENT ${PROJECT_NAME}-examples
-      BUNDLE DESTINATION . COMPONENT ${PROJECT_NAME}-examples)
+      BUNDLE DESTINATION . COMPONENT ${PROJECT_NAME}-examples
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
     if(QTDEPLOY)
       qt_generate_deploy_qml_app_script(TARGET ${example} OUTPUT_SCRIPT
                                         deploy_script)
