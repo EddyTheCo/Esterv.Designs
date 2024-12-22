@@ -88,8 +88,8 @@ ApplicationWindow {
             onAccepted: {
                 if (find(editText) === -1)
                     hrplist.append({
-                            text: editText
-                        });
+                        text: editText
+                    });
             }
         }
         ComboBox {
@@ -111,8 +111,8 @@ ApplicationWindow {
             onAccepted: {
                 if (find(editText) === -1)
                     hrplist2.append({
-                            text: editText
-                        });
+                        text: editText
+                    });
             }
         }
         ComboBox {
@@ -157,8 +157,7 @@ ApplicationWindow {
                 }
             }
         }
-        CheckBox {
-        }
+        CheckBox {}
         DelayButton {
             text: "DelayButton"
             delay: 2000
