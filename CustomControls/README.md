@@ -4,7 +4,7 @@
 
 This folder produce a QML module with custom types,
 simple reusable types.
-This controls are higher level than the Quick Controls, so they have to be separated from them.
+These controls are higher level than the Quick Controls, so they have to be separated from them.
 
 ## Using the custom controls in your CMake project 
 

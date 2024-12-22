@@ -10,7 +10,7 @@ include(FetchContent)
 FetchContent_Declare(
   ccommon
   GIT_REPOSITORY https://github.com/EddyTheCo/Common.git
-  GIT_TAG ndk26)
+  GIT_TAG v0.5.0)
 FetchContent_MakeAvailable(ccommon)
 version_from_git(LOG OFF TIMESTAMP "%Y%m%d%H%M%S")
 project(
@@ -63,7 +63,7 @@ if(Qt6_FOUND)
     build_cpack()
   endif(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 else()
-  message(STATUS "${PROJECT_NAME}" will not be build)
+  message(STATUS "${PROJECT_NAME} will not be built")
 endif(Qt6_FOUND)
 
 if(BUILD_DOCS)
