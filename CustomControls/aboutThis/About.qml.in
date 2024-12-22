@@ -1,0 +1,44 @@
+import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick
+import @IMPORT_NAME@
+
+ColumnLayout {
+    id: control
+    property string description
+    property url logo
+    property string version
+    property string name
+    Image {
+        id: logo
+        fillMode: Image.PreserveAspectFit
+        source: control.logo
+        visible: control.logo.toString().length
+        Layout.preferredHeight :nameLabel.height*5
+        Layout.preferredWidth :nameLabel.width
+        Layout.alignment: Qt.AlignTop|Qt.AlignLeft
+    }
+    Label {
+    id:nameLabel
+        text: ((control.name.length) ? control.name : AboutThis.name) + " " + ((control.version.length) ? control.version : AboutThis.version)
+        font.bold: true
+        Layout.fillWidth: true
+        wrapMode:Text.WrapAnywhere
+    }
+    Label {
+        text: qsTr("Based on ") + AboutThis.buildArch
+        Layout.fillWidth: true
+        wrapMode:Text.WrapAnywhere
+    }
+    Label {
+        text: qsTr("Built on ") + AboutThis.buildTime
+        Layout.fillWidth: true
+        wrapMode:Text.WrapAnywhere
+    }
+    Label {
+        text: qsTr(control.description)
+        visible: control.description.toString().length
+        Layout.fillWidth: true
+        wrapMode:Text.WrapAnywhere
+    }
+}

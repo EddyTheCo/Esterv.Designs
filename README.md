@@ -1,4 +1,4 @@
-# EstervDesigns
+# Esterv.Designs
 
 [TOC]
 
@@ -9,26 +9,11 @@ Also, expose some higher-level custom controls/types in the [CustomControls](Cus
 Some common resources are grouped in QML modules in the  [Styles](Styles/README.md) directory.
 
 
-## Installing the modules 
+## Configure, build, test, package ...
+ 
+The project uses [CMake presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html) as a way to share CMake configurations.
+Refer to [cmake](https://cmake.org/cmake/help/latest/manual/cmake.1.html), [ctest](https://cmake.org/cmake/help/latest/manual/ctest.1.html) and [cpack](https://cmake.org/cmake/help/latest/manual/cpack.1.html) documentation for more information on the use of presets.
 
-### From source code
-```
-git clone https://github.com/EddyTheCo/MyDesigns.git 
-
-mkdir build
-cd build
-qt-cmake -G Ninja -DCMAKE_INSTALL_PREFIX=installDir -DCMAKE_BUILD_TYPE=Release -DQTDEPLOY=OFF -DBUILD_EXAMPLES=OFF -DBUILD_DOCS=OFF ../MyDesigns
-
-cmake --build . 
-
-cmake --install . 
-```
-where `installDir` is the installation path, `QTDEPLOY` install the examples and Qt dependencies using the  [cmake-deployment-api](https://www.qt.io/blog/cmake-deployment-api).
-One can choose to build or not the example and the documentation with the `BUILD_EXAMPLES` and `BUILD_DOCS` variables.
-
-
-### From GitHub releases
-Download the releases from this repo. 
 
 ## Using the modules in your CMake project 
 
@@ -36,16 +21,16 @@ Download the releases from this repo.
 include(FetchContent)
 FetchContent_Declare(
 	EstervDesigns
-	GIT_REPOSITORY https://github.com/EddyTheCo/MyDesigns.git
+	GIT_REPOSITORY https://github.com/EddyTheCo/Esterv.Designs.git
 	GIT_TAG vMAJOR.MINOR.PATCH 
-	FIND_PACKAGE_ARGS MAJOR.MINOR CONFIG  
+	FIND_PACKAGE_ARGS MAJOR.MINOR COMPONENTS FlatControl CustomControls SimpleStyle CONFIG
 	)
 FetchContent_MakeAvailable(EstervDesigns)
 
-target_link_libraries(<target> <PRIVATE|PUBLIC|INTERFACE> EstervDesigns::SimpleStyle EstervDesigns::CustomControls EstervDesigns::FlatControl
-$<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::SimpleStyle,TYPE>,STATIC_LIBRARY>:EstervDesigns::SimpleStyleplugin>
-$<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::CustomControls,TYPE>,STATIC_LIBRARY>:EstervDesigns::CustomControlsplugin>
-$<$<STREQUAL:$<TARGET_PROPERTY:EstervDesigns::FlatControl,TYPE>,STATIC_LIBRARY>:EstervDesigns::FlatControlplugin>
+target_link_libraries(<target> <PRIVATE|PUBLIC|INTERFACE> Esterv::SimpleStyle Esterv::CustomControls Esterv::FlatControl
+$<$<STREQUAL:$<TARGET_PROPERTY:Esterv::SimpleStyle,TYPE>,STATIC_LIBRARY>:Esterv::SimpleStyleplugin>
+$<$<STREQUAL:$<TARGET_PROPERTY:Esterv::CustomControls,TYPE>,STATIC_LIBRARY>:Esterv::CustomControlsplugin>
+$<$<STREQUAL:$<TARGET_PROPERTY:Esterv::FlatControl,TYPE>,STATIC_LIBRARY>:Esterv::FlatControlplugin>
 )
 ```
 ## Using the modules
@@ -60,14 +45,13 @@ One needs to  make available to the QML engine the different modules by setting 
 
 The [examples](examples) folder shows the use of the different custom types provided by the QML module.
 
-One can also play with the types [here](https://eddytheco.github.io/qmlonline/?example_url=flatcontrol)
+One can also play with the types [Flat Controls](https://eddytheco.github.io/qmlonline/?example_url=flatcontrol)
 
 ## API reference
 
-You can read the [API reference](https://eddytheco.github.io/MyDesigns/), or generate it yourself like
+You can read the [API reference](https://eddytheco.github.io/Esterv.Designs/), or generate it yourself like
 ```
-cmake -DBUILD_DOCS=ON ../
-cmake --build . --target doxygen_docs
+cmake --workflow --preset default-documentation
 ```
 
 
@@ -75,10 +59,6 @@ cmake --build . --target doxygen_docs
 
 We appreciate any contribution!
 
-
 You can open an issue or request a feature.
 You can open a PR to the `develop` branch and the CI/CD will take care of the rest.
 Make sure to acknowledge your work, and ideas when contributing.
-
-
-

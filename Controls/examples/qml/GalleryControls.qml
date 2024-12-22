@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Esterv.Styles.Simple
-import Esterv.CustomControls
 
 ApplicationWindow {
     id: window
@@ -15,18 +14,6 @@ ApplicationWindow {
         anchors.fill: parent
         columns: 4
 
-        PinPad {
-            id: pinPad
-            font.pointSize: 20
-            margins: 10
-            inputMask: "DDDD"
-        }
-
-        Button {
-            text: pinPad.text
-            font.pixelSize: 20
-            onClicked: popup.open()
-        }
         Button {
             text: "Button"
             enabled: false
@@ -45,99 +32,6 @@ ApplicationWindow {
             text: "Button"
             font.pixelSize: 60
             highlighted: true
-        }
-        PrevButton {
-            Layout.maximumWidth: 100
-            Layout.maximumHeight: 100
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            flat: true
-        }
-        NextButton {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.maximumWidth: 100
-            Layout.maximumHeight: 100
-            highlighted: true
-        }
-        PrevButton {
-            Layout.maximumWidth: 100
-            Layout.maximumHeight: 100
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            flat: true
-            enabled: false
-        }
-        NextButton {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.maximumWidth: 100
-            Layout.maximumHeight: 100
-            highlighted: true
-            enabled: false
-        }
-        PrevButton {
-            shaderIcon: "filledArrowHead"
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.maximumWidth: 50
-            Layout.maximumHeight: 50
-            highlighted: true
-        }
-
-        NextButton {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.maximumWidth: 50
-            Layout.maximumHeight: 50
-            shaderIcon: "filledArrowHead"
-            flat: true
-        }
-        PrevButton {
-            shaderIcon: "filledArrowHead"
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.maximumWidth: 50
-            Layout.maximumHeight: 50
-            highlighted: true
-            enabled: false
-        }
-
-        NextButton {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.maximumWidth: 50
-            Layout.maximumHeight: 50
-            shaderIcon: "filledArrowHead"
-            flat: true
-            enabled: false
-        }
-
-        ThemeSwitch {
-        }
-
-        CloseButton {
-            Layout.preferredHeight: 100
-            Layout.preferredWidth: 100
-            ToolTip.timeout: 5000
-            ToolTip.visible: hovered
-            ToolTip.text: qsTr("This tool tip is shown ")
-        }
-        CloseButton {
-            flat: true
-            Layout.preferredHeight: 50
-            Layout.preferredWidth: 50
-        }
-        CloseButton {
-            enabled: false
-            Layout.preferredHeight: 50
-            Layout.preferredWidth: 50
-        }
-        CloseButton {
-            enabled: false
-            flat: true
-            Layout.preferredHeight: 100
-            Layout.preferredWidth: 100
         }
         Switch {
             text: "MySwitch"
@@ -194,8 +88,8 @@ ApplicationWindow {
             onAccepted: {
                 if (find(editText) === -1)
                     hrplist.append({
-                            text: editText
-                        });
+                        text: editText
+                    });
             }
         }
         ComboBox {
@@ -217,8 +111,8 @@ ApplicationWindow {
             onAccepted: {
                 if (find(editText) === -1)
                     hrplist2.append({
-                            text: editText
-                        });
+                        text: editText
+                    });
             }
         }
         ComboBox {
@@ -263,8 +157,7 @@ ApplicationWindow {
                 }
             }
         }
-        CheckBox {
-        }
+        CheckBox {}
         DelayButton {
             text: "DelayButton"
             delay: 2000

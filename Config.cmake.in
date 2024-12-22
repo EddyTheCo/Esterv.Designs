@@ -1,4 +1,6 @@
 @PACKAGE_INIT@
+@SET_COMPONENTS@
 include(CMakeFindDependencyMacro)
-find_dependency(Qt6 REQUIRED COMPONENTS Gui Quick )
-include ( "${CMAKE_CURRENT_LIST_DIR}/EstervDesigns-config.cmake" )
+find_dependency(Qt6 COMPONENTS Gui Quick )
+find_package_handle_standard_args(@PROJECT_NAME@ HANDLE_COMPONENTS)
+include ( "${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@-config.cmake" )

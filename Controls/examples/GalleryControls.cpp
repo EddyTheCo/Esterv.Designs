@@ -4,6 +4,7 @@
 #if defined(FORCE_STYLE)
 #include <QQuickStyle>
 #endif
+
 int main(int argc, char *argv[]) {
   QGuiApplication app(argc, argv);
 
@@ -14,10 +15,6 @@ int main(int argc, char *argv[]) {
 
   engine.addImportPath("qrc:/esterVtech.com/imports");
 
-  const QUrl url =
-      QUrl("qrc:/esterVtech.com/imports/Eexample1/qml/example1.qml");
-
-  engine.load(url);
-
+  engine.loadFromModule("ExamplesControls", "GalleryControls");
   return app.exec();
 }

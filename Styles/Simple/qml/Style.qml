@@ -4,20 +4,20 @@ import QtQuick 2.15
 QtObject {
     id: control
     property font h1: Qt.font({
-            pointSize: 40
-        })
+        pointSize: 40
+    })
     property font h2: Qt.font({
-            pixelSize: 30
-        })
+        pixelSize: 30
+    })
     property font h3: Qt.font({
-            pixelSize: 20
-        })
+        pixelSize: 20
+    })
     property font h4: Qt.font({
-            pixelSize: 16
-        })
+        pixelSize: 16
+    })
     property font p: Qt.font({
-            pixelSize: 12
-        })
+        pixelSize: 12
+    })
 
     enum Theme {
         Dark,

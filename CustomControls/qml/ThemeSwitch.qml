@@ -6,26 +6,26 @@ import Esterv.Styles.Simple
 T.Switch {
     id: control
 
-    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, implicitContentWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, implicitContentHeight + topPadding + bottomPadding, implicitIndicatorHeight + topPadding + bottomPadding)
+    implicitWidth: control.text ? 192 : 64
+    implicitHeight: 32
 
     indicator: Rectangle {
-        implicitWidth: 64
-        implicitHeight: 32
+        width: control.availableWidth * (control.text ? 0.3 : 1.0)
+        height: width * 0.5
 
         x: control.text ? (control.mirrored ? control.width - width - control.rightPadding : control.leftPadding) : control.leftPadding + (control.availableWidth - width) / 2
         y: control.topPadding + (control.availableHeight - height) / 2
 
-        radius: 32
+        radius: Math.min(width, height)
 
         color: Style.backColor3
 
         Rectangle {
             x: Math.max(0, Math.min(parent.width - width, control.visualPosition * parent.width - (width / 2)))
             y: (parent.height - height) / 2
-            width: 32
-            height: 32
-            radius: 16
+            width: Math.min(parent.width, parent.height)
+            height: width
+            radius: width
             color: "transparent"
 
             Behavior on x {
@@ -59,7 +59,7 @@ T.Switch {
 
         text: control.text
         font: control.font
-        color: control.palette.windowText
+        color: Style.frontColor3
     }
     onCheckedChanged: {
         Style.theme = (Style.theme === Style.Theme.Dark) ? Style.Theme.Light : Style.Theme.Dark;
