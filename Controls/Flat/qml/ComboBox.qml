@@ -144,8 +144,7 @@ T.ComboBox {
                 border.color: Style.frontColor1
             }
 
-            T.ScrollIndicator.vertical: ScrollIndicator {
-            }
+            T.ScrollIndicator.vertical: ScrollIndicator {}
         }
 
         background: Rectangle {

@@ -15,8 +15,7 @@ ApplicationWindow {
         anchors.fill: parent
         columns: 4
 
-        ThemeSwitch {
-        }
+        ThemeSwitch {}
         PinPad {
             id: pinPad
             font.pointSize: 20
