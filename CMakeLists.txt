@@ -5,6 +5,7 @@ option(BUILD_CONTROLS "Build Controls part" ON)
 option(BUILD_CUSTOM_CONTROLS "Build Custom Controls part" ON)
 option(BUILD_EXAMPLES "Build Examples" OFF)
 
+
 include(${CMAKE_CURRENT_BINARY_DIR}/local_conf.cmake OPTIONAL)
 include(FetchContent)
 FetchContent_Declare(
@@ -31,12 +32,13 @@ find_package(
   OPTIONAL_COMPONENTS ShaderTools)
 
 if(Qt6_FOUND)
+qt_policy(SET QTP0004 NEW)
   qt_standard_project_setup()
   if(NOT TARGET Qt6::ShaderTools)
     FetchContent_Declare(
       qtshadertools
       GIT_REPOSITORY https://github.com/qt/qtshadertools.git
-      GIT_TAG 6.6.0)
+      GIT_TAG 6.10.0)
     FetchContent_MakeAvailable(qtshadertools)
   endif()
 
