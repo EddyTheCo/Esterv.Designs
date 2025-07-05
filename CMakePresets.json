@@ -6,7 +6,7 @@
       "displayName": "Default Release",
       "description": "Release Static library using Ninja generator",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/release",
+      "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
         "REPO_URL": "https://eddytheco.github.io/Esterv.Designs"
@@ -28,7 +28,6 @@
       "displayName": "Default Config for development(Debug)",
       "description": "Debug build type using Ninja generator",
       "inherits": "default-develop",
-      "binaryDir": "${sourceDir}/build/debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
